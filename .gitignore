@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Niscala: raw source material (342 MB, source of /public/images) - never deployed
+/BAHAN
+
+
+# Optimised output in /public IS committed on purpose: it is the only
+# copy that ships, since /BAHAN never leaves this machine.
+
+# Niscala: SEO audit scratch output (reports + a throwaway Chrome profile).
+# Not gitignoring this also makes Tailwind scan the locked profile files and
+# crash `next build` on Windows.
+/.seo-audit

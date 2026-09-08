@@ -1,0 +1,1313 @@
+{
+  "generatedAt": "2026-09-08T04:09:21.934Z",
+  "projects": [
+    {
+      "slug": "pak-yudi-jakarta-pusat",
+      "categorySlug": "apartemen",
+      "categoryName": "Interior Apartemen",
+      "categoryShort": "Apartemen",
+      "client": "Pak Yudi",
+      "location": "Jakarta Pusat",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/apartemen/pak-yudi-jakarta-pusat-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/apartemen/pak-yudi-jakarta-pusat-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 106162,
+          "source": "BAHAN/BAHAN PORTOFOLIO/APARTEMEN/23.Pak Yudi jakpus/APARTEMEN - 23.Pak Yudi jakpus - 03 - 04 - 2024 - 010.jpg"
+        },
+        {
+          "src": "/images/portfolio/apartemen/pak-yudi-jakarta-pusat-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 108304,
+          "source": "BAHAN/BAHAN PORTOFOLIO/APARTEMEN/23.Pak Yudi jakpus/APARTEMEN - 23.Pak Yudi jakpus - 03 - 04 - 2024 - 015.jpg"
+        },
+        {
+          "src": "/images/portfolio/apartemen/pak-yudi-jakarta-pusat-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 105050,
+          "source": "BAHAN/BAHAN PORTOFOLIO/APARTEMEN/23.Pak Yudi jakpus/APARTEMEN - 23.Pak Yudi jakpus - 03 - 04 - 2024 - 019.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-finta-jakarta-selatan",
+      "categorySlug": "apartemen",
+      "categoryName": "Interior Apartemen",
+      "categoryShort": "Apartemen",
+      "client": "Ibu Finta",
+      "location": "Jakarta Selatan",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/apartemen/ibu-finta-jakarta-selatan-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/apartemen/ibu-finta-jakarta-selatan-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 136564,
+          "source": "BAHAN/BAHAN PORTOFOLIO/APARTEMEN/Ibu Finta - Jaksel/APARTEMEN - Ibu Finta - Jaksel - 03 - 04 - 2024 - 001.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "bedroom",
+      "categorySlug": "bedroom",
+      "categoryName": "Bedroom Interior",
+      "categoryShort": "Bedroom",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/portfolio/bedroom/bedroom-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/bedroom/bedroom-01.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 144100,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEDROOM/1.JPG"
+        },
+        {
+          "src": "/images/portfolio/bedroom/bedroom-02.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 67270,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEDROOM/2.JPG"
+        },
+        {
+          "src": "/images/portfolio/bedroom/bedroom-03.webp",
+          "width": 1122,
+          "height": 1402,
+          "orientation": "portrait",
+          "bytes": 116590,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEDROOM/3.png"
+        },
+        {
+          "src": "/images/portfolio/bedroom/bedroom-04.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 87816,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEDROOM/4.HEIC"
+        },
+        {
+          "src": "/images/portfolio/bedroom/bedroom-05.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 90854,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEDROOM/5.JPG"
+        },
+        {
+          "src": "/images/portfolio/bedroom/bedroom-06.webp",
+          "width": 579,
+          "height": 833,
+          "orientation": "portrait",
+          "bytes": 39766,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEDROOM/6.png"
+        }
+      ]
+    },
+    {
+      "slug": "before-after",
+      "categorySlug": "before-after",
+      "categoryName": "Before & After",
+      "categoryShort": "Before After",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/portfolio/before-after/before-after-01.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/portfolio/before-after/before-after-01.webp",
+          "width": 1600,
+          "height": 1038,
+          "orientation": "landscape",
+          "bytes": 177276,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEFORE-AFTER/AFTER.png"
+        },
+        {
+          "src": "/images/portfolio/before-after/before-after-02.webp",
+          "width": 1557,
+          "height": 1010,
+          "orientation": "landscape",
+          "bytes": 63630,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BEFORE-AFTER/BEFORE.png"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-maya-antapani",
+      "categorySlug": "interior-komersial",
+      "categoryName": "Interior Toko & Komersial",
+      "categoryShort": "Komersial",
+      "client": "Ibu Maya",
+      "location": "Antapani",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/interior-komersial/ibu-maya-antapani-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/interior-komersial/ibu-maya-antapani-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 110882,
+          "source": "BAHAN/BAHAN PORTOFOLIO/INTERIOR TOKO/5.ibu maya - Antapani/INTERIOR TOKO - 5.ibu maya - Antapani - 08 - 09 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/interior-komersial/ibu-maya-antapani-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 123272,
+          "source": "BAHAN/BAHAN PORTOFOLIO/INTERIOR TOKO/5.ibu maya - Antapani/INTERIOR TOKO - 5.ibu maya - Antapani - 08 - 09 - 2023 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/interior-komersial/ibu-maya-antapani-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 103026,
+          "source": "BAHAN/BAHAN PORTOFOLIO/INTERIOR TOKO/5.ibu maya - Antapani/INTERIOR TOKO - 5.ibu maya - Antapani - 08 - 09 - 2023 - 004.jpg"
+        },
+        {
+          "src": "/images/portfolio/interior-komersial/ibu-maya-antapani-04.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 117486,
+          "source": "BAHAN/BAHAN PORTOFOLIO/INTERIOR TOKO/5.ibu maya - Antapani/INTERIOR TOKO - 5.ibu maya - Antapani - 08 - 09 - 2023 - 007.jpg"
+        },
+        {
+          "src": "/images/portfolio/interior-komersial/ibu-maya-antapani-05.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 143584,
+          "source": "BAHAN/BAHAN PORTOFOLIO/INTERIOR TOKO/5.ibu maya - Antapani/INTERIOR TOKO - 5.ibu maya - Antapani - 08 - 09 - 2023 - 010.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "kitchen-set-2024-07",
+      "categorySlug": "kitchen-set",
+      "categoryName": "Kitchen Set & Pantry",
+      "categoryShort": "Kitchen Set",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/kitchen-set/kitchen-set-2024-07-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/kitchen-set/kitchen-set-2024-07-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 164584,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/2024_07_26_17_26_IMG_5542.JPG"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/kitchen-set-2024-07-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 148108,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/2024_07_26_18_15_IMG_5613.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-widya-soreang",
+      "categorySlug": "kitchen-set",
+      "categoryName": "Kitchen Set & Pantry",
+      "categoryShort": "Kitchen Set",
+      "client": "Ibu Widya",
+      "location": "Soreang",
+      "style": "Klasik",
+      "year": 2023,
+      "coverImage": "/images/portfolio/kitchen-set/ibu-widya-soreang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/kitchen-set/ibu-widya-soreang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 137552,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/18. Ibu Widya - Prima Amerta Residence, Soreang/KLASIK - 18. Ibu Widya - Prima Amerta Residence, Soreang - 25 - 09 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/ibu-widya-soreang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 194548,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/18. Ibu Widya - Prima Amerta Residence, Soreang/KLASIK - 18. Ibu Widya - Prima Amerta Residence, Soreang - 25 - 09 - 2023 - 005.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-qisty-soreang",
+      "categorySlug": "kitchen-set",
+      "categoryName": "Kitchen Set & Pantry",
+      "categoryShort": "Kitchen Set",
+      "client": "Ibu Qisty",
+      "location": "Soreang",
+      "style": "Klasik",
+      "year": 2023,
+      "coverImage": "/images/portfolio/kitchen-set/ibu-qisty-soreang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/kitchen-set/ibu-qisty-soreang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 184308,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/8 .Ibu Qisty - Soreang/KLASIK - 8 .Ibu Qisty - Soreang - 18 - 11 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/ibu-qisty-soreang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 147052,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/8 .Ibu Qisty - Soreang/KLASIK - 8 .Ibu Qisty - Soreang - 18 - 11 - 2023 - 003.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "modern",
+      "categorySlug": "kitchen-set",
+      "categoryName": "Kitchen Set & Pantry",
+      "categoryShort": "Kitchen Set",
+      "client": null,
+      "location": null,
+      "style": "Modern",
+      "year": null,
+      "coverImage": "/images/portfolio/kitchen-set/modern-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/kitchen-set/modern-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 137058,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/MODERN/1.jpeg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/modern-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 151540,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/MODERN/10.JPG"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/modern-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 126430,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/MODERN/11.jpeg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/modern-04.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 138378,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/MODERN/2.jpeg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/modern-05.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 166182,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/MODERN/3.jpeg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/modern-06.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 125062,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/MODERN/4.HEIC"
+        }
+      ]
+    },
+    {
+      "slug": "semi-classic",
+      "categorySlug": "kitchen-set",
+      "categoryName": "Kitchen Set & Pantry",
+      "categoryShort": "Kitchen Set",
+      "client": null,
+      "location": null,
+      "style": "Semi Classic",
+      "year": null,
+      "coverImage": "/images/portfolio/kitchen-set/semi-classic-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/kitchen-set/semi-classic-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 236546,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/SEMI CLASSIC/1.jpeg"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/semi-classic-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 109928,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/SEMI CLASSIC/2.JPG"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/semi-classic-03.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 126284,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/SEMI CLASSIC/3.JPG"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/semi-classic-04.webp",
+          "width": 1122,
+          "height": 1402,
+          "orientation": "portrait",
+          "bytes": 74704,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/SEMI CLASSIC/4.png"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/semi-classic-05.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 92072,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/SEMI CLASSIC/5.HEIC"
+        },
+        {
+          "src": "/images/portfolio/kitchen-set/semi-classic-06.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 162738,
+          "source": "BAHAN/BAHAN PORTOFOLIO/KITCHENSET/SEMI CLASSIC/6.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-asih-bojongsoang",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Ibu Asih",
+      "location": "Bojongsoang",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/ibu-asih-bojongsoang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-asih-bojongsoang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 109144,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/1.IBU ASIH - BOJONG SOANG/LEMARI BAWAH TANGGA - 1.IBU ASIH - BOJONG SOANG - 06 - 05 - 2024 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-asih-bojongsoang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 164900,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/1.IBU ASIH - BOJONG SOANG/LEMARI BAWAH TANGGA - 1.IBU ASIH - BOJONG SOANG - 06 - 05 - 2024 - 005.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "pak-yuki-soreang",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Pak Yuki",
+      "location": "Soreang",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/pak-yuki-soreang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/pak-yuki-soreang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 78072,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/10.pak yuki- soreang/LEMARI BAWAH TANGGA - 10.pak yuki- soreang - 12 - 09 - 2024 - 001.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/pak-yuki-soreang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 73310,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/10.pak yuki- soreang/LEMARI BAWAH TANGGA - 10.pak yuki- soreang - 12 - 09 - 2024 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/pak-yuki-soreang-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 85980,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/10.pak yuki- soreang/LEMARI BAWAH TANGGA - 10.pak yuki- soreang - 12 - 09 - 2024 - 004.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-yeni-rancaekek",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Ibu Yeni",
+      "location": "Rancaekek",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/ibu-yeni-rancaekek-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-yeni-rancaekek-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 60256,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/12.IBU YENI - RANCAEKEK/LEMARI BAWAH TANGGA - 12.IBU YENI - RANCAEKEK - 30 - 04 - 2024 - 001.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-yeni-rancaekek-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 65522,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/12.IBU YENI - RANCAEKEK/LEMARI BAWAH TANGGA - 12.IBU YENI - RANCAEKEK - 30 - 04 - 2024 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-yeni-rancaekek-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 65790,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/12.IBU YENI - RANCAEKEK/LEMARI BAWAH TANGGA - 12.IBU YENI - RANCAEKEK - 30 - 04 - 2024 - 005.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "bawah-tangga-2024-11",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/bawah-tangga-2024-11-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/bawah-tangga-2024-11-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 139874,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/2024_11_29_15_34_IMG_6839.JPG"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/bawah-tangga-2024-11-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 117542,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/2024_11_29_15_35_IMG_6841.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "andri-padalarang",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Andri",
+      "location": "Padalarang",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/andri-padalarang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/andri-padalarang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 109954,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/22.Andri - Padalarang/LEMARI BAWAH TANGGA - 22.Andri - Padalarang - 31 - 07 - 2024 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/andri-padalarang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 243852,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/22.Andri - Padalarang/LEMARI BAWAH TANGGA - 22.Andri - Padalarang - 31 - 07 - 2024 - 006.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "nining-cikutra",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Nining",
+      "location": "Cikutra",
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/nining-cikutra-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/nining-cikutra-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 74780,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/Nining - Cikutra/LEMARI BAWAH TANGGA - Nining - Cikutra - 13 - 06 - 2024 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/nining-cikutra-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 77874,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/Nining - Cikutra/LEMARI BAWAH TANGGA - Nining - Cikutra - 13 - 06 - 2024 - 007.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "herna-batujajar",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Herna",
+      "location": "Batujajar",
+      "style": "Finishing Duco",
+      "year": 2023,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/herna-batujajar-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/herna-batujajar-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 120570,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/FINISHING DUCO - 9.Herna - Batujajar finishing duco - 14 - 01 - 2023 - 005.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "dara-arcamanik",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Dara",
+      "location": "Arcamanik",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/dara-arcamanik-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/dara-arcamanik-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 73426,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 14.Dara - Arcamanik - 23 - 05 - 2023 - 001.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/dara-arcamanik-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 65676,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 14.Dara - Arcamanik - 23 - 05 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/dara-arcamanik-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 71942,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 14.Dara - Arcamanik - 23 - 05 - 2023 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/dara-arcamanik-04.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 73046,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 14.Dara - Arcamanik - 23 - 05 - 2023 - 004.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-icha-sarijadi",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Ibu Icha",
+      "location": "Sarijadi",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/ibu-icha-sarijadi-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-icha-sarijadi-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 195246,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 5.ibu Icha - sarijadi - 15 - 11 - 2023 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-icha-sarijadi-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 208586,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 5.ibu Icha - sarijadi - 15 - 11 - 2023 - 007.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-icha-sarijadi-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 219298,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - 5.ibu Icha - sarijadi - 15 - 11 - 2023 - 014.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "bawah-tangga-2023-10",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/bawah-tangga-2023-10-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/bawah-tangga-2023-10-01.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 61910,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - New folder - 16 - 10 - 2023 - 001.jpg"
+        },
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/bawah-tangga-2023-10-02.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 62676,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/LEMARI BAWAH TANGGA - New folder - 16 - 10 - 2023 - 002.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "bpk-nofal-sariwangi",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Bpk. Nofal",
+      "location": "Sariwangi",
+      "style": "Minimalis",
+      "year": 2023,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/bpk-nofal-sariwangi-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/bpk-nofal-sariwangi-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 89496,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/MINIMALIS - 11. Bpk. Nofal - Perum. Teduh Sariwangi - 17 - 01 - 2023 - 007.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-mega-cihanjuang",
+      "categorySlug": "lemari-bawah-tangga",
+      "categoryName": "Lemari Bawah Tangga",
+      "categoryShort": "Bawah Tangga",
+      "client": "Ibu Mega",
+      "location": "Cihanjuang",
+      "style": "Semi Klasik",
+      "year": 2023,
+      "coverImage": "/images/portfolio/lemari-bawah-tangga/ibu-mega-cihanjuang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/lemari-bawah-tangga/ibu-mega-cihanjuang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 123038,
+          "source": "BAHAN/BAHAN PORTOFOLIO/LEMARI BAWAH TANGGA/SEMIKLASIK - 6.ibu Mega - Cihanjuang - 17 - 10 - 2023 - 002.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "tv-backdrop",
+      "categorySlug": "tv-backdrop",
+      "categoryName": "TV Backdrop & Console",
+      "categoryShort": "TV Backdrop",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/portfolio/tv-backdrop/tv-backdrop-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/tv-backdrop/tv-backdrop-01.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 65472,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BACDROP TV/1.HEIC"
+        },
+        {
+          "src": "/images/portfolio/tv-backdrop/tv-backdrop-02.webp",
+          "width": 1122,
+          "height": 1402,
+          "orientation": "portrait",
+          "bytes": 63938,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BACDROP TV/10.png"
+        },
+        {
+          "src": "/images/portfolio/tv-backdrop/tv-backdrop-03.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 226202,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BACDROP TV/2.JPG"
+        },
+        {
+          "src": "/images/portfolio/tv-backdrop/tv-backdrop-04.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 155426,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BACDROP TV/3.JPG"
+        },
+        {
+          "src": "/images/portfolio/tv-backdrop/tv-backdrop-05.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 173500,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BACDROP TV/4.JPG"
+        },
+        {
+          "src": "/images/portfolio/tv-backdrop/tv-backdrop-06.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 159968,
+          "source": "BAHAN/BAHAN PORTOFOLIO/BACDROP TV/5.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "wardrobe-2026-03",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": 2026,
+      "coverImage": "/images/portfolio/wardrobe/wardrobe-2026-03-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2026-03-01.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 107574,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2026_03_12_14_39_IMG_0250.jpeg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2026-03-02.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 93226,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2026_03_12_14_39_IMG_0251.jpeg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2026-03-03.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 63678,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2026_03_12_14_39_IMG_0252.jpeg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2026-03-04.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 119976,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2026_03_12_14_40_IMG_0254.jpeg"
+        }
+      ]
+    },
+    {
+      "slug": "wardrobe-2024-07",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": 2024,
+      "coverImage": "/images/portfolio/wardrobe/wardrobe-2024-07-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2024-07-01.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 108728,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2024_07_23_12_25_IMG_5229.JPG"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2024-07-02.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 77368,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2024_07_23_12_31_IMG_5267.JPG"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2024-07-03.webp",
+          "width": 1200,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 96170,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2024_07_23_12_35_IMG_5300.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "wardrobe-2023-09",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": null,
+      "location": null,
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/wardrobe-2023-09-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2023-09-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 64788,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2023_09_17_13_38_IMG_8046.JPG"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2023-09-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 90346,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2023_09_17_13_39_IMG_8047.JPG"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/wardrobe-2023-09-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 133672,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/2023_09_17_13_41_IMG_8052.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "bpk-tiar-banjarnegara",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Bpk. Tiar",
+      "location": "Banjarnegara",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/bpk-tiar-banjarnegara-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/bpk-tiar-banjarnegara-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 119718,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/BEDROOM - 4.Bpk Tiar - banjarnegara - 21 - 12 - 2023 - 004.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/bpk-tiar-banjarnegara-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 114058,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/BEDROOM - 4.Bpk Tiar - banjarnegara - 21 - 12 - 2023 - 005.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-via-subang",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Ibu Via",
+      "location": "Subang",
+      "style": "Semi & Full Home",
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/ibu-via-subang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/ibu-via-subang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 179390,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/SEMI & FULLHOME - 1. Ibu Via - Subang, Pantura - 03 - 11 - 2023 - 018.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ibu-via-subang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 201920,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/SEMI & FULLHOME - 1. Ibu Via - Subang, Pantura - 03 - 11 - 2023 - 021.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ibu-via-subang-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 178576,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/SEMI & FULLHOME - 1. Ibu Via - Subang, Pantura - 03 - 11 - 2023 - 023.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ibu-via-subang-04.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 168268,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/SEMI & FULLHOME - 1. Ibu Via - Subang, Pantura - 03 - 11 - 2023 - 024.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ibu-via-subang-05.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 158708,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/SEMI & FULLHOME - 1. Ibu Via - Subang, Pantura - 03 - 11 - 2023 - 025.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-astuti-buah-batu-regensi",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Ibu Astuti",
+      "location": "Buah Batu Regensi",
+      "style": "Semi & Full Home",
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/ibu-astuti-buah-batu-regensi-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/ibu-astuti-buah-batu-regensi-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 58372,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/SEMI & FULLHOME - 2.ibu Astuti - Buah batu regensi - 07 - 08 - 2023 - 014.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ibu-lely-cisitu-lama",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Ibu Lely",
+      "location": "Cisitu Lama",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/ibu-lely-cisitu-lama-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/ibu-lely-cisitu-lama-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 151118,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 10. ibu Lely - ciskul - 16 - 01 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ibu-lely-cisitu-lama-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 159788,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 10. ibu Lely - ciskul - 16 - 01 - 2023 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ibu-lely-cisitu-lama-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 122404,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 10. ibu Lely - ciskul - 16 - 01 - 2023 - 006.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "bpk-darwin-padalarang",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Bpk. Darwin",
+      "location": "Padalarang",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/bpk-darwin-padalarang-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/bpk-darwin-padalarang-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 66088,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 10.Bpk Darwin - Padalarang - 15 - 09 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/bpk-darwin-padalarang-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 98266,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 10.Bpk Darwin - Padalarang - 15 - 09 - 2023 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/bpk-darwin-padalarang-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 45418,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 10.Bpk Darwin - Padalarang - 15 - 09 - 2023 - 004.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "amie-cimahi",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Amie",
+      "location": "Cimahi",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/amie-cimahi-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/amie-cimahi-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 162334,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 13. Amie - cimahi - 22 - 05 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/amie-cimahi-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 151922,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 13. Amie - cimahi - 22 - 05 - 2023 - 004.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/amie-cimahi-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 147808,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 13. Amie - cimahi - 22 - 05 - 2023 - 005.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/amie-cimahi-04.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 128522,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 13. Amie - cimahi - 22 - 05 - 2023 - 006.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "ira-ciwastra",
+      "categorySlug": "wardrobe",
+      "categoryName": "Custom Wardrobe & Closet",
+      "categoryShort": "Wardrobe",
+      "client": "Ira",
+      "location": "Ciwastra",
+      "style": null,
+      "year": 2023,
+      "coverImage": "/images/portfolio/wardrobe/ira-ciwastra-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/portfolio/wardrobe/ira-ciwastra-01.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 211420,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 7. Ira - Ciwastra - 19 - 10 - 2023 - 002.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ira-ciwastra-02.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 218552,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 7. Ira - Ciwastra - 19 - 10 - 2023 - 003.jpg"
+        },
+        {
+          "src": "/images/portfolio/wardrobe/ira-ciwastra-03.webp",
+          "width": 1280,
+          "height": 1600,
+          "orientation": "portrait",
+          "bytes": 214948,
+          "source": "BAHAN/BAHAN PORTOFOLIO/WARDROBE/WARDROBE - 7. Ira - Ciwastra - 19 - 10 - 2023 - 004.jpg"
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "step": "01",
+      "src": "/images/process/01-konsultasi.webp",
+      "width": 1122,
+      "height": 1402,
+      "orientation": "portrait",
+      "bytes": 131128,
+      "alt": "Konsultan Niscala menjelaskan sampel material HPL kepada pasangan klien di studio",
+      "source": "BAHAN/ALUR KERJA/KONSULTASI.png"
+    },
+    {
+      "step": "02",
+      "src": "/images/process/02-survey-lokasi.webp",
+      "width": 1122,
+      "height": 1402,
+      "orientation": "portrait",
+      "bytes": 85440,
+      "alt": "Tim teknis Niscala mengukur dinding dengan laser meter dan mencatat posisi stop kontak di lokasi",
+      "source": "BAHAN/ALUR KERJA/SURVEY-LOKASI.png"
+    },
+    {
+      "step": "03",
+      "src": "/images/process/03-desain.webp",
+      "width": 1122,
+      "height": 1402,
+      "orientation": "portrait",
+      "bytes": 103044,
+      "alt": "Desainer Niscala menyusun visual 3D kitchen set di studio",
+      "source": "BAHAN/ALUR KERJA/DESAIN.png"
+    },
+    {
+      "step": "04",
+      "src": "/images/process/04-penawaran-rab.webp",
+      "width": 1122,
+      "height": 1402,
+      "orientation": "portrait",
+      "bytes": 92126,
+      "alt": "Presentasi Rancangan Anggaran Biaya beserta rincian material dan estimasi waktu kepada klien",
+      "source": "BAHAN/ALUR KERJA/PERNAWARAN-RAB.png"
+    },
+    {
+      "step": "05",
+      "src": "/images/process/05-produksi.webp",
+      "width": 1086,
+      "height": 1448,
+      "orientation": "portrait",
+      "bytes": 113462,
+      "alt": "Pengrajin memotong panel di workshop Niscala",
+      "source": "BAHAN/ALUR KERJA/PRODUKSI.png"
+    },
+    {
+      "step": "06",
+      "src": "/images/process/06-pengiriman-pemasangan.webp",
+      "width": 1122,
+      "height": 1402,
+      "orientation": "portrait",
+      "bytes": 118758,
+      "alt": "Modul dikirim terbungkus pelindung, dipasang di lokasi, lalu berita acara serah terima ditandatangani bersama klien",
+      "source": "BAHAN/ALUR KERJA/PENGIRIMAN PEMASANGAN.png"
+    }
+  ]
+}
