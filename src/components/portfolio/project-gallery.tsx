@@ -89,7 +89,8 @@ export function ProjectGallery({ images }: { images: ProjectImage[] }) {
                   alt={image.alt}
                   fill
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 46vw, 82vw"
-                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
                   className="object-cover"
                 />
               </div>

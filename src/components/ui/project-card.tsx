@@ -20,8 +20,15 @@ export type ProjectCardProps = {
   ratio?: keyof typeof RATIO;
   /** `sizes` for the underlying image - must match the grid slot. */
   sizes: string;
-  /** Only true for above-the-fold cards. */
-  priority?: boolean;
+  /**
+   * How eagerly to fetch the cover.
+   *
+   * `"high"` for the one card that is the page's LCP candidate, `"eager"` for
+   * the rest of the first row so they do not pop in, `false` below the fold.
+   * Not `priority`: Next 16 deprecated that prop, and it now only emits a
+   * <link rel=preload> without setting fetchpriority on the tag.
+   */
+  loadPriority?: "high" | "eager" | false;
   className?: string;
 };
 
@@ -29,7 +36,7 @@ export function ProjectCard({
   project,
   ratio = "standard",
   sizes,
-  priority = false,
+  loadPriority = false,
   className,
 }: ProjectCardProps) {
   const meta = [project.location, project.year ? String(project.year) : null]
@@ -57,7 +64,8 @@ export function ProjectCard({
               alt={project.gallery[0]?.alt ?? project.title}
               fill
               sizes={sizes}
-              priority={priority}
+              loading={loadPriority ? "eager" : "lazy"}
+              fetchPriority={loadPriority === "high" ? "high" : "auto"}
               className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
             />
           </div>

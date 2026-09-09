@@ -23,7 +23,12 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
           <ProjectCard
             project={project}
             sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
-            priority={index < 3}
+            /*
+              One high-priority image, not three. Marking the whole first row
+              high makes the browser split its bandwidth between them, which
+              delays whichever one actually turns out to be the LCP element.
+            */
+            loadPriority={index === 0 ? "high" : index < 3 ? "eager" : false}
           />
         </RevealItem>
       ))}

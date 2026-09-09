@@ -26,11 +26,19 @@ type BrandMarkProps = {
   /** Omit the link when the mark sits inside another link or a heading. */
   asLink?: boolean;
   /**
-   * Preload the file. Only for a mark that is on screen at first paint - the
-   * footer's copy would otherwise queue ahead of the hero photograph, which is
-   * the page's actual LCP element.
+   * Start the download immediately instead of lazily. For a mark that is on
+   * screen at first paint.
+   *
+   * Paired with `fetchPriority="low"` below, which is what actually keeps the
+   * mark out of the way. React 19 preloads every server-rendered <img> unless
+   * it is lazy or explicitly low priority, so eager loading alone put two
+   * <link rel=preload> tags in the head ahead of the hero photograph - the
+   * page's real LCP element - and on throttled 4G the hero paid for it. Low
+   * priority drops the preload and still starts the download immediately, so
+   * the mark never flashes in but never jumps the queue either. It renders
+   * fourteen pixels tall; it can afford to wait behind a full-screen photo.
    */
-  priority?: boolean;
+  eager?: boolean;
 };
 
 /**
@@ -45,7 +53,7 @@ export function BrandMark({
   size = "header",
   className,
   asLink = true,
-  priority = false,
+  eager = false,
 }: BrandMarkProps) {
   const image = (
     <Image
@@ -57,7 +65,8 @@ export function BrandMark({
       alt={site.name}
       width={LOGO_WIDTH}
       height={LOGO_HEIGHT}
-      priority={priority}
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority="low"
       sizes="240px"
       className={SIZES[size]}
     />

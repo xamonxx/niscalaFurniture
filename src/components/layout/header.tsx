@@ -147,7 +147,7 @@ export function Header() {
           <BrandMark
             tone="light"
             size="header"
-            priority
+            eager
             className={cn(
               "transition-opacity duration-300",
               floating ? "opacity-100" : "opacity-0"
@@ -160,7 +160,7 @@ export function Header() {
               floating ? "opacity-0" : "opacity-100"
             )}
           >
-            <BrandMark tone="dark" size="header" asLink={false} priority />
+            <BrandMark tone="dark" size="header" asLink={false} eager />
           </span>
         </span>
 

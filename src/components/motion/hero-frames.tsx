@@ -114,7 +114,10 @@ export function HeroFrames({ images, sizes }: HeroFramesProps) {
         alt={lead.alt}
         fill
         sizes={sizes}
-        priority
+        // See the note on the cycling branch below: `priority` is deprecated
+        // in Next 16 and no longer marks the request as high priority.
+        loading="eager"
+        fetchPriority="high"
         className="object-cover"
         style={{ scale: ZOOM_MIN }}
       />
@@ -159,7 +162,17 @@ export function HeroFrames({ images, sizes }: HeroFramesProps) {
             alt={position === 0 ? image.alt : ""}
             fill
             sizes={sizes}
-            priority={position === 0}
+            /*
+              Not `priority`. Next 16 deprecated it in favour of `preload`, and
+              it now only emits a <link rel=preload> - it no longer sets
+              fetchpriority on the tag itself, so Lighthouse's "LCP request
+              discovery" audit failed and the hero competed with every other
+              early request. The image is server-rendered, so the preload
+              scanner finds it in the markup; what it needed was the priority
+              hint, not another link in the head.
+            */
+            loading={position === 0 ? "eager" : "lazy"}
+            fetchPriority={position === 0 ? "high" : "auto"}
             className="object-cover"
           />
         </motion.div>
