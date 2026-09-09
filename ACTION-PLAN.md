@@ -120,11 +120,40 @@ Content work that still needs the studio, not the codebase:
 
 ## Phase 6 - Production Validation
 
-Still to run after deployment:
+Site went live on Hostinger 2026-09-08. Validated 2026-09-09.
 
-1. Google Search Console inspection for main pages.
-2. PageSpeed Insights for mobile and desktop.
-3. Rich Results Test for homepage, article, service, and project pages.
-4. Social preview test for the Open Graph image.
-5. Broken-link crawl on the production domain.
-6. Confirm `/llms.txt` and `/robots.txt` resolve on the live domain.
+| Check | Status |
+| --- | --- |
+| Sitemap submitted to Search Console | Done - Sukses, 51 pages found |
+| `/llms.txt` and `/robots.txt` live | Done - AI crawler block present |
+| Open Graph image | Done - 200, image/png, 59 KB |
+| Icons and manifest | Done - all 200 |
+| Broken-link crawl | Done - 0 broken links, 0 broken images |
+| On-page crawl (51 pages) | Done - every page one H1, canonical, description |
+| External links | Done - all resolve |
+| Image format negotiation | Done - AVIF 53 KB vs JPEG 131 KB |
+| HTTP to HTTPS | Done - 301 |
+| Trailing slash | Done - 308 to the canonical form |
+| Real 404s on unknown routes | Done - no soft 404 |
+| www duplicate hostname | Found and fixed - 301 added, commit a4d407c |
+| PageSpeed Insights | Not run - API quota exhausted, run in browser |
+| Rich Results Test | Not run - browser only |
+
+### Still to do
+
+1. PageSpeed Insights, mobile and desktop:
+   https://pagespeed.web.dev/analysis?url=https://niscalafurniture.com
+2. Rich Results Test on homepage, an article, a category and a project page:
+   https://search.google.com/test/rich-results
+3. Search Console page-indexing report - check roughly a week after submission,
+   not before. Indexing is not immediate.
+4. Add `www.niscalafurniture.com` as a second property in Search Console, or
+   switch to a Domain property, so the redirect can be seen working.
+
+### Note on testimonials
+
+`NEXT_PUBLIC_SHOW_TESTIMONIALS` was set to `true` on 2026-09-09, so the four
+entries in `src/data/testimonials.ts` are now published. They are still the
+generated sample copy the file warns about, attributed to invented names.
+Replacing them with real, permitted client quotes - and setting
+`isPlaceholder: false` on each - remains outstanding.
