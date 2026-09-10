@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
@@ -8,6 +9,7 @@ import { FormattedText } from "@/components/ui/formatted-text";
 import {
   articleSeoTitle,
 } from "@/data/knowledge";
+import { publishedImageSizes } from "@/data/projects";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import {
   ORGANISATION_ID,
@@ -239,15 +241,48 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
                       </p>
                     </aside>
                   );
-                case "image":
+                case "image": {
+                  /*
+                    Two kinds of image reach this block and they need different
+                    handling.
+
+                    A path the pipeline published has pre-rendered variants and
+                    known dimensions, so it goes through next/image and the
+                    reader gets a file sized for their screen. The className is
+                    unchanged from the plain <img> it replaces, so the layout is
+                    identical - next/image with explicit width and height adds
+                    no positioning styles of its own.
+
+                    An upload or a pasted remote URL has neither variants nor
+                    recorded dimensions. next/image would emit a srcset of
+                    identical URLs through the pass-through loader, or need
+                    `unoptimized`, which makes it a wrapper around the <img>
+                    below with nothing gained. Uploads are already resized to
+                    1600px WebP at upload time, which is the part that actually
+                    mattered.
+                  */
+                  const published = publishedImageSizes.get(block.src);
+
                   return (
                     <figure key={index} className="my-space-xl space-y-2">
-                      <img
-                        src={block.src}
-                        alt={block.alt || "Gambar panduan Niscala"}
-                        className="w-full rounded-xl object-cover shadow-sm max-h-[520px] bg-surface-container-low"
-                        loading="lazy"
-                      />
+                      {published ? (
+                        <Image
+                          src={block.src}
+                          alt={block.alt || "Gambar panduan Niscala"}
+                          width={published.width}
+                          height={published.height}
+                          sizes="(min-width: 48rem) 768px, 92vw"
+                          className="w-full rounded-xl object-cover shadow-sm max-h-[520px] bg-surface-container-low"
+                        />
+                      ) : (
+                        // eslint-disable-next-line @next/next/no-img-element -- No variants and no known dimensions; see the note above.
+                        <img
+                          src={block.src}
+                          alt={block.alt || "Gambar panduan Niscala"}
+                          className="w-full rounded-xl object-cover shadow-sm max-h-[520px] bg-surface-container-low"
+                          loading="lazy"
+                        />
+                      )}
                       {block.caption ? (
                         <figcaption className="text-center text-label-sm text-muted-gray">
                           {block.caption}
@@ -255,6 +290,7 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
                       ) : null}
                     </figure>
                   );
+                }
                 case "video": {
                   const videoId =
                     block.videoId ||

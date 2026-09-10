@@ -438,3 +438,27 @@ export const storyImages: ProjectImage[] = (() => {
 
   return picked;
 })();
+
+/**
+ * Intrinsic dimensions for every photograph the image pipeline published,
+ * keyed by the path it is served from.
+ *
+ * Articles reference these by hand - `![alt](/images/portfolio/x.webp)` - so
+ * the block that carries them has a `src` and nothing else. `next/image` needs
+ * a width and a height to reserve the space, and the manifests already know
+ * both. Looking them up here means an article can use the optimised pipeline
+ * without the editor having to record dimensions it never sees.
+ *
+ * Uploaded and remote images are absent by design; the caller falls back to a
+ * plain `<img>` for those.
+ */
+export const publishedImageSizes: ReadonlyMap<string, { width: number; height: number }> =
+  new Map(
+    [
+      ...(bahanManifest.projects as ManifestProject[]),
+      ...(interiorManifest.projects as ManifestProject[]),
+    ]
+      .flatMap((project) => project.images)
+      .concat(bahanManifest.process)
+      .map((image) => [image.src, { width: image.width, height: image.height }])
+  );

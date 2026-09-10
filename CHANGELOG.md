@@ -9,6 +9,24 @@ break by not knowing.
 
 ## Unreleased
 
+### Uploaded article images are resized, and a data-URI fallback is gone
+- **What** Admin uploads are now resized to 1600px WebP on the way in, `sharp`
+  moved to `dependencies`, the public article page routes pipeline-published
+  images through `next/image`, and the nine `no-img-element` / unused-variable
+  warnings are cleared.
+- **Why** Two of the warnings were pointing at real defects. Uploads were stored
+  untouched at up to 10 MB and rendered full size on a public page. And a failed
+  upload silently stored the `readAsDataURL` preview as the image source - a
+  10 MB photo becomes ~13 MB of base64, written into the tracked
+  `custom-articles.json` and served inline in public HTML. It looked correct in
+  the editor, because the browser that made the data URI can always render it.
+- **Watch** The public page picks per image on purpose: a path the manifests
+  know gets `next/image` with looked-up dimensions and the same className, so
+  the layout is unchanged; uploads and pasted remote URLs keep a plain `<img>`,
+  because through the pass-through loader `next/image` would emit a srcset of
+  identical URLs or need `unoptimized`, gaining nothing. The remaining `<img>`
+  uses each carry an inline reason - do not "fix" them without reading it.
+
 ### Closed an authentication bypass in the admin panel
 - **What** Removed every credential default from `src/lib/auth.ts`, split the
   session signing key from the password, bounded the session timestamp at both

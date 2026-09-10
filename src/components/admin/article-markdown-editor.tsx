@@ -37,7 +37,6 @@ import {
   extractYouTubeVideoId,
 } from "@/lib/article-utils";
 import { uploadArticleImageAction } from "@/app/actions/admin-articles";
-import type { KnowledgeBlock } from "@/types";
 
 type Props = {
   value: string;
@@ -321,22 +320,30 @@ export function ArticleMarkdownEditor({
 
         if (result.success && result.url) {
           finalSrc = result.url;
-        } else if (filePreview) {
-          // Fallback to data URL
-          finalSrc = filePreview;
         } else {
+          /*
+            No falling back to `filePreview`.
+
+            That is a base64 data URI from `readAsDataURL`, and it used to be
+            written into the article whenever an upload failed - silently, on
+            both this branch and the catch below. A 10 MB photo becomes about
+            13 MB of base64 that lands in src/data/custom-articles.json, which
+            is tracked by git, and is then served inline in the HTML of a
+            public page. The editor showed it correctly, because the browser
+            that made the data URI can always render it, so nothing looked
+            wrong until someone else opened the article.
+
+            A failed upload is a failed upload. Say so.
+          */
           setImageError(result.error || "Gagal mengupload gambar.");
           setIsUploadingImage(false);
           return;
         }
-      } catch (err) {
-        if (filePreview) {
-          finalSrc = filePreview;
-        } else {
-          setImageError("Terjadi kendala saat upload gambar.");
-          setIsUploadingImage(false);
-          return;
-        }
+      } catch (error) {
+        console.error("Image upload failed:", error);
+        setImageError("Terjadi kendala saat upload gambar. Silakan coba lagi.");
+        setIsUploadingImage(false);
+        return;
       } finally {
         setIsUploadingImage(false);
       }
@@ -912,6 +919,7 @@ export function ArticleMarkdownEditor({
                     if (block.type === "image") {
                       return (
                         <figure key={idx} className="my-4 space-y-1.5">
+                          {/* eslint-disable-next-line @next/next/no-img-element -- Admin-only live preview; sources here have no pre-rendered variants. */}
                           <img
                             src={block.src}
                             alt={block.alt || "Gambar artikel"}
@@ -1161,6 +1169,7 @@ export function ArticleMarkdownEditor({
 
                   {filePreview ? (
                     <div className="space-y-2">
+                      {/* eslint-disable-next-line @next/next/no-img-element -- A base64 data URI for a file not uploaded yet. next/image marks data: sources unoptimized anyway, so it would add nothing. */}
                       <img
                         src={filePreview}
                         alt="Preview"
@@ -1202,6 +1211,7 @@ export function ArticleMarkdownEditor({
                 />
                 {imageUrl ? (
                   <div className="pt-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- An arbitrary URL the editor is still typing, kept as an img element so the onError handler below can report a broken link instead of failing the render. */}
                     <img
                       src={imageUrl}
                       alt="URL Preview"

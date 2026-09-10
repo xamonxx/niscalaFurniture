@@ -15,7 +15,6 @@ import {
   Loader2,
   Check,
   AlertCircle,
-  HelpCircle,
 } from "lucide-react";
 
 import { saveArticleAction } from "@/app/actions/admin-articles";
@@ -743,6 +742,7 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                     </div>
                     {block.src ? (
                       <div className="pt-2">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- Admin-only thumbnail of whatever path the editor holds; no variants exist for it, so next/image would be a pass-through wrapper. */}
                         <img
                           src={block.src}
                           alt={block.alt || "Preview"}
@@ -907,6 +907,7 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                   if (block.type === "image") {
                     return (
                       <figure key={i} className="my-4 space-y-1.5">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- Admin-only live preview. Same sources as the public page, which picks next/image only when the pipeline published the file. */}
                         <img
                           src={block.src}
                           alt={block.alt || "Gambar artikel"}
