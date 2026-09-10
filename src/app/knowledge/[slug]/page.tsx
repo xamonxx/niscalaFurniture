@@ -4,6 +4,7 @@ import { ArrowLeft, Clock } from "lucide-react";
 
 import { Eyebrow } from "@/components/ui/typography";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
+import { FormattedText } from "@/components/ui/formatted-text";
 import {
   articleSeoTitle,
 } from "@/data/knowledge";
@@ -203,7 +204,7 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
                       key={index}
                       className="text-body-lg leading-relaxed text-on-surface-variant"
                     >
-                      {block.text}
+                      <FormattedText text={block.text} />
                     </p>
                   );
                 case "list":
@@ -218,7 +219,7 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
                             aria-hidden
                             className="mt-2.5 size-1.5 shrink-0 rounded-full bg-primary-container"
                           />
-                          {item}
+                          <FormattedText text={item} />
                         </li>
                       ))}
                     </ul>
@@ -233,10 +234,60 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
                         {block.title}
                       </p>
                       <p className="text-body-md leading-relaxed text-on-surface-variant">
-                        {block.text}
+                        <FormattedText text={block.text} />
                       </p>
                     </aside>
                   );
+                case "image":
+                  return (
+                    <figure key={index} className="my-space-xl space-y-2">
+                      <img
+                        src={block.src}
+                        alt={block.alt || "Gambar panduan Niscala"}
+                        className="w-full rounded-xl object-cover shadow-sm max-h-[520px] bg-surface-container-low"
+                        loading="lazy"
+                      />
+                      {block.caption ? (
+                        <figcaption className="text-center text-label-sm text-muted-gray">
+                          {block.caption}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  );
+                case "video": {
+                  const videoId =
+                    block.videoId ||
+                    (block.url
+                      ? block.url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i)?.[1]
+                      : null);
+                  return (
+                    <div
+                      key={index}
+                      className="my-space-xl overflow-hidden rounded-xl border border-border-hairline bg-surface-container-lowest shadow-sm"
+                    >
+                      <div className="relative aspect-video w-full bg-deep-black">
+                        {videoId ? (
+                          <iframe
+                            src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+                            title={block.title || "Video Panduan Niscala Furniture"}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="absolute inset-0 h-full w-full border-0"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center text-xs text-muted-gray">
+                            Link video YouTube tidak valid
+                          </div>
+                        )}
+                      </div>
+                      {block.title ? (
+                        <div className="p-space-sm text-center text-label-sm text-muted-gray bg-surface-container-low border-t border-border-hairline/60">
+                          {block.title}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                }
               }
             })}
           </div>

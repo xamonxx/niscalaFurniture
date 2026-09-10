@@ -18,7 +18,7 @@ export default async function EditArticlePage(props: EditPageProps) {
   }
 
   const { slug } = await props.params;
-  const article = await getArticleBySlug(slug);
+  const article = await getArticleBySlug(slug, { allowInactive: true });
 
   if (!article) {
     notFound();

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Plus, ExternalLink, Edit3, Clock, Sparkles } from "lucide-react";
+import { Plus, CheckCircle2, XCircle, FileText } from "lucide-react";
 
 import { isAdminAuthenticated } from "@/lib/auth";
 import { getAllArticles, isCustomArticle } from "@/lib/articles";
-import { DeleteArticleButton } from "@/components/admin/delete-article-button";
+import { ArticlesList } from "@/components/admin/articles-list";
 
 export const metadata = {
   title: "Daftar Artikel — Admin Niscala",
@@ -16,18 +16,24 @@ export default async function AdminArticlesPage() {
     redirect("/admin/login");
   }
 
-  const articles = await getAllArticles();
+  // Include both active and inactive articles for admin view
+  const articles = await getAllArticles({ includeInactive: true });
 
-  // Check which articles are custom
+  // Attach isCustom flag to distinguish system baseline articles
   const articlesWithCustomStatus = await Promise.all(
     articles.map(async (article) => ({
       ...article,
+      status: article.status || "aktif",
       isCustom: await isCustomArticle(article.slug),
     }))
   );
 
-  const customCount = articlesWithCustomStatus.filter((a) => a.isCustom).length;
-  const categories = Array.from(new Set(articles.map((a) => a.category)));
+  const activeCount = articlesWithCustomStatus.filter(
+    (a) => a.status === "aktif"
+  ).length;
+  const inactiveCount = articlesWithCustomStatus.filter(
+    (a) => a.status === "tidak_aktif"
+  ).length;
 
   return (
     <div className="space-y-6">
@@ -38,7 +44,7 @@ export default async function AdminArticlesPage() {
             Artikel Edukasi &amp; Wawasan
           </h1>
           <p className="text-xs text-on-surface-variant">
-            Buat dan edit artikel yang langsung terbit di website publik secara real-time tanpa build/deploy ulang.
+            Kelola artikel publik secara real-time. Anda dapat memfilter status <strong className="text-primary font-semibold">Aktif (Tayang)</strong> dan <strong className="text-muted-gray font-semibold">Tidak Aktif (Draft)</strong>.
           </p>
         </div>
 
@@ -54,114 +60,36 @@ export default async function AdminArticlesPage() {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div className="rounded-lg border border-border-hairline bg-surface p-4 shadow-sm">
-          <p className="text-xs font-medium text-muted-gray">Total Artikel</p>
-          <p className="mt-1 text-2xl font-bold text-on-surface">{articles.length}</p>
+          <p className="text-xs font-medium text-muted-gray flex items-center gap-1.5">
+            <FileText className="size-3.5 text-on-surface-variant" />
+            Total Artikel
+          </p>
+          <p className="mt-1 text-2xl font-bold text-on-surface">
+            {articles.length}
+          </p>
         </div>
+
         <div className="rounded-lg border border-border-hairline bg-surface p-4 shadow-sm">
           <p className="text-xs font-medium text-muted-gray flex items-center gap-1.5">
-            <Sparkles className="size-3 text-primary" />
-            Artikel Real-time (Kustom)
+            <CheckCircle2 className="size-3.5 text-primary" />
+            Artikel Aktif (Tayang di Publik)
           </p>
-          <p className="mt-1 text-2xl font-bold text-primary">{customCount}</p>
+          <p className="mt-1 text-2xl font-bold text-primary">{activeCount}</p>
         </div>
+
         <div className="rounded-lg border border-border-hairline bg-surface p-4 shadow-sm">
-          <p className="text-xs font-medium text-muted-gray">Kategori Aktif</p>
-          <p className="mt-1 text-2xl font-bold text-on-surface">{categories.length}</p>
+          <p className="text-xs font-medium text-muted-gray flex items-center gap-1.5">
+            <XCircle className="size-3.5 text-muted-gray" />
+            Artikel Tidak Aktif (Draft)
+          </p>
+          <p className="mt-1 text-2xl font-bold text-muted-gray">
+            {inactiveCount}
+          </p>
         </div>
       </div>
 
-      {/* Articles Table/List */}
-      <div className="overflow-hidden rounded-xl border border-border-hairline bg-surface shadow-sm">
-        <div className="border-b border-border-hairline px-4 py-3 sm:px-6">
-          <h2 className="text-sm font-semibold text-on-surface">
-            Semua Artikel ({articles.length})
-          </h2>
-        </div>
-
-        {articles.length === 0 ? (
-          <div className="p-8 text-center">
-            <p className="text-sm text-muted-gray">Belum ada artikel yang tersedia.</p>
-          </div>
-        ) : (
-          <div className="divide-y divide-border-hairline">
-            {articlesWithCustomStatus.map((article) => (
-              <div
-                key={article.slug}
-                className="flex flex-col gap-4 p-4 transition-colors hover:bg-surface-container-lowest sm:flex-row sm:items-center sm:justify-between sm:px-6"
-              >
-                <div className="space-y-1.5 min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded bg-surface-container-high px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-on-surface">
-                      {article.category}
-                    </span>
-
-                    {article.isCustom ? (
-                      <span className="inline-flex items-center gap-1 rounded bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                        <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-                        Real-time
-                      </span>
-                    ) : (
-                      <span className="rounded bg-surface-container-low px-2 py-0.5 text-[10px] text-muted-gray">
-                        Bawaan Sistem
-                      </span>
-                    )}
-
-                    <span className="inline-flex items-center gap-1 text-[11px] text-muted-gray">
-                      <Clock className="size-3" />
-                      {article.readingMinutes} mnt
-                    </span>
-                  </div>
-
-                  <h3 className="text-sm font-bold text-on-surface truncate">
-                    {article.title}
-                  </h3>
-
-                  <p className="text-xs text-on-surface-variant line-clamp-1">
-                    {article.summary}
-                  </p>
-
-                  <div className="flex items-center gap-3 text-[11px] text-muted-gray">
-                    <span>Slug: <code className="font-mono text-on-surface">{article.slug}</code></span>
-                    <span>•</span>
-                    <span>Terbit: {article.publishedAt}</span>
-                    {article.updatedAt ? (
-                      <>
-                        <span>•</span>
-                        <span>Update: {article.updatedAt}</span>
-                      </>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
-                  <Link
-                    href={`/knowledge/${article.slug}`}
-                    target="_blank"
-                    className="inline-flex items-center gap-1 rounded-md border border-border-hairline px-2.5 py-1.5 text-xs font-medium text-on-surface hover:bg-surface-container-low transition-colors"
-                    title="Lihat tampilan publik"
-                  >
-                    <ExternalLink className="size-3.5" />
-                    <span>Lihat</span>
-                  </Link>
-
-                  <Link
-                    href={`/admin/articles/${article.slug}/edit`}
-                    className="inline-flex items-center gap-1 rounded-md bg-surface-container-high px-2.5 py-1.5 text-xs font-medium text-on-surface hover:bg-surface-container-highest transition-colors"
-                    title="Edit artikel"
-                  >
-                    <Edit3 className="size-3.5" />
-                    <span>Edit</span>
-                  </Link>
-
-                  {article.isCustom ? (
-                    <DeleteArticleButton slug={article.slug} title={article.title} />
-                  ) : null}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      {/* Interactive Filterable Articles List */}
+      <ArticlesList articles={articlesWithCustomStatus} />
     </div>
   );
 }

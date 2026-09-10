@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "slug": "checklist-sebelum-mulai-custom",
+    "category": "Persiapan Pra-Renovasi",
+    "title": "Checklist Sebelum Mulai Custom: Elektrikal, Pipa, hingga Level Lantai.",
+    "seoTitle": "Checklist Sebelum Mulai Furniture Custom",
+    "summary": "Hal-hal esensial yang wajib dipastikan pada dinding dan lantai agar proses instalasi furnitur berjalan lancar dan rapi.",
+    "readingMinutes": 5,
+    "publishedAt": "2026-03-08",
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Sebagian besar keterlambatan pemasangan tidak disebabkan oleh furniturenya, melainkan oleh kondisi ruangan yang belum siap. Beberapa hal berikut jauh lebih murah diselesaikan sebelum produksi dimulai daripada sesudah modul tiba di lokasi."
+      },
+      {
+        "type": "heading",
+        "text": "Elektrikal"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Tentukan posisi stopkontak sebelum desain difinalisasi, bukan sesudah.",
+          "Perangkat tanam seperti oven dan microwave butuh titik listrik di dalam kabinet.",
+          "Lampu LED di bawah kabinet butuh jalur tersendiri dan posisi driver yang terjangkau.",
+          "Pastikan saklar tidak berakhir tertutup badan lemari."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Pipa dan pembuangan"
+      },
+      {
+        "type": "paragraph",
+        "text": "Posisi pipa air bersih dan pembuangan menentukan letak sink, dan memindahkannya setelah keramik terpasang berarti membongkar lantai. Pastikan titiknya final, dan minta foto jalur pipa di dinding sebelum ditutup - dokumentasi ini menyelamatkan banyak pekerjaan di kemudian hari."
+      },
+      {
+        "type": "heading",
+        "text": "Dinding dan lantai"
+      },
+      {
+        "type": "paragraph",
+        "text": "Dinding rumah jarang benar-benar lurus dan lantai jarang benar-benar rata. Selisih 1-2 cm sepanjang 3 meter adalah hal biasa dan bisa diakomodasi dengan kaki setel dan skirting. Yang perlu dipastikan adalah dindingnya cukup kuat menahan kabinet gantung: dinding hebel dan partisi gypsum memerlukan angkur khusus atau penguat tambahan."
+      },
+      {
+        "type": "heading",
+        "text": "Urutan pekerjaan"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Pekerjaan basah (plester, keramik, cat dasar) selesai lebih dulu.",
+          "Lantai terpasang sebelum pengukuran final, karena memengaruhi tinggi akhir.",
+          "Pengecatan dinding sebaiknya rampung sebelum instalasi furniture.",
+          "Sediakan jalur masuk yang cukup untuk modul besar, termasuk lebar lift bila di apartemen."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "Satu hal yang paling sering terlupa",
+        "text": "Ukur lebar pintu masuk dan tikungan koridor. Modul yang sempurna di gambar bisa gagal masuk ruangan, dan memotongnya di lokasi selalu mengorbankan kerapian."
+      }
+    ],
+    "status": "aktif",
+    "updatedAt": "2026-09-10"
+  }
+]

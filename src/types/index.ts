@@ -158,6 +158,11 @@ export type KnowledgeArticle = {
    * are worthless the moment they stop being true.
    */
   updatedAt?: string;
+  /**
+   * Publication status: 'aktif' (published publicly) or 'tidak_aktif' (draft/hidden).
+   * Defaults to 'aktif' if omitted.
+   */
+  status?: "aktif" | "tidak_aktif";
   /** Body rendered as a sequence of typed blocks - no HTML strings. */
   body: KnowledgeBlock[];
 };
@@ -166,4 +171,6 @@ export type KnowledgeBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
   | { type: "list"; items: string[] }
-  | { type: "callout"; title: string; text: string };
+  | { type: "callout"; title: string; text: string }
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "video"; url: string; videoId?: string; title?: string };

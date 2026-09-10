@@ -19,9 +19,11 @@ import {
 } from "lucide-react";
 
 import { saveArticleAction } from "@/app/actions/admin-articles";
+import { ArticleMarkdownEditor } from "@/components/admin/article-markdown-editor";
 import {
   parseRawTextToBlocks,
   estimateReadingMinutes,
+  extractYouTubeVideoId,
 } from "@/lib/article-utils";
 import type { KnowledgeArticle, KnowledgeBlock } from "@/types";
 
@@ -57,6 +59,9 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
   const [readingMinutes, setReadingMinutes] = useState(
     initialArticle?.readingMinutes || 5
   );
+  const [status, setStatus] = useState<"aktif" | "tidak_aktif">(
+    initialArticle?.status || "aktif"
+  );
 
   // Content state
   const [blocks, setBlocks] = useState<KnowledgeBlock[]>(
@@ -69,9 +74,24 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
 
   // Active editor tab: "blocks" | "quick_text" | "preview"
   const [activeTab, setActiveTab] = useState<"blocks" | "quick_text" | "preview">(
-    "blocks"
+    "quick_text"
   );
-  const [quickText, setQuickText] = useState("");
+  const [quickText, setQuickText] = useState(() => {
+    if (initialArticle?.body && initialArticle.body.length > 0) {
+      return initialArticle.body
+        .map((b) => {
+          if (b.type === "heading") return `## ${b.text}`;
+          if (b.type === "paragraph") return b.text;
+          if (b.type === "list") return b.items.map((i) => `- ${i}`).join("\n");
+          if (b.type === "callout") return `> [${b.title}] ${b.text}`;
+          if (b.type === "image") return `![${b.alt || "Gambar"}](${b.src}${b.caption ? ` "${b.caption}"` : ""})`;
+          if (b.type === "video") return `@[youtube](${b.url}${b.title ? ` "${b.title}"` : ""})`;
+          return "";
+        })
+        .join("\n\n");
+    }
+    return `## Panduan & Penjelasan Utama\nTuliskan paragraf pembuka yang menjelaskan latar belakang, permasalahan yang dihadapi pemilik rumah, dan solusi custom furniture yang tepat.\n\n## Poin-Poin Penting & Keunggulan\n- Kualitas material kokoh dan tahan lama\n- Presisi ukuran sesuai dimensi ruangan\n- Finishing rapi dengan aksen modern elegan\n\n> [Catatan Penting] Pastikan Anda telah berkonsultasi mengenai posisi instalasi pipa dan kelistrikan sebelum proses produksi dimulai.`;
+  });
 
   // Auto-generate slug from title
   const handleTitleChange = (newTitle: string) => {
@@ -97,6 +117,8 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
           if (b.type === "paragraph") return b.text;
           if (b.type === "list") return b.items.map((i) => `- ${i}`).join("\n");
           if (b.type === "callout") return `> [${b.title}] ${b.text}`;
+          if (b.type === "image") return `![${b.alt || "Gambar"}](${b.src}${b.caption ? ` "${b.caption}"` : ""})`;
+          if (b.type === "video") return `@[youtube](${b.url}${b.title ? ` "${b.title}"` : ""})`;
           return "";
         })
         .join("\n\n");
@@ -118,7 +140,9 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
     if (type === "paragraph") newBlock = { type: "paragraph", text: "" };
     else if (type === "heading") newBlock = { type: "heading", text: "" };
     else if (type === "list") newBlock = { type: "list", items: [""] };
-    else newBlock = { type: "callout", title: "Catatan Penting", text: "" };
+    else if (type === "callout") newBlock = { type: "callout", title: "Catatan Penting", text: "" };
+    else if (type === "image") newBlock = { type: "image", src: "", alt: "", caption: "" };
+    else newBlock = { type: "video", url: "", title: "" };
 
     const updated = [...blocks, newBlock];
     setBlocks(updated);
@@ -163,6 +187,8 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
       if (b.type === "paragraph" || b.type === "heading") return b.text.trim().length > 0;
       if (b.type === "list") return b.items.some((item) => item.trim().length > 0);
       if (b.type === "callout") return b.text.trim().length > 0;
+      if (b.type === "image") return b.src.trim().length > 0;
+      if (b.type === "video") return b.url.trim().length > 0;
       return false;
     });
 
@@ -181,6 +207,7 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
       publishedAt:
         initialArticle?.publishedAt || new Date().toISOString().split("T")[0],
       updatedAt: isEditing ? new Date().toISOString().split("T")[0] : undefined,
+      status,
       body: cleanedBlocks,
     };
 
@@ -361,11 +388,62 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
             className="w-full rounded-md border border-border-hairline bg-surface-container-low px-3.5 py-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           />
         </div>
+
+        {/* Publication Status Selector */}
+        <div className="space-y-1.5 sm:col-span-12 border-t border-border-hairline/60 pt-3">
+          <label className="block text-xs font-bold uppercase tracking-wider text-on-surface">
+            Status Publikasi Artikel
+          </label>
+          <div className="flex flex-wrap gap-4 pt-1">
+            <label className="flex items-center gap-2 cursor-pointer rounded-md border border-border-hairline bg-surface-container-low/60 px-3 py-2 transition-colors hover:bg-surface-container-low">
+              <input
+                type="radio"
+                name="article_status"
+                value="aktif"
+                checked={status === "aktif"}
+                onChange={() => setStatus("aktif")}
+                className="size-4 text-primary focus:ring-primary"
+              />
+              <span className="text-xs font-semibold text-on-surface flex items-center gap-1.5">
+                <span className="size-2 rounded-full bg-primary" />
+                Aktif (Langsung Tayang di Publik)
+              </span>
+            </label>
+
+            <label className="flex items-center gap-2 cursor-pointer rounded-md border border-border-hairline bg-surface-container-low/60 px-3 py-2 transition-colors hover:bg-surface-container-low">
+              <input
+                type="radio"
+                name="article_status"
+                value="tidak_aktif"
+                checked={status === "tidak_aktif"}
+                onChange={() => setStatus("tidak_aktif")}
+                className="size-4 text-muted-gray focus:ring-muted-gray"
+              />
+              <span className="text-xs font-semibold text-muted-gray flex items-center gap-1.5">
+                <span className="size-2 rounded-full bg-muted-gray" />
+                Tidak Aktif (Draft / Disembunyikan)
+              </span>
+            </label>
+          </div>
+        </div>
       </div>
 
       {/* Editor Tabs Navigation */}
-      <div className="flex items-center justify-between border-b border-border-hairline">
-        <div className="flex gap-2">
+      <div className="flex items-center justify-between border-b border-border-hairline overflow-x-auto">
+        <div className="flex gap-1 sm:gap-2 whitespace-nowrap min-w-max">
+          <button
+            type="button"
+            onClick={() => handleTabChange("quick_text")}
+            className={`inline-flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+              activeTab === "quick_text"
+                ? "border-primary text-primary"
+                : "border-transparent text-muted-gray hover:text-on-surface"
+            }`}
+          >
+            <Sparkles className="size-3.5 text-primary" />
+            Editor Teks & Toolbar (Customize)
+          </button>
+
           <button
             type="button"
             onClick={() => handleTabChange("blocks")}
@@ -381,19 +459,6 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
 
           <button
             type="button"
-            onClick={() => handleTabChange("quick_text")}
-            className={`inline-flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
-              activeTab === "quick_text"
-                ? "border-primary text-primary"
-                : "border-transparent text-muted-gray hover:text-on-surface"
-            }`}
-          >
-            <Sparkles className="size-3.5" />
-            Tulis Cepat (Markdown/Teks)
-          </button>
-
-          <button
-            type="button"
             onClick={() => handleTabChange("preview")}
             className={`inline-flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
               activeTab === "preview"
@@ -402,7 +467,7 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
             }`}
           >
             <Eye className="size-3.5" />
-            Pratinjau Live
+            Pratinjau Halaman Penuh
           </button>
         </div>
       </div>
@@ -444,6 +509,20 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
               >
                 <Plus className="size-3" /> + Tips / Highlight
               </button>
+              <button
+                type="button"
+                onClick={() => addBlock("image")}
+                className="inline-flex items-center gap-1 rounded bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary hover:bg-primary/20 transition-colors"
+              >
+                <Plus className="size-3" /> + Gambar (JPG/PNG)
+              </button>
+              <button
+                type="button"
+                onClick={() => addBlock("video")}
+                className="inline-flex items-center gap-1 rounded bg-red-500/10 px-2.5 py-1 text-xs font-semibold text-red-500 hover:bg-red-500/20 transition-colors"
+              >
+                <Plus className="size-3" /> + Video YouTube
+              </button>
             </div>
           </div>
 
@@ -461,6 +540,8 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                       {block.type === "heading" && "Sub-Judul (Heading H2)"}
                       {block.type === "list" && "Daftar Poin (List)"}
                       {block.type === "callout" && "Kotak Tips / Callout"}
+                      {block.type === "image" && "Gambar (JPG/PNG)"}
+                      {block.type === "video" && "Video YouTube (Playable)"}
                     </span>
                   </span>
 
@@ -496,15 +577,63 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
 
                 {/* Paragraph input */}
                 {block.type === "paragraph" ? (
-                  <textarea
-                    rows={3}
-                    value={block.text}
-                    onChange={(e) =>
-                      updateBlock(index, { ...block, text: e.target.value })
-                    }
-                    placeholder="Tulis isi paragraf di sini..."
-                    className="w-full rounded-md border border-border-hairline bg-surface-container-low p-2.5 text-sm text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
-                  />
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[11px] text-muted-gray">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-gray">
+                        Format:
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const current = block.text;
+                          updateBlock(index, {
+                            ...block,
+                            text: current ? `**${current}**` : "**teks tebal**",
+                          });
+                        }}
+                        className="rounded border border-border-hairline bg-surface px-1.5 py-0.5 text-[10px] font-bold text-on-surface hover:bg-surface-container-high transition-colors"
+                        title="Tebalkan teks (**teks**)"
+                      >
+                        B
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const current = block.text;
+                          updateBlock(index, {
+                            ...block,
+                            text: current ? `*${current}*` : "*teks miring*",
+                          });
+                        }}
+                        className="rounded border border-border-hairline bg-surface px-1.5 py-0.5 text-[10px] italic text-on-surface hover:bg-surface-container-high transition-colors"
+                        title="Miringkan teks (*teks*)"
+                      >
+                        I
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          updateBlock(index, {
+                            ...block,
+                            text: `${block.text} [Tautan](https://niscalafurniture.com)`,
+                          });
+                        }}
+                        className="rounded border border-border-hairline bg-surface px-1.5 py-0.5 text-[10px] text-on-surface hover:bg-surface-container-high transition-colors"
+                        title="Sisipkan tautan link"
+                      >
+                        Link
+                      </button>
+                    </div>
+                    <textarea
+                      rows={3}
+                      value={block.text}
+                      onChange={(e) =>
+                        updateBlock(index, { ...block, text: e.target.value })
+                      }
+                      placeholder="Tulis isi paragraf di sini..."
+                      className="w-full rounded-md border border-border-hairline bg-surface-container-low p-2.5 text-sm text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                    />
+                  </div>
                 ) : null}
 
                 {/* Heading input */}
@@ -564,6 +693,120 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                     />
                   </div>
                 ) : null}
+
+                {/* Image input */}
+                {block.type === "image" ? (
+                  <div className="space-y-2">
+                    <div>
+                      <label className="block text-[11px] font-semibold text-on-surface">
+                        URL / Path Gambar (JPG/PNG):
+                      </label>
+                      <input
+                        type="text"
+                        value={block.src}
+                        onChange={(e) =>
+                          updateBlock(index, { ...block, src: e.target.value })
+                        }
+                        placeholder="/images/portfolio/kitchen-set.jpg atau https://..."
+                        className="w-full mt-1 rounded border border-border-hairline bg-surface-container-low p-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                      />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div>
+                        <label className="block text-[11px] font-semibold text-on-surface">
+                          Alt Text (Deskripsi SEO):
+                        </label>
+                        <input
+                          type="text"
+                          value={block.alt}
+                          onChange={(e) =>
+                            updateBlock(index, { ...block, alt: e.target.value })
+                          }
+                          placeholder="Deskripsi gambar untuk SEO..."
+                          className="w-full mt-1 rounded border border-border-hairline bg-surface-container-low p-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-semibold text-muted-gray">
+                          Keterangan / Caption (Opsional):
+                        </label>
+                        <input
+                          type="text"
+                          value={block.caption || ""}
+                          onChange={(e) =>
+                            updateBlock(index, { ...block, caption: e.target.value })
+                          }
+                          placeholder="Keterangan di bawah foto..."
+                          className="w-full mt-1 rounded border border-border-hairline bg-surface-container-low p-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                        />
+                      </div>
+                    </div>
+                    {block.src ? (
+                      <div className="pt-2">
+                        <img
+                          src={block.src}
+                          alt={block.alt || "Preview"}
+                          className="max-h-48 rounded-lg object-contain border border-border-hairline bg-surface-container-low"
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
+
+                {/* Video input */}
+                {block.type === "video" ? (
+                  <div className="space-y-2">
+                    <div>
+                      <label className="block text-[11px] font-semibold text-on-surface">
+                        Link URL YouTube:
+                      </label>
+                      <input
+                        type="text"
+                        value={block.url}
+                        onChange={(e) => {
+                          const url = e.target.value;
+                          const videoId = extractYouTubeVideoId(url) || undefined;
+                          updateBlock(index, { ...block, url, videoId });
+                        }}
+                        placeholder="https://www.youtube.com/watch?v=... atau https://youtu.be/..."
+                        className="w-full mt-1 rounded border border-border-hairline bg-surface-container-low p-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-semibold text-muted-gray">
+                        Judul / Keterangan Video (Opsional):
+                      </label>
+                      <input
+                        type="text"
+                        value={block.title || ""}
+                        onChange={(e) =>
+                          updateBlock(index, { ...block, title: e.target.value })
+                        }
+                        placeholder="Contoh: Proses Pengerjaan Kitchen Set di Workshop Niscala"
+                        className="w-full mt-1 rounded border border-border-hairline bg-surface-container-low p-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Live Playable YouTube Player in Block Editor! */}
+                    {block.url ? (
+                      <div className="pt-2">
+                        {extractYouTubeVideoId(block.url) ? (
+                          <div className="overflow-hidden rounded-lg border border-border-hairline aspect-video max-w-md bg-deep-black">
+                            <iframe
+                              src={`https://www.youtube-nocookie.com/embed/${extractYouTubeVideoId(block.url)}`}
+                              title={block.title || "YouTube Video"}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                              className="h-full w-full border-0"
+                            />
+                          </div>
+                        ) : (
+                          <p className="text-xs text-error">Format link YouTube belum valid.</p>
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
@@ -598,31 +841,32 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
             >
               <Plus className="size-3.5" /> Tambah Kotak Tips
             </button>
+            <button
+              type="button"
+              onClick={() => addBlock("image")}
+              className="inline-flex items-center gap-1.5 rounded-md border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary/20 transition-colors"
+            >
+              <Plus className="size-3.5" /> Tambah Gambar (JPG/PNG)
+            </button>
+            <button
+              type="button"
+              onClick={() => addBlock("video")}
+              className="inline-flex items-center gap-1.5 rounded-md border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-xs font-semibold text-red-500 hover:bg-red-500/20 transition-colors"
+            >
+              <Plus className="size-3.5" /> Tambah Video YouTube
+            </button>
           </div>
         </div>
       ) : null}
 
-      {/* TAB 2: QUICK TEXT / MARKDOWN */}
+      {/* TAB 1 (DEFAULT): QUICK TEXT / MARKDOWN DENGAN CUSTOMIZE THE EDITOR TOOLBAR */}
       {activeTab === "quick_text" ? (
-        <div className="space-y-3 rounded-xl border border-border-hairline bg-surface p-4 shadow-sm sm:p-6">
-          <div className="flex items-center justify-between">
-            <label className="text-xs font-bold uppercase tracking-wider text-on-surface">
-              Tulis Cepat / Paste Artikel
-            </label>
-            <span className="inline-flex items-center gap-1 text-[11px] text-muted-gray">
-              <HelpCircle className="size-3" />
-              Gunakan <code className="font-mono text-[10px] bg-surface-container-high px-1 py-0.5 rounded">## Subjudul</code>, <code className="font-mono text-[10px] bg-surface-container-high px-1 py-0.5 rounded">- list</code>, atau <code className="font-mono text-[10px] bg-surface-container-high px-1 py-0.5 rounded">&gt; [Tips] isi</code>
-            </span>
-          </div>
-
-          <textarea
-            rows={14}
-            value={quickText}
-            onChange={(e) => setQuickText(e.target.value)}
-            placeholder="Tulis artikel Anda langsung di sini...&#10;&#10;Paragraf pembuka...&#10;&#10;## Sub-Judul Pertama&#10;Penjelasan detail...&#10;&#10;- Poin kelebihan 1&#10;- Poin kelebihan 2&#10;&#10;> [Catatan Penting] Pastikan material sudah sesuai standar."
-            className="w-full font-sans rounded-md border border-border-hairline bg-surface-container-low p-4 text-sm leading-relaxed text-on-surface focus:border-primary focus:outline-none"
-          />
-        </div>
+        <ArticleMarkdownEditor
+          value={quickText}
+          onChange={setQuickText}
+          articleTitle={title}
+          category={category}
+        />
       ) : null}
 
       {/* TAB 3: LIVE PREVIEW */}
@@ -658,6 +902,54 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                       >
                         {block.text}
                       </h2>
+                    );
+                  }
+                  if (block.type === "image") {
+                    return (
+                      <figure key={i} className="my-4 space-y-1.5">
+                        <img
+                          src={block.src}
+                          alt={block.alt || "Gambar artikel"}
+                          className="w-full rounded-xl object-cover max-h-[440px] border border-border-hairline shadow-sm"
+                        />
+                        {block.caption ? (
+                          <figcaption className="text-center text-xs text-muted-gray">
+                            {block.caption}
+                          </figcaption>
+                        ) : null}
+                      </figure>
+                    );
+                  }
+                  if (block.type === "video") {
+                    const videoId =
+                      block.videoId ||
+                      (block.url ? extractYouTubeVideoId(block.url) : null);
+                    return (
+                      <div
+                        key={i}
+                        className="my-4 overflow-hidden rounded-xl border border-border-hairline bg-surface-container-lowest shadow-sm"
+                      >
+                        <div className="relative aspect-video w-full bg-deep-black">
+                          {videoId ? (
+                            <iframe
+                              src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+                              title={block.title || "YouTube Video Player"}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                              className="absolute inset-0 h-full w-full border-0"
+                            />
+                          ) : (
+                            <div className="flex h-full w-full items-center justify-center text-xs text-muted-gray">
+                              Tautan video YouTube tidak valid
+                            </div>
+                          )}
+                        </div>
+                        {block.title ? (
+                          <div className="p-2.5 text-center text-xs text-muted-gray bg-surface-container-low border-t border-border-hairline/60">
+                            {block.title}
+                          </div>
+                        ) : null}
+                      </div>
                     );
                   }
                   if (block.type === "paragraph") {

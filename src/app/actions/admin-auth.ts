@@ -1,30 +1,73 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import {
   clearAdminSessionCookie,
+  extractClientIp,
   setAdminSessionCookie,
-  verifyAdminPassword,
+  verifyAdminCredentials,
 } from "@/lib/auth";
+import {
+  getRateLimitStatus,
+  recordFailedAttempt,
+  resetRateLimit,
+} from "@/lib/rate-limiter";
 
 export type LoginState = {
   success?: boolean;
   error?: string;
+  isBlocked?: boolean;
+  retryAfterMinutes?: number;
 };
 
 export async function loginAdminAction(
   _prevState: LoginState,
   formData: FormData
 ): Promise<LoginState> {
-  const password = formData.get("password") as string;
+  const headersList = await headers();
+  const clientIp = extractClientIp(headersList);
 
-  if (!password) {
-    return { error: "Password wajib diisi." };
+  // 1. Check rate limit status for this IP
+  const rateLimit = getRateLimitStatus(clientIp);
+  if (rateLimit.isBlocked) {
+    return {
+      error: `Akses ditolak: Terlalu banyak percobaan gagal. IP Anda (${clientIp}) diblokir sementara. Silakan tunggu ${rateLimit.retryAfterMinutes} menit lagi sebelum mencoba kembali.`,
+      isBlocked: true,
+      retryAfterMinutes: rateLimit.retryAfterMinutes,
+    };
   }
 
-  if (!verifyAdminPassword(password)) {
-    return { error: "Password yang Anda masukkan salah." };
+  const username = (formData.get("username") as string) || "";
+  const password = (formData.get("password") as string) || "";
+
+  if (!username.trim() || !password) {
+    return { error: "Username dan password wajib diisi." };
   }
+
+  // 2. Verify credentials
+  const isValid = verifyAdminCredentials(username, password);
+
+  if (!isValid) {
+    // Record failed attempt
+    const attemptResult = recordFailedAttempt(clientIp);
+
+    if (attemptResult.isBlocked) {
+      return {
+        error: `PERINGATAN KEAMANAN: Anda telah gagal login sebanyak 3 kali. IP Anda (${clientIp}) telah diblokir selama 10 menit demi keamanan sistem.`,
+        isBlocked: true,
+        retryAfterMinutes: 10,
+      };
+    }
+
+    return {
+      error: `Username atau password salah. Sisa kesempatan: ${attemptResult.remainingAttempts} kali sebelum IP Anda diblokir selama 10 menit.`,
+      isBlocked: false,
+    };
+  }
+
+  // 3. Reset rate limiter on successful login
+  resetRateLimit(clientIp);
 
   await setAdminSessionCookie();
   redirect("/admin/articles");
