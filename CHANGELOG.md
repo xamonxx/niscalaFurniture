@@ -9,6 +9,17 @@ break by not knowing.
 
 ## Unreleased
 
+### Migration steps for the second developer now cover the admin credentials
+- **What** `CONTRIBUTING.md` gains three steps: `npm install` (sharp moved to
+  `dependencies`), the first `npm run build` that creates `public/v`, and
+  generating `ADMIN_SECRET` / `ADMIN_PASSWORD_HASH` locally.
+- **Why** The migration was written before the admin panel failed closed. A
+  developer following the old steps would land on a working site with a dead
+  `/admin` and no clue why, since the reason only appears in the server log.
+- **Watch** Those values are per machine. `.env.local` is git-ignored, so they
+  are never shared between developers, and production must not reuse a local
+  one.
+
 ### Closed an authentication bypass in the admin panel
 - **What** Removed every credential default from `src/lib/auth.ts`, split the
   session signing key from the password, bounded the session timestamp at both

@@ -101,16 +101,42 @@ git fetch origin
 git switch -c master origin/master
 ```
 
-**Langkah 5 — pasang ulang dependensi dan bangun ulang varian gambar.** Ini
-wajib: `public/v/` tidak ikut git dan situs kosong tanpanya.
+**Langkah 5 — pasang ulang dependensi.** `sharp` kini ada di `dependencies`,
+bukan `devDependencies`, karena dipakai saat runtime untuk memproses upload:
 
 ```bash
 npm install
 ```
 
+**Langkah 6 — bangun ulang varian gambar.** Wajib: `public/v/` tidak ikut git
+dan situs tampil kosong tanpanya. Sekali jalan penuh sekitar 55 detik; sesudah
+itu inkremental.
+
 ```bash
 npm run build
 ```
+
+**Langkah 7 — hidupkan kembali panel admin secara lokal.**
+
+Jangan lewati langkah ini lalu menyimpulkan panelnya rusak. Sejak perbaikan
+keamanan, `src/lib/auth.ts` tidak lagi punya nilai default apa pun: tanpa
+variabel di bawah, setiap login ditolak dan alasannya dicatat di log server.
+Situs publiknya sendiri tetap jalan normal — hanya `/admin` yang mati.
+
+Buat dua nilai ini:
+
+```bash
+npm run admin:secret
+```
+
+```bash
+npm run admin:password
+```
+
+Lalu masukkan `ADMIN_USERNAME`, `ADMIN_SECRET`, dan `ADMIN_PASSWORD_HASH` ke
+`.env.local` masing-masing. Nilainya **milik tiap mesin** — `.env.local` tidak
+ikut git, jadi jangan saling mengirim isinya, dan nilai di server produksi harus
+berbeda dari nilai lokal. Daftar variabelnya ada di `.env.example`.
 
 Setelah ini `niscalaFurnitureV2` boleh ditinggalkan. Kalau B ingin tetap punya
 salinan sendiri di GitHub, gunakan tombol **Fork** dari repo kanonik — jangan
