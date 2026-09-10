@@ -3,10 +3,13 @@ import { ArrowRight } from "lucide-react";
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/ui/typography";
-import { knowledgeArticles } from "@/data/knowledge";
+import { getAllArticles } from "@/lib/articles";
 
 /** Section 07 - Knowledge centre. */
-export function KnowledgePreview() {
+export async function KnowledgePreview() {
+  const all = await getAllArticles();
+  const articles = all.slice(0, 4);
+
   return (
     <section className="bg-surface py-space-4xl">
       <div className="container-editorial">
@@ -23,7 +26,7 @@ export function KnowledgePreview() {
           as="ul"
           className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop md:grid-cols-2 lg:grid-cols-4"
         >
-          {knowledgeArticles.map((article) => (
+          {articles.map((article) => (
             <RevealItem
               as="li"
               key={article.slug}

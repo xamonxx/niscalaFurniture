@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { knowledgeArticles } from "@/data/knowledge";
+import { getAllArticles } from "@/lib/articles";
 import {
   getProjectsByCategory,
   populatedCategories,
@@ -31,13 +31,14 @@ const CONTENT_LAST_REVIEWED = "2026-09-08";
 const portfolioDate = new Date(portfolioUpdatedAt);
 const staticDate = new Date(CONTENT_LAST_REVIEWED);
 
-/** Latest publish date across the knowledge centre, for the listing page. */
-const latestArticleDate = knowledgeArticles.reduce((latest, article) => {
-  const stamp = new Date(article.updatedAt ?? article.publishedAt);
-  return stamp > latest ? stamp : latest;
-}, staticDate);
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const articles = await getAllArticles();
 
-export default function sitemap(): MetadataRoute.Sitemap {
+  const latestArticleDate = articles.reduce((latest, article) => {
+    const stamp = new Date(article.updatedAt ?? article.publishedAt);
+    return stamp > latest ? stamp : latest;
+  }, staticDate);
+
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${site.url}/`,
@@ -117,7 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const articleRoutes: MetadataRoute.Sitemap = knowledgeArticles.map((article) => ({
+  const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({
     url: `${site.url}/knowledge/${article.slug}`,
     lastModified: new Date(article.updatedAt ?? article.publishedAt),
     changeFrequency: "yearly",

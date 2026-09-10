@@ -6,9 +6,8 @@ import { Eyebrow } from "@/components/ui/typography";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
 import {
   articleSeoTitle,
-  knowledgeArticles,
-  knowledgeBySlug,
 } from "@/data/knowledge";
+import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import {
   ORGANISATION_ID,
   absoluteUrl,
@@ -22,20 +21,19 @@ import { site } from "@/lib/site";
 import type { KnowledgeArticle } from "@/types";
 
 /**
- * Every valid slug comes from generateStaticParams, so anything else is a real
- * 404. Without this, the root loading.tsx boundary starts streaming a 200
- * response before the page can call notFound(), turning every unknown URL into
- * a soft 404 that search engines treat as a duplicate page.
+ * Dynamic params enabled so newly published articles from the admin panel
+ * are resolved and rendered on demand without requiring a redeploy.
  */
-export const dynamicParams = false;
+export const dynamicParams = true;
 
-export function generateStaticParams() {
-  return knowledgeArticles.map((article) => ({ slug: article.slug }));
+export async function generateStaticParams() {
+  const articles = await getAllArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata(props: PageProps<"/knowledge/[slug]">) {
   const { slug } = await props.params;
-  const article = knowledgeBySlug(slug);
+  const article = await getArticleBySlug(slug);
 
   if (!article) {
     return buildMetadata({
@@ -126,11 +124,12 @@ function countWords(article: KnowledgeArticle): number {
 
 export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">) {
   const { slug } = await props.params;
-  const article = knowledgeBySlug(slug);
+  const article = await getArticleBySlug(slug);
 
   if (!article) notFound();
 
-  const others = knowledgeArticles.filter((item) => item.slug !== article.slug);
+  const allArticles = await getAllArticles();
+  const others = allArticles.filter((item) => item.slug !== article.slug);
 
   return (
     <>

@@ -2,6 +2,7 @@
 
 import { ClipboardList, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/cn";
@@ -25,8 +26,13 @@ export const SURVEY_ANCHOR_ID = "konsultasi-flow";
  * mechanism that can be throttled independently of scrolling.
  */
 export function StickyMobileCta() {
+  const pathname = usePathname();
   const [shown, setShown] = useState(false);
   const whatsappUrl = buildWhatsAppUrl({ source: "sticky_mobile" });
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   useEffect(() => {
     const update = () => {

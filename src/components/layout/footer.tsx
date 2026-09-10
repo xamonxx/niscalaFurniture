@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { BrandMark } from "@/components/layout/brand-mark";
 import { navLinks } from "@/components/layout/nav-links";
@@ -8,7 +11,12 @@ import { site } from "@/lib/site";
 import { servedLocations } from "@/data/projects";
 
 export function Footer() {
+  const pathname = usePathname();
   const year = new Date().getFullYear();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   // Only the first handful of towns, so the line stays a proof point rather
   // than a wall of place names.
