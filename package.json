@@ -12,7 +12,9 @@
     "prepare:images": "node scripts/prepare-images.mjs",
     "prepare:interior": "python scripts/extract-portfolio-pdf.py",
     "prepare:variants": "node scripts/build-image-variants.mjs",
-    "prepare:blur": "node scripts/add-blur-placeholders.mjs"
+    "prepare:blur": "node scripts/add-blur-placeholders.mjs",
+    "admin:secret": "node scripts/admin-credentials.mjs secret",
+    "admin:password": "node scripts/admin-credentials.mjs password"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
