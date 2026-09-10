@@ -1,0 +1,92 @@
+# Changelog
+
+What changed and why. Newest first. The format is defined in `AGENTS.md`;
+every agent and developer adds an entry for anything that alters behaviour,
+output, build steps or deploy steps.
+
+The "Watch" lines are the point of this file: they are what a later change can
+break by not knowing.
+
+## Unreleased
+
+### Agent and contributor documentation
+- **What** Added `CHANGELOG.md`, `CONTRIBUTING.md`, and a project-rules section
+  in `AGENTS.md` covering commands, document ownership, and the traps that have
+  already cost time.
+- **Why** Two developers and several agents were each re-deriving the same
+  constraints. `CODEX_MEMORY.md` had already gone stale — it still described a
+  Turbopack build and knew nothing about the admin panel or the image loader.
+- **Watch** `AGENTS.md` is loaded automatically by Claude Code via `CLAUDE.md`
+  and read directly by other agents, so it is the only file guaranteed to be
+  seen. Anything an agent must not get wrong belongs there, not here.
+
+### Merged the admin-panel branch
+- **What** Brought Developer B's four commits (article admin panel, login,
+  editor, image and YouTube embeds) into `master`, then merged `master` into
+  `feat/optimasi-gambar`. Five files conflicted and were resolved by taking
+  whichever side was more complete per hunk.
+- **Why** The two branches had diverged from `afc8d4e` and both had touched the
+  homepage sections while independently fixing the same mobile problems.
+- **Watch** `sticky-mobile-cta.tsx` merged with **no** conflict and was broken
+  anyway: an early `/admin` return landed above a `useEffect`, leaving a
+  conditional hook that throws on navigation out of `/admin`. Lint caught it,
+  git could not. A clean merge here is not evidence of a working merge — run
+  `npm run lint` and `npm run build` after every merge.
+
+### Kept `--text-display-mobile` at 40px
+- **What** Declined the admin branch's 34px for this token.
+- **Why** `--text-headline-lg-mobile` is 36px. At 34px the largest step in the
+  scale renders smaller than the step beneath it, everywhere the token is used —
+  hero, closing CTA, CTA banner.
+- **Watch** Both branches were chasing the same goal, a hero that does not push
+  the proof bar below the fold on a 360px phone. If the hero specifically needs
+  to be smaller, that belongs on the hero's own class.
+
+### Pre-rendered responsive image variants; runtime optimiser off
+- **What** `scripts/build-image-variants.mjs` writes every width in the ladder
+  into `public/v` before the build. A custom `next/image` loader
+  (`src/lib/image-loader.ts`) points at those files. `/_next/image` now 404s.
+- **Why** On Hostinger shared hosting a cold `/_next/image` request measured
+  **1.8–2.8s TTFB** because `sharp` encoded on demand, and the cache behind it
+  lives in `.next/cache/images`, which every rebuild wipes — so the first
+  visitor after each deploy paid it again. The same request now serves in
+  **23ms**.
+- **Watch** WebP only, deliberately. Measured on this project's own photography
+  at 1280px: webp 202ms / 79.6 KB against avif 5081ms / 65.5 KB. AVIF is 25×
+  slower to encode for 18% fewer bytes, which is a 45-minute build instead of a
+  1-minute one. Do not "improve" this by re-enabling AVIF without re-measuring
+  on the target host.
+
+### Hard-linked the duplicate top ladder rung
+- **What** Ladder steps at or above a source's own width are copied once and
+  hard-linked thereafter, with a copy fallback.
+- **Why** 227 of 232 sources are 1280px wide or narrower, so the 1600 rung was a
+  byte-for-byte duplicate of 1280. The tree went from 63.2 MB to 39.9 MB.
+- **Watch** Uploading over FTP expands links back into files. The saving is real
+  only when the build runs on the server.
+
+### Blur placeholders via `placeholder`, not `placeholder="blur"`
+- **What** `npm run prepare:blur` writes a 16px LQIP into the manifests;
+  `src/lib/image-placeholder.ts` passes it as a `data:` URI.
+- **Why** `placeholder="blur"` wraps the URI in an inline SVG carrying two
+  `feGaussianBlur` passes, a `feColorMatrix` and two `feComposite` nodes — about
+  1 KB per image, repeated in the flight payload. That more than doubled
+  `/portfolio`. Passing the URI directly paints it as a plain background, and
+  the browser's own upscaling supplies the blur the filter was faking.
+- **Watch** Roughly 150 bytes per image either way; the SVG is the expensive
+  part, not the placeholder.
+
+### Spelled out `sizes` instead of approximating with `vw`
+- **What** Portfolio grids declare real slot widths.
+- **Why** `30vw` was a stand-in for the container arithmetic and drifted on wide
+  screens: the container caps at 1440px with 64px gutters, so a card is 416px on
+  a 1920px display, not 576px.
+- **Watch** Next narrows a srcset only when `sizes` contains a bare integer
+  `vw` preceded by whitespace — its regex is `/(^|\s)(1?\d?\d)vw/`. A `calc()`
+  disables that narrowing, so all ladder widths are offered. Measured cost:
+  1.1 KB gzipped, accepted so low-DPR phones keep the small variants.
+
+### Long-lived caching for images
+- **What** `/images`, `/logo` and `/v` are served `immutable` for a year.
+- **Why** The host returned them with no `Cache-Control` at all, so browsers
+  fell back to heuristic caching and revalidated far more often than needed.
