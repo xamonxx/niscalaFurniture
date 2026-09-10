@@ -48,14 +48,14 @@ export function PortfolioPreview() {
 
         <RevealGroup
           as="ul"
-          className="grid gap-gutter-desktop sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop sm:grid-cols-2 lg:grid-cols-3"
         >
           {selection.map((project, index) => (
             <RevealItem as="li" key={project.slug}>
               <ProjectCard
                 project={project}
                 ratio={index === 0 ? "tall" : "standard"}
-                sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
+                sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 46vw"
               />
             </RevealItem>
           ))}

@@ -282,7 +282,7 @@ export function ProcessStorytelling({ steps, images }: ProcessStorytellingProps)
             cannot fix that: the card pitch cancels out of the arithmetic on
             both sides, so the runway has to sit below the last card.
           */}
-          <ol className="space-y-space-sm lg:relative lg:col-span-7 lg:space-y-[clamp(0.375rem,0.9vh,0.75rem)] lg:pl-space-lg lg:before:absolute lg:before:inset-y-0 lg:before:left-0 lg:before:w-px lg:before:bg-pure-white/12 lg:before:content-[''] lg:after:absolute lg:after:inset-y-0 lg:after:left-0 lg:after:w-px lg:after:origin-top lg:after:scale-y-[var(--progress,0)] lg:after:bg-primary-container lg:after:content-[''] lg:before:[-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:before:[mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:after:[-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:after:[mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:[@media(max-height:699px)]:pb-[45vh]">
+          <ol className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop lg:block lg:relative lg:col-span-7 lg:space-y-[clamp(0.375rem,0.9vh,0.75rem)] lg:pl-space-lg lg:before:absolute lg:before:inset-y-0 lg:before:left-0 lg:before:w-px lg:before:bg-pure-white/12 lg:before:content-[''] lg:after:absolute lg:after:inset-y-0 lg:after:left-0 lg:after:w-px lg:after:origin-top lg:after:scale-y-[var(--progress,0)] lg:after:bg-primary-container lg:after:content-[''] lg:before:[-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:before:[mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:after:[-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:after:[mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)] lg:[@media(max-height:699px)]:pb-[45vh]">
         {steps.map((step, index) => {
           const isActive = index === active;
           return (
@@ -293,17 +293,17 @@ export function ProcessStorytelling({ steps, images }: ProcessStorytellingProps)
               }}
               aria-current={isActive ? "step" : undefined}
               className={cn(
-                "relative rounded-md border p-space-md transition-colors duration-300 lg:p-[clamp(0.5rem,1.3vh,1rem)]",
+                "relative rounded-md border p-space-sm transition-colors duration-300 sm:p-space-md lg:p-[clamp(0.5rem,1.3vh,1rem)]",
                 isActive
                   ? "border-primary-container/40 bg-inverse-surface/70"
                   : "border-transparent bg-inverse-surface/30 hover:bg-inverse-surface/50"
               )}
             >
-              <div className="flex items-start gap-space-sm">
+              <div className="flex flex-col items-start gap-space-xs sm:flex-row sm:gap-space-sm">
                 <span
                   aria-hidden
                   className={cn(
-                    "flex size-8 shrink-0 items-center justify-center rounded-full text-label-md font-bold transition-colors duration-300 lg:size-7",
+                    "flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors duration-300 sm:size-8 sm:text-label-md lg:size-7",
                     isActive
                       ? "bg-primary-container text-deep-black"
                       : "bg-inverse-surface text-tertiary-fixed-dim"
@@ -311,10 +311,10 @@ export function ProcessStorytelling({ steps, images }: ProcessStorytellingProps)
                 >
                   {step.index}
                 </span>
-                <div className="space-y-space-2xs">
+                <div className="space-y-1 sm:space-y-space-2xs">
                   <h3
                     className={cn(
-                      "text-body-lg font-semibold transition-colors duration-300 lg:text-body-md",
+                      "text-xs sm:text-body-lg font-semibold transition-colors duration-300 lg:text-body-md leading-snug",
                       isActive ? "text-primary-container" : "text-pure-white"
                     )}
                   >
@@ -329,7 +329,7 @@ export function ProcessStorytelling({ steps, images }: ProcessStorytellingProps)
                       {step.title}
                     </button>
                   </h3>
-                  <p className="text-body-sm leading-relaxed text-tertiary-fixed-dim lg:leading-normal">
+                  <p className="text-[11px] sm:text-body-sm leading-relaxed text-tertiary-fixed-dim lg:leading-normal">
                     {step.body}
                   </p>
                 </div>

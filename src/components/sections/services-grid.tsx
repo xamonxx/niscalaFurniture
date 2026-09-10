@@ -28,7 +28,7 @@ export function ServicesGrid() {
 
         <RevealGroup
           as="ul"
-          className="grid gap-gutter-desktop md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop md:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service) => {
             const Icon = service.icon;
@@ -36,25 +36,25 @@ export function ServicesGrid() {
               <RevealItem
                 as="li"
                 key={service.slug}
-                className="flex flex-col gap-space-md rounded-md bg-surface-container-lowest p-space-xl shadow-hairline transition-shadow hover:shadow-panel"
+                className="flex flex-col gap-space-xs sm:gap-space-md rounded-md bg-surface-container-lowest p-space-sm sm:p-space-xl shadow-hairline transition-shadow hover:shadow-panel"
               >
-                <span className="flex size-12 items-center justify-center rounded-md bg-surface-container text-primary">
-                  <Icon aria-hidden className="size-6" />
+                <span className="flex size-8 sm:size-12 items-center justify-center rounded-md bg-surface-container text-primary">
+                  <Icon aria-hidden className="size-4 sm:size-6" />
                 </span>
-                <h3 className="text-headline-sm font-semibold text-on-surface">
+                <h3 className="text-xs sm:text-headline-sm font-semibold text-on-surface leading-snug">
                   {service.title}
                 </h3>
-                <p className="flex-1 text-body-sm leading-relaxed text-on-surface-variant">
+                <p className="flex-1 text-[11px] sm:text-body-sm leading-relaxed text-on-surface-variant">
                   {service.description}
                 </p>
                 <Link
                   href={`/services#${service.slug}`}
-                  className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface transition-colors hover:text-primary"
+                  className="group inline-flex items-center gap-1 sm:gap-space-2xs text-[11px] sm:text-label-md font-semibold text-on-surface transition-colors hover:text-primary pt-1 sm:pt-0"
                 >
                   {service.ctaLabel}
                   <ArrowRight
                     aria-hidden
-                    className="size-4 transition-transform group-hover:translate-x-0.5"
+                    className="size-3 sm:size-4 transition-transform group-hover:translate-x-0.5"
                   />
                 </Link>
               </RevealItem>

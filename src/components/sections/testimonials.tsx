@@ -27,31 +27,31 @@ export function Testimonials() {
           </div>
         </Reveal>
 
-        <RevealGroup as="ul" className="grid gap-gutter-desktop md:grid-cols-2">
+        <RevealGroup as="ul" className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop md:grid-cols-2">
           {items.map((testimonial) => (
             <RevealItem
               as="li"
               key={testimonial.id}
-              className="flex flex-col justify-between gap-space-md rounded-md bg-surface-container-lowest p-space-xl shadow-hairline"
+              className="flex flex-col justify-between gap-space-sm rounded-md bg-surface-container-lowest p-space-sm shadow-hairline sm:gap-space-md sm:p-space-xl"
             >
-              <div className="space-y-space-sm">
+              <div className="space-y-space-xs sm:space-y-space-sm">
                 <span
                   aria-hidden
                   className="flex gap-0.5 text-primary-container"
                 >
                   {Array.from({ length: 5 }).map((_, index) => (
-                    <Star key={index} className="size-5 fill-current" />
+                    <Star key={index} className="size-3 sm:size-5 fill-current" />
                   ))}
                 </span>
-                <blockquote className="text-body-lg italic leading-relaxed text-on-surface">
+                <blockquote className="text-xs sm:text-body-lg italic leading-relaxed text-on-surface">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
               </div>
-              <footer className="pt-space-sm">
-                <p className="text-label-lg font-bold text-on-surface">
+              <footer className="pt-space-xs sm:pt-space-sm">
+                <p className="text-xs sm:text-label-lg font-bold text-on-surface">
                   {testimonial.author}
                 </p>
-                <p className="text-body-sm text-muted-gray">{testimonial.context}</p>
+                <p className="text-[10px] sm:text-body-sm text-muted-gray">{testimonial.context}</p>
               </footer>
             </RevealItem>
           ))}

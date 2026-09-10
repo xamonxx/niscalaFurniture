@@ -82,6 +82,7 @@ export type ProblemCard = {
   index: string;
   title: string;
   body: string;
+  image?: string;
 };
 
 export type ApproachCard = {

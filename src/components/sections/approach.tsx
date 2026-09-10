@@ -27,24 +27,24 @@ export function Approach() {
 
         <RevealGroup
           as="ul"
-          className="grid gap-gutter-desktop md:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop lg:grid-cols-4"
         >
           {approach.map((item) => (
             <RevealItem
               as="li"
               key={item.index}
-              className="space-y-space-md rounded-md bg-surface-container-low p-space-xl"
+              className="space-y-space-xs rounded-md bg-surface-container-low p-space-sm shadow-hairline transition-shadow hover:shadow-panel sm:space-y-space-sm sm:p-space-lg lg:space-y-space-md lg:p-space-xl"
             >
               <span
                 aria-hidden
-                className="block text-[44px] font-bold leading-none text-primary-container"
+                className="block text-2xl font-bold leading-none text-primary-container sm:text-3xl lg:text-[44px]"
               >
                 {item.index}
               </span>
-              <h3 className="text-headline-sm font-semibold text-on-surface">
+              <h3 className="text-sm font-semibold leading-snug text-on-surface sm:text-base lg:text-headline-sm">
                 {item.title}
               </h3>
-              <p className="text-body-sm leading-relaxed text-on-surface-variant">
+              <p className="text-xs leading-relaxed text-on-surface-variant sm:text-body-sm">
                 {item.body}
               </p>
             </RevealItem>

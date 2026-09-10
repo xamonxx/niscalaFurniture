@@ -17,13 +17,13 @@ export function Timeline() {
           </div>
         </Reveal>
 
-        <RevealGroup as="ol" className="grid gap-space-md md:grid-cols-5">
+        <RevealGroup as="ol" className="grid grid-cols-2 gap-space-sm sm:gap-space-md md:grid-cols-5">
           {timeline.map((phase) => (
             <RevealItem
               as="li"
               key={phase.index}
               className={cn(
-                "space-y-space-xs rounded-md p-space-lg",
+                "space-y-space-2xs sm:space-y-space-xs rounded-md p-space-sm sm:p-space-lg",
                 phase.emphasis
                   ? "bg-surface-container-high shadow-hairline"
                   : "bg-surface-container-low"
@@ -31,18 +31,18 @@ export function Timeline() {
             >
               <span
                 className={cn(
-                  "block text-label-eyebrow uppercase",
+                  "block text-[10px] sm:text-label-eyebrow uppercase",
                   phase.emphasis ? "text-primary" : "text-muted-gray"
                 )}
               >
                 {phase.index}
               </span>
-              <h3 className="text-label-lg font-bold text-on-surface">
+              <h3 className="text-xs sm:text-label-lg font-bold text-on-surface leading-snug">
                 {phase.title}
               </h3>
               <span
                 className={cn(
-                  "inline-block rounded-sm px-space-xs py-space-2xs text-label-eyebrow font-semibold",
+                  "inline-block rounded-sm px-1.5 py-0.5 sm:px-space-xs sm:py-space-2xs text-[10px] sm:text-label-eyebrow font-semibold",
                   phase.emphasis
                     ? "bg-primary-container text-deep-black"
                     : "bg-surface-container-highest text-on-surface"
@@ -51,11 +51,11 @@ export function Timeline() {
                 {phase.duration}
               </span>
               {phase.note ? (
-                <span className="block text-label-eyebrow uppercase text-muted-gray">
+                <span className="block text-[10px] sm:text-label-eyebrow uppercase text-muted-gray">
                   {phase.note}
                 </span>
               ) : null}
-              <p className="pt-space-2xs text-body-sm text-on-surface-variant">
+              <p className="pt-1 sm:pt-space-2xs text-[11px] sm:text-body-sm text-on-surface-variant leading-relaxed">
                 {phase.body}
               </p>
             </RevealItem>
