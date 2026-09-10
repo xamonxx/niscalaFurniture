@@ -49,12 +49,11 @@ export function StickyMobileCta() {
   /*
      The admin panel has no use for a sales bar over its toolbars.
 
-     Read as a value rather than an early return: the two branches that met
-     here put the guard above the effect below it, which git merged happily
-     into a hook that only runs on some routes. React counts hooks per render,
-     so navigating out of /admin would have thrown "rendered fewer hooks than
-     expected". Bailing out inside the effect keeps the call unconditional and
-     still registers no listeners on admin routes.
+     Read as a value rather than an early return. Returning above the effect
+     leaves the hook conditional, and React counts hooks per render - so
+     navigating out of /admin threw "rendered fewer hooks than expected".
+     Bailing out inside the effect keeps the call unconditional and still
+     registers no listeners on admin routes.
   */
   const onAdmin = pathname?.startsWith("/admin") ?? false;
 
