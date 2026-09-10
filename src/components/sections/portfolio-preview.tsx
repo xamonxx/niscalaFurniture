@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { portfolioGridSizes } from "@/components/portfolio/project-grid";
 import { ProjectCard } from "@/components/ui/project-card";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/ui/typography";
@@ -10,6 +9,22 @@ import {
   photoCount,
   projectCount,
 } from "@/data/projects";
+
+/*
+ * Slot widths for this section's own grid.
+ *
+ * Deliberately not `portfolioGridSizes`: that one describes /portfolio, which
+ * is a single column below 640px, while this preview is two-up all the way
+ * down. Everything from 640px up is identical - container capped at 1440px,
+ * 64px gutters above 1024px, 32px grid gap - so only the last clause differs,
+ * where the pair sits inside a 20px margin and a 12px gap.
+ */
+const PREVIEW_SIZES = [
+  "(min-width: 1440px) 416px",
+  "(min-width: 1024px) calc((100vw - 192px) / 3)",
+  "(min-width: 640px) calc((100vw - 72px) / 2)",
+  "calc((100vw - 52px) / 2)",
+].join(", ");
 
 /**
  * Section 04 - Selected portfolio.
@@ -49,14 +64,14 @@ export function PortfolioPreview() {
 
         <RevealGroup
           as="ul"
-          className="grid gap-gutter-desktop sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop sm:grid-cols-2 lg:grid-cols-3"
         >
           {selection.map((project, index) => (
             <RevealItem as="li" key={project.slug}>
               <ProjectCard
                 project={project}
                 ratio={index === 0 ? "tall" : "standard"}
-                sizes={portfolioGridSizes}
+                sizes={PREVIEW_SIZES}
               />
             </RevealItem>
           ))}

@@ -2,6 +2,7 @@
 
 import { ClipboardList, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/cn";
@@ -41,10 +42,25 @@ export const SURVEY_ANCHOR_ID = "konsultasi-flow";
  * own toolbar, not over the page.
  */
 export function StickyMobileCta() {
+  const pathname = usePathname();
   const [shown, setShown] = useState(false);
   const whatsappUrl = buildWhatsAppUrl({ source: "sticky_mobile" });
 
+  /*
+     The admin panel has no use for a sales bar over its toolbars.
+
+     Read as a value rather than an early return: the two branches that met
+     here put the guard above the effect below it, which git merged happily
+     into a hook that only runs on some routes. React counts hooks per render,
+     so navigating out of /admin would have thrown "rendered fewer hooks than
+     expected". Bailing out inside the effect keeps the call unconditional and
+     still registers no listeners on admin routes.
+  */
+  const onAdmin = pathname?.startsWith("/admin") ?? false;
+
   useEffect(() => {
+    if (onAdmin) return;
+
     const update = () => {
       const pastHero = window.scrollY > window.innerHeight * 0.6;
 
@@ -68,7 +84,9 @@ export function StickyMobileCta() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [onAdmin]);
+
+  if (onAdmin) return null;
 
   return (
     <div

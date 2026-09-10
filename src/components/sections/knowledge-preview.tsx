@@ -4,10 +4,13 @@ import { ArrowRight } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
 import { cn } from "@/lib/cn";
-import { knowledgeArticles } from "@/data/knowledge";
+import { getAllArticles } from "@/lib/articles";
 
 /** Section 07 - Knowledge centre. */
-export function KnowledgePreview() {
+export async function KnowledgePreview() {
+  const all = await getAllArticles();
+  const articles = all.slice(0, 4);
+
   return (
     <section className="bg-surface py-space-4xl">
       <div className="container-editorial">
@@ -22,32 +25,42 @@ export function KnowledgePreview() {
 
         <RevealGroup
           as="ul"
-          className="grid gap-gutter-desktop md:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop md:grid-cols-2 lg:grid-cols-4"
         >
-          {knowledgeArticles.map((article) => (
+          {articles.map((article) => (
             <RevealItem
               as="li"
               key={article.slug}
               className="flex flex-col justify-between rounded-md bg-surface-container-low shadow-hairline"
             >
-              <div className="space-y-space-sm p-space-lg">
+              <div className="space-y-space-xs p-space-sm sm:space-y-space-sm sm:p-space-lg">
                 <Eyebrow>{article.category}</Eyebrow>
-                <h3 className="text-headline-sm font-semibold leading-snug text-on-surface">
+                <h3 className="text-xs sm:text-headline-sm font-semibold leading-snug text-on-surface">
                   {article.title}
                 </h3>
-                <p className="text-body-sm leading-relaxed text-on-surface-variant">
+                <p className="text-[11px] sm:text-body-sm leading-relaxed text-on-surface-variant">
                   {article.summary}
                 </p>
               </div>
-              <div className="px-space-lg pb-space-lg">
+              <div className="px-space-sm pb-space-sm sm:px-space-lg sm:pb-space-lg">
                 <Link
                   href={`/knowledge/${article.slug}`}
-                  className={cn(arrowRowClasses, "text-on-surface hover:text-primary")}
+                  /*
+                    The shared row plus this section's own tighter mobile type.
+                    Spelling the whole class list out instead dropped
+                    `tap-safe`, and this link draws 16px tall - without it, it
+                    is the smallest touch target on the homepage.
+                  */
+                  className={cn(
+                    arrowRowClasses,
+                    "gap-1 text-[11px] sm:gap-space-2xs sm:text-label-md",
+                    "text-on-surface hover:text-primary"
+                  )}
                 >
                   Baca Panduan
                   <ArrowRight
                     aria-hidden
-                    className="size-4 transition-transform group-hover:translate-x-0.5"
+                    className="size-3 sm:size-4 transition-transform group-hover:translate-x-0.5"
                   />
                 </Link>
               </div>

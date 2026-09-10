@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { BrandMark } from "@/components/layout/brand-mark";
 import { navLinks } from "@/components/layout/nav-links";
@@ -24,7 +27,12 @@ const footerRowClasses =
   "transition-colors hover:text-on-surface pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:items-center";
 
 export function Footer() {
+  const pathname = usePathname();
   const year = new Date().getFullYear();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   // Only the first handful of towns, so the line stays a proof point rather
   // than a wall of place names.
