@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
+import { cn } from "@/lib/cn";
 import { knowledgeArticles } from "@/data/knowledge";
 
 /** Section 07 - Knowledge centre. */
@@ -41,7 +42,7 @@ export function KnowledgePreview() {
               <div className="px-space-lg pb-space-lg">
                 <Link
                   href={`/knowledge/${article.slug}`}
-                  className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface transition-colors hover:text-primary"
+                  className={cn(arrowRowClasses, "text-on-surface hover:text-primary")}
                 >
                   Baca Panduan
                   <ArrowRight

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { blurPlaceholder } from "@/lib/image-placeholder";
 import { cn } from "@/lib/cn";
 import type { Project } from "@/types";
 
@@ -66,6 +67,14 @@ export function ProjectCard({
               sizes={sizes}
               loading={loadPriority ? "eager" : "lazy"}
               fetchPriority={loadPriority === "high" ? "high" : "auto"}
+              /*
+                The blur stand-in matters more here than it would on a fast
+                host. Covers are served through the Next image optimiser, and
+                the first request for a variant is a cold AVIF encode - low
+                seconds on this shared plan. Without a placeholder the whole
+                grid is flat grey rectangles for that entire window.
+              */
+              {...blurPlaceholder(project.coverBlurDataURL)}
               className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
             />
           </div>

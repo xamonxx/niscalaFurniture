@@ -9,6 +9,21 @@ const LOGO_WIDTH = 1200;
 const LOGO_HEIGHT = 113;
 
 /**
+ * The size the srcset is built around, not the size of the file.
+ *
+ * The mark is drawn at most 20px tall, so about 212px wide. Passing the
+ * intrinsic 1200px alongside a fixed-pixel `sizes` made Next emit all twelve
+ * configured widths - up to 1920w - for a wordmark that never exceeds a
+ * quarter of that. Each of those is a cache key and, on first request, a cold
+ * AVIF encode. Declaring the real render width instead leaves a two-entry
+ * srcset at 1x and 2x.
+ *
+ * Kept on the file's own 10.6:1 ratio so the reserved box still matches.
+ */
+const RENDER_WIDTH = 318;
+const RENDER_HEIGHT = Math.round((RENDER_WIDTH * LOGO_HEIGHT) / LOGO_WIDTH);
+
+/**
  * The wordmark is unusually wide (about 10.6:1), so a fixed pixel height that
  * looks right on desktop eats more than half of a 375px screen. Size it with
  * responsive classes instead.
@@ -63,11 +78,10 @@ export function BrandMark({
           : "/logo/niscala-wordmark-light.png"
       }
       alt={site.name}
-      width={LOGO_WIDTH}
-      height={LOGO_HEIGHT}
+      width={RENDER_WIDTH}
+      height={RENDER_HEIGHT}
       loading={eager ? "eager" : "lazy"}
       fetchPriority="low"
-      sizes="240px"
       className={SIZES[size]}
     />
   );

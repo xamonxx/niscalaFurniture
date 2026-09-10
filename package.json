@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build --webpack",
-    "build:turbopack": "next build",
+    "dev": "npm run prepare:variants && next dev",
+    "build": "npm run prepare:variants && next build --webpack",
+    "build:turbopack": "npm run prepare:variants && next build",
     "start": "next start",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "prepare:images": "node scripts/prepare-images.mjs"
+    "prepare:images": "node scripts/prepare-images.mjs",
+    "prepare:interior": "python scripts/extract-portfolio-pdf.py",
+    "prepare:variants": "node scripts/build-image-variants.mjs",
+    "prepare:blur": "node scripts/add-blur-placeholders.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
 
-import { Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
 import {
   articleSeoTitle,
@@ -18,6 +18,7 @@ import {
   jsonLdScript,
   webPageJsonLd,
 } from "@/lib/seo";
+import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 import type { KnowledgeArticle } from "@/types";
 
@@ -143,7 +144,7 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
         <div className="container-editorial">
           <Link
             href="/knowledge"
-            className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface-variant transition-colors hover:text-on-surface"
+            className={cn(arrowRowClasses, "text-on-surface-variant hover:text-on-surface")}
           >
             <ArrowLeft
               aria-hidden

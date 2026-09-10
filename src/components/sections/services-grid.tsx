@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
+import { cn } from "@/lib/cn";
 import { services } from "@/data/content";
 
 /**
@@ -49,7 +50,7 @@ export function ServicesGrid() {
                 </p>
                 <Link
                   href={`/services#${service.slug}`}
-                  className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface transition-colors hover:text-primary"
+                  className={cn(arrowRowClasses, "text-on-surface hover:text-primary")}
                 >
                   {service.ctaLabel}
                   <ArrowRight

@@ -89,8 +89,12 @@
   --text-display--letter-spacing: -0.03em;
   --text-display--font-weight: 600;
 
-  --text-display-mobile: 44px;
-  --text-display-mobile--line-height: 48px;
+  /* 40px, not 44. At 44 the hero headline ran four lines on a 360px phone and
+     pushed the proof bar 60px below the fold. This is the token every display
+     headline shares - hero, closing CTA, CTA banner - so they step down
+     together and the hierarchy above headline-lg-mobile (36px) holds. */
+  --text-display-mobile: 40px;
+  --text-display-mobile--line-height: 44px;
   --text-display-mobile--letter-spacing: -0.02em;
   --text-display-mobile--font-weight: 600;
 
@@ -142,8 +146,12 @@
   --text-label-md--letter-spacing: 0.04em;
   --text-label-md--font-weight: 600;
 
-  --text-label-eyebrow: 11px;
-  --text-label-eyebrow--line-height: 14px;
+  /* 12px, not 11: the eyebrow is not always decoration. It carries the step
+     captions in the process section and the Sebelum/Sesudah labels on the
+     before/after frame, which are content, and 11px is under the floor most
+     mobile guidance sets for text a visitor has to read. */
+  --text-label-eyebrow: 12px;
+  --text-label-eyebrow--line-height: 16px;
   --text-label-eyebrow--letter-spacing: 0.12em;
   --text-label-eyebrow--font-weight: 600;
 
@@ -554,6 +562,41 @@
     }
     .reveal-delay-3 {
       animation-range: entry 0% cover 56%;
+    }
+  }
+}
+
+/* =====================================================================
+   TOUCH TARGETS
+
+   A 44px reachable area for controls the design deliberately draws small:
+   a text link sitting on its own line, an icon in a row of icons. The area
+   is a pseudo-element rather than padding, so the type keeps the size and
+   the rhythm it was drawn at and only the region a thumb can hit grows.
+
+   Scoped to `pointer: coarse` because the problem is a fingertip, not a
+   viewport - a phone held in landscape is wider than `sm` and still has
+   one. On a mouse an invisible slab reaching past the text would do
+   nothing but steal clicks from whatever sits beside it.
+
+   Only for targets with ~14px of clear space above and below. Where
+   neighbours sit closer than that - a stacked list - grow the rows
+   themselves instead, or the two hit areas overlap and one swallows the
+   other.
+   ===================================================================== */
+
+@utility tap-safe {
+  position: relative;
+
+  @media (pointer: coarse) {
+    &::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      top: 50%;
+      translate: 0 -50%;
+      height: 100%;
+      min-height: 2.75rem;
     }
   }
 }

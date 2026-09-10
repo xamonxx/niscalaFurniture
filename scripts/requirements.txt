@@ -1,0 +1,6 @@
+# Only scripts/extract-portfolio-pdf.py needs these, and only on a machine that
+# has the BAHAN/ archive. The site builds and deploys without them.
+pymupdf>=1.24
+opencv-python>=4.9
+numpy>=1.26
+pillow>=10.0

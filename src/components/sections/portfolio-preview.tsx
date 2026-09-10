@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { portfolioGridSizes } from "@/components/portfolio/project-grid";
 import { ProjectCard } from "@/components/ui/project-card";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Eyebrow } from "@/components/ui/typography";
@@ -55,7 +56,7 @@ export function PortfolioPreview() {
               <ProjectCard
                 project={project}
                 ratio={index === 0 ? "tall" : "standard"}
-                sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
+                sizes={portfolioGridSizes}
               />
             </RevealItem>
           ))}

@@ -78,6 +78,35 @@ tetapi **hasil di `public/images` sengaja di-commit** karena itulah satu-satunya
 salinan yang ikut ke server. Jalankan ulang skrip hanya di mesin yang punya
 folder `BAHAN/`.
 
+### Varian responsif (`public/v/`)
+
+Optimizer bawaan Next dimatikan. Di shared hosting, permintaan pertama ke
+`/_next/image` terukur 1,8-2,8 detik TTFB karena `sharp` mengencode saat itu
+juga, dan cache-nya di `.next/cache/images` terhapus setiap rebuild - jadi
+pengunjung pertama sesudah tiap deploy membayar lagi. Sekarang setiap lebar
+yang bisa diminta situs sudah ditulis lebih dulu:
+
+```
+npm run prepare:variants     # ~55 detik untuk 232 foto x 6 lebar
+```
+
+`npm run dev` dan `npm run build` menjalankannya sendiri, dan langkah itu
+melewati berkas yang sudah mutakhir, jadi hanya berjalan penuh sekali.
+
+**`public/v/` tidak di-commit** - berbeda dari `public/images`. Konsekuensinya
+untuk deploy:
+
+- **Kalau build dijalankan di server** (yang selama ini dilakukan), tidak ada
+  yang perlu Anda lakukan: `npm run build` membuat folder itu di sana.
+- **Kalau Anda build lokal lalu mengunggah hasilnya**, `public/v/` harus ikut
+  terunggah. Tanpa itu setiap `<img>` menunjuk berkas yang tidak ada dan
+  seluruh foto hilang - bukan sekadar melambat.
+
+Ladder lebar, skema nama berkas, dan prefiks sumbernya ada di satu tempat,
+`src/lib/image-ladder.mjs`, yang di-import oleh `next.config.mjs`, skrip
+pembangun, dan loader. Ubah di sana saja; kalau ketiganya sampai berbeda,
+srcset akan menunjuk berkas yang tidak pernah ditulis.
+
 ## Struktur
 
 ```

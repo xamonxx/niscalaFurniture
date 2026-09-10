@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
+import { cn } from "@/lib/cn";
 import { ProjectGallery } from "@/components/portfolio/project-gallery";
+import { portfolioGridSizes } from "@/components/portfolio/project-grid";
 import { ProjectCard } from "@/components/ui/project-card";
-import { Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
 import {
   getProjectBySlug,
@@ -81,8 +83,24 @@ function projectGraph(project: Project) {
       creator: { "@id": ORGANISATION_ID },
       provider: { "@id": ORGANISATION_ID },
       ...(project.year ? { dateCreated: String(project.year) } : {}),
-      ...(project.location
-        ? { locationCreated: { "@type": "Place", name: project.location } }
+      // The estate is the more specific place, so it names the Place and the
+      // town becomes its locality. Deck projects often have one without the
+      // other, so both halves are optional.
+      ...(project.venue || project.location
+        ? {
+            locationCreated: {
+              "@type": "Place",
+              name: project.venue ?? project.location,
+              ...(project.venue && project.location
+                ? {
+                    address: {
+                      "@type": "PostalAddress",
+                      addressLocality: project.location,
+                    },
+                  }
+                : {}),
+            },
+          }
         : {}),
       ...(project.style ? { artform: project.style } : {}),
       image: project.gallery.map((photo) => ({
@@ -127,6 +145,7 @@ export default async function ProjectPage(props: PageProps<"/portfolio/[slug]">)
 
   const facts = [
     project.client ? { label: "Klien", value: project.client } : null,
+    project.venue ? { label: "Proyek", value: project.venue } : null,
     project.location ? { label: "Lokasi", value: project.location } : null,
     project.style ? { label: "Finishing", value: project.style } : null,
     project.year ? { label: "Tahun", value: String(project.year) } : null,
@@ -144,7 +163,7 @@ export default async function ProjectPage(props: PageProps<"/portfolio/[slug]">)
         <div className="container-editorial">
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface-variant transition-colors hover:text-on-surface"
+            className={cn(arrowRowClasses, "text-on-surface-variant hover:text-on-surface")}
           >
             <ArrowLeft
               aria-hidden
@@ -216,7 +235,7 @@ export default async function ProjectPage(props: PageProps<"/portfolio/[slug]">)
               </h2>
               <Link
                 href={`/portfolio/kategori/${project.categorySlug}`}
-                className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface transition-colors hover:text-primary"
+                className={cn(arrowRowClasses, "text-on-surface hover:text-primary")}
               >
                 Lihat semua {project.categoryShort}
                 <ArrowRight
@@ -230,7 +249,7 @@ export default async function ProjectPage(props: PageProps<"/portfolio/[slug]">)
                 <li key={item.slug}>
                   <ProjectCard
                     project={item}
-                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
+                    sizes={portfolioGridSizes}
                   />
                 </li>
               ))}

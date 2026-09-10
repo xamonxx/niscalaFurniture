@@ -94,9 +94,40 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={2}>
-            <div className="mt-space-md flex flex-wrap items-center gap-space-md">
-              <WhatsAppCta source="hero">Konsultasikan Ruangan Anda</WhatsAppCta>
-              <Button href="/portfolio" variant="outline-inverse">
+            {/*
+              A one-column grid until `sm`, a row after it.
+
+              As a wrapping flex row the two buttons sized to their own labels,
+              so on a phone they stacked at 301px and 230px - two left-aligned
+              buttons of different widths, which reads as a mistake rather than
+              a pair. Grid items stretch, so stacked they always match.
+
+              `items-stretch` on the row is for the other axis: the outline
+              button carries a 1px border the filled one does not, so side by
+              side they stand 46px and 44px unless something makes them agree.
+            */}
+            <div className="mt-space-md grid gap-space-sm sm:flex sm:flex-wrap sm:items-stretch sm:gap-space-md">
+              {/*
+                Narrower padding while the buttons are full width, the size's
+                own `px-space-xl` back once they size to their labels again.
+
+                Padding is what sets the width of an auto-width button and dead
+                weight on a stretched one, where it only eats into the room the
+                label has. At 320px it left 190px for a label needing 200, so
+                "Konsultasikan Ruangan Anda" wrapped and stood 64px against its
+                46px neighbour.
+              */}
+              <WhatsAppCta
+                source="hero"
+                className="px-space-md sm:px-space-xl"
+              >
+                Konsultasikan Ruangan Anda
+              </WhatsAppCta>
+              <Button
+                href="/portfolio"
+                variant="outline-inverse"
+                className="px-space-md sm:px-space-xl"
+              >
                 Lihat Portofolio Proyek
               </Button>
             </div>
@@ -105,7 +136,7 @@ export function Hero() {
           {/* Proof bar. Every number is counted from the published portfolio,
               so it cannot drift away from what the site actually shows. */}
           <Reveal delay={3}>
-            <dl className="mt-space-lg grid grid-cols-2 gap-y-space-md border-t border-border-hairline-dark pt-space-md sm:grid-cols-4 lg:gap-x-space-md">
+            <dl className="mt-space-md grid grid-cols-2 gap-y-space-md border-t border-border-hairline-dark pt-space-md sm:grid-cols-4 lg:gap-x-space-md">
               {proof.map((item) => (
                 <div key={item.label}>
                   <dt className="sr-only">{item.label}</dt>
@@ -113,7 +144,14 @@ export function Hero() {
                     <span className="block text-headline-md-mobile font-semibold text-inverse-on-surface">
                       {item.value}
                     </span>
-                    <span className="mt-space-2xs block max-w-[10ch] text-label-eyebrow uppercase leading-snug text-inverse-on-surface/70">
+                    {/*
+                      The 10ch cap keeps the captions honest in the four-column
+                      layout. Below `sm` there are two columns of about 154px
+                      and the cap squeezed them to 77px, wrapping every label
+                      onto a second line for no reason and making the proof bar
+                      34px taller than it needed to be.
+                    */}
+                    <span className="mt-space-2xs block text-label-eyebrow uppercase leading-snug text-inverse-on-surface/70 sm:max-w-[10ch]">
                       {item.label}
                     </span>
                   </dd>

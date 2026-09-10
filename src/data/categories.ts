@@ -1,9 +1,15 @@
 import type { ProjectCategory } from "@/types";
 
 /**
- * Portfolio categories, mirroring the real folder structure of the studio
- * archive. "Lemari Bawah Tangga" is the studio's largest specialism and gets
- * its own category even though the original prototype had no slot for it.
+ * Portfolio categories. The first seven mirror the real folder structure of the
+ * studio archive; "Lemari Bawah Tangga" is the studio's largest specialism and
+ * gets its own category even though the original prototype had no slot for it.
+ *
+ * The last three are property segments rather than furniture types, and come
+ * from the studio's interior deck (scripts/extract-portfolio-pdf.py) where the
+ * work is a whole house at one address rather than one piece of cabinetry.
+ * They are appended rather than interleaved because category order drives the
+ * homepage grid, which slices the first six.
  *
  * `seoTitle` is written per category rather than derived by appending "Custom"
  * to `name` - that produced titles like "Custom Wardrobe & Closet Custom".
@@ -72,6 +78,33 @@ export const categories: ProjectCategory[] = [
     heading: "Interior komersial yang tahan dipakai setiap hari.",
     description:
       "Display toko, counter, dan lemari arsip custom dengan durabilitas untuk pemakaian komersial harian.",
+  },
+  {
+    slug: "real-estate",
+    name: "Interior Rumah Real Estate",
+    short: "Real Estate",
+    seoTitle: "Interior Rumah Real Estate & Cluster",
+    heading: "Rumah cluster yang berhenti terlihat seragam.",
+    description:
+      "Interior satu rumah penuh di kawasan real estate: dapur, ruang keluarga, bawah tangga, sampai kamar.",
+  },
+  {
+    slug: "perumahan",
+    name: "Interior Perumahan",
+    short: "Perumahan",
+    seoTitle: "Interior Rumah Perumahan Custom",
+    heading: "Rumah bawaan developer yang dibuat sesuai penghuninya.",
+    description:
+      "Penyesuaian interior rumah developer: penyimpanan ditambah dan tata ruang dirapikan tanpa bongkar struktur.",
+  },
+  {
+    slug: "rumah-subsidi",
+    name: "Interior Rumah Subsidi",
+    short: "Rumah Subsidi",
+    seoTitle: "Interior Rumah Subsidi & Tipe Kecil",
+    heading: "Rumah subsidi yang terasa jauh lebih lapang.",
+    description:
+      "Interior rumah tipe kecil dengan furniture multifungsi, penyimpanan vertikal, dan biaya yang terkendali.",
   },
 ];
 

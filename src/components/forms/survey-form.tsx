@@ -300,7 +300,10 @@ export function SurveyForm() {
                 </span>
               </span>
               {index < SURVEY_STEPS.length - 1 ? (
-                <span aria-hidden className="h-0.5 w-6 bg-surface-container-high" />
+                <span
+                  aria-hidden
+                  className="h-0.5 w-4 bg-surface-container-high sm:w-6"
+                />
               ) : null}
             </li>
           );
@@ -716,14 +719,34 @@ export function SurveyForm() {
         </p>
       ) : null}
 
-      <div className="flex items-center justify-between gap-space-md border-t border-border-hairline pt-space-lg">
+      {/*
+        Stacked on a phone, a row from `sm`.
+
+        As a `justify-between` row the two buttons sized to their own labels in
+        a 216px line: "Kembali" took 147 of it and the submit button, which
+        cannot shrink below its own minimum, ran 160px wide from x=215 - 75px
+        past the edge of the card and 55px past the edge of the screen, with its
+        label broken over three lines. Part of the primary action of the whole
+        form was simply off the side of the phone.
+
+        Stacked they are one column, so both are exactly as wide as the form and
+        neither can push the other anywhere. The empty span only exists to hold
+        the left half of `justify-between` on the first step, so it is not
+        needed while the buttons are stacked.
+      */}
+      <div className="grid gap-space-sm border-t border-border-hairline pt-space-lg sm:flex sm:items-stretch sm:justify-between sm:gap-space-md">
         {step > 0 ? (
-          <Button type="button" variant="outline" onClick={goBack}>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={goBack}
+            className="px-space-md sm:px-space-xl"
+          >
             <ArrowLeft aria-hidden className="size-4" />
             Kembali
           </Button>
         ) : (
-          <span />
+          <span className="hidden sm:block" />
         )}
 
         {isLastStep ? (
@@ -731,6 +754,7 @@ export function SurveyForm() {
             type="submit"
             disabled={pending}
             onClick={() => setShowCurrentStepErrors(true)}
+            className="px-space-md sm:px-space-xl"
           >
             {pending ? (
               <>
@@ -745,7 +769,11 @@ export function SurveyForm() {
             )}
           </Button>
         ) : (
-          <Button type="button" onClick={goNext}>
+          <Button
+            type="button"
+            onClick={goNext}
+            className="px-space-md sm:px-space-xl"
+          >
             Lanjut
             <ArrowRight aria-hidden className="size-[18px]" />
           </Button>

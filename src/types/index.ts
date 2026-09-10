@@ -21,6 +21,14 @@ export type ProjectImage = {
   orientation: Orientation;
   /** Human-readable alt text, derived from the project it belongs to. */
   alt: string;
+  /**
+   * A 16px-wide blurred stand-in, inlined as a data URI by
+   * `npm run prepare:blur`.
+   *
+   * Optional because a handful of images are composed in code rather than
+   * published by the pipeline, and those have nothing to blur.
+   */
+  blurDataURL?: string;
 };
 
 export type ProjectCategory = {
@@ -45,12 +53,21 @@ export type Project = {
   categoryShort: string;
   /** Client name as recorded in the studio archive. Null for style galleries. */
   client: string | null;
+  /**
+   * The development, estate or tower the work sits in, as printed on the
+   * interior deck's own page: "Podomoro Park", "BSD City". Distinct from
+   * `client` (the person who commissioned it) and from `location` (the town).
+   * Null for archive projects, which are recorded by client instead.
+   */
+  venue: string | null;
   location: string | null;
   /** Finishing style, e.g. "Modern", "Semi Klasik". */
   style: string | null;
   year: number | null;
   coverImage: string;
   coverOrientation: Orientation;
+  /** Blur placeholder for `coverImage`, lifted from the matching gallery frame. */
+  coverBlurDataURL?: string;
   gallery: ProjectImage[];
   /** Short editorial caption shown on the detail page. */
   description: string;

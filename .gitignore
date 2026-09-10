@@ -51,3 +51,10 @@ next-env.d.ts
 # Not gitignoring this also makes Tailwind scan the locked profile files and
 # crash `next build` on Windows.
 /.seo-audit
+/.tmp
+
+# scripts/extract-portfolio-pdf.py
+__pycache__/
+
+# Responsive image variants, rebuilt by `npm run prepare:variants`.
+public/v/
