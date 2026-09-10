@@ -30,11 +30,20 @@ export function StickyMobileCta() {
   const [shown, setShown] = useState(false);
   const whatsappUrl = buildWhatsAppUrl({ source: "sticky_mobile" });
 
-  if (pathname?.startsWith("/admin")) {
-    return null;
-  }
+  /*
+     The admin panel has no use for a sales bar over its toolbars.
+
+     Read as a value rather than an early return. Returning above the effect
+     leaves the hook conditional, and React counts hooks per render - so
+     navigating out of /admin threw "rendered fewer hooks than expected".
+     Bailing out inside the effect keeps the call unconditional and still
+     registers no listeners on admin routes.
+  */
+  const onAdmin = pathname?.startsWith("/admin") ?? false;
 
   useEffect(() => {
+    if (onAdmin) return;
+
     const update = () => {
       const pastHero = window.scrollY > window.innerHeight * 0.6;
 
@@ -58,7 +67,9 @@ export function StickyMobileCta() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [onAdmin]);
+
+  if (onAdmin) return null;
 
   return (
     <div
