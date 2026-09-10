@@ -1,4 +1,4 @@
-import { knowledgeArticles } from "@/data/knowledge";
+import { getAllArticles } from "@/lib/articles";
 import { categories } from "@/data/categories";
 import {
   photoCount,
@@ -28,7 +28,9 @@ function section(heading: string, lines: string[]): string {
   return lines.length ? `## ${heading}\n\n${lines.join("\n")}\n` : "";
 }
 
-function buildLlmsTxt(): string {
+async function buildLlmsTxt(): Promise<string> {
+  const articles = await getAllArticles();
+
   const categoryLines = populatedCategories.map(
     (category) =>
       `- [${category.seoTitle}](${site.url}/portfolio/kategori/${category.slug}): ${category.description}`
@@ -44,7 +46,7 @@ function buildLlmsTxt(): string {
     )
     .map((category) => category.name);
 
-  const articleLines = knowledgeArticles.map(
+  const articleLines = articles.map(
     (article) =>
       `- [${article.title}](${site.url}/knowledge/${article.slug}): ${article.summary}`
   );
@@ -135,7 +137,8 @@ function buildLlmsTxt(): string {
 }
 
 export async function GET() {
-  return new Response(buildLlmsTxt(), {
+  const content = await buildLlmsTxt();
+  return new Response(content, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "public, max-age=0, must-revalidate",

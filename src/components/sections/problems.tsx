@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BadgeCheck } from "lucide-react";
 
 import { RevealGroup, RevealItem, Reveal } from "@/components/motion/reveal";
@@ -21,26 +22,41 @@ export function Problems() {
 
         <RevealGroup
           as="ul"
-          className="mt-space-2xl grid gap-gutter-desktop md:grid-cols-2 lg:grid-cols-4"
+          className="mt-space-xl sm:mt-space-2xl grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop lg:grid-cols-4"
         >
           {problems.map((problem) => (
             <RevealItem
               as="li"
               key={problem.index}
-              className="flex flex-col justify-between gap-space-md rounded-md bg-surface-container-lowest p-space-lg shadow-hairline"
+              className="group flex flex-col justify-between overflow-hidden rounded-md bg-surface-container-lowest shadow-hairline transition-shadow hover:shadow-panel"
             >
-              <div className="space-y-space-xs">
-                <span className="block text-label-eyebrow uppercase text-muted-gray">
-                  {problem.index}
-                </span>
-                <h3 className="text-headline-sm font-semibold text-on-surface">
-                  {problem.title}
-                </h3>
-                <p className="text-body-sm leading-relaxed text-on-surface-variant">
-                  {problem.body}
-                </p>
+              <div>
+                {problem.image ? (
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-container-high">
+                    <Image
+                      src={problem.image}
+                      alt={problem.title}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 45vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                ) : null}
+                <div className="space-y-space-2xs p-space-sm sm:space-y-space-xs sm:p-space-md lg:p-space-lg">
+                  <span className="block text-[10px] sm:text-label-eyebrow uppercase tracking-wider text-muted-gray">
+                    {problem.index}
+                  </span>
+                  <h3 className="text-sm sm:text-base lg:text-headline-sm font-semibold leading-snug text-on-surface">
+                    {problem.title}
+                  </h3>
+                  <p className="text-xs sm:text-body-sm leading-relaxed text-on-surface-variant">
+                    {problem.body}
+                  </p>
+                </div>
               </div>
-              <span aria-hidden className="h-1 w-8 rounded-full bg-primary-container" />
+              <div className="px-space-sm pb-space-sm sm:px-space-md sm:pb-space-md lg:px-space-lg lg:pb-space-lg">
+                <span aria-hidden className="block h-0.5 sm:h-1 w-6 sm:w-8 rounded-full bg-primary-container" />
+              </div>
             </RevealItem>
           ))}
         </RevealGroup>

@@ -18,24 +18,24 @@ export function Guarantees() {
 
         <RevealGroup
           as="ul"
-          className="grid gap-gutter-desktop md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 gap-space-sm sm:gap-gutter-desktop md:grid-cols-2 lg:grid-cols-3"
         >
           {guarantees.map((guarantee) => (
             <RevealItem
               as="li"
               key={guarantee.index}
-              className="space-y-space-xs rounded-md bg-surface-container-low p-space-lg"
+              className="space-y-space-2xs sm:space-y-space-xs rounded-md bg-surface-container-low p-space-sm sm:p-space-lg"
             >
               <span
                 aria-hidden
-                className="flex size-8 items-center justify-center rounded-full bg-primary-container text-body-sm font-bold text-deep-black"
+                className="flex size-6 sm:size-8 items-center justify-center rounded-full bg-primary-container text-xs sm:text-body-sm font-bold text-deep-black"
               >
                 {guarantee.index}
               </span>
-              <h3 className="text-headline-sm font-semibold text-on-surface">
+              <h3 className="text-xs sm:text-headline-sm font-semibold text-on-surface leading-snug">
                 {guarantee.title}
               </h3>
-              <p className="text-body-sm text-on-surface-variant">{guarantee.body}</p>
+              <p className="text-[11px] sm:text-body-sm text-on-surface-variant leading-relaxed">{guarantee.body}</p>
             </RevealItem>
           ))}
         </RevealGroup>

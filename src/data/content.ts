@@ -36,21 +36,25 @@ export const problems: ProblemCard[] = [
     index: "Masalah 01",
     title: "Ruang Tidak Termanfaatkan Maksimal",
     body: "Furniture pabrikan sering meninggalkan sela sempit, sudut mati, atau ketinggian gantung yang tidak pas, membuat ruangan terasa sempit dan berdebu.",
+    image: "/images/problems/masalah-01.jpg",
   },
   {
     index: "Masalah 02",
     title: "Fungsi Tidak Sesuai Rutinitas",
     body: "Desain luar terlihat estetik, tetapi konfigurasi laci, kedalaman rak, dan akses peralatan tidak sinkron dengan cara keluarga Anda bergerak setiap hari.",
+    image: "/images/problems/masalah-02.jpg",
   },
   {
     index: "Masalah 03",
     title: "Material Tanpa Pertimbangan",
     body: "Area basah membutuhkan ketahanan khusus terhadap kelembaban. Menggunakan particle board di dapur sering berakhir lapuk dan berjamur dalam hitungan bulan.",
+    image: "/images/problems/masalah-03.jpg",
   },
   {
     index: "Masalah 04",
     title: "Ekspektasi Berbeda dari Hasil",
     body: "Tanpa simulasi 3D terukur, detail konstruksi presisi, dan kalkulasi RAB transparan sejak awal, hasil akhir kerap mengecewakan dan over-budget.",
+    image: "/images/problems/masalah-04.jpg",
   },
 ];
 

@@ -78,14 +78,14 @@ export function Hero() {
       <div className="container-editorial relative w-full pb-space-xl pt-[calc(5rem+var(--spacing-space-md))] sm:pb-space-2xl">
         <div className="max-w-2xl lg:max-w-[46rem]">
           <Reveal>
-            <h1 className="text-display-mobile text-inverse-on-surface lg:text-display">
+            <h1 className="text-display-mobile text-inverse-on-surface sm:text-5xl sm:leading-[1.12] md:text-6xl md:leading-[1.1] lg:text-display">
               Ruang yang dirancang untuk cara Anda{" "}
               <span className="text-primary-container">hidup</span>.
             </h1>
           </Reveal>
 
           <Reveal delay={1}>
-            <p className="mt-space-md max-w-2xl text-body-lg leading-relaxed text-inverse-on-surface/85">
+            <p className="mt-space-sm sm:mt-space-md max-w-2xl text-body-md sm:text-body-lg leading-relaxed text-inverse-on-surface/85">
               {site.name} merancang interior dan furniture custom berdasarkan
               ukuran ruang, kebutuhan, dan cara Anda menggunakannya — dari
               konsultasi, survey, desain, produksi di workshop sendiri, hingga
@@ -94,9 +94,15 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={2}>
-            <div className="mt-space-md flex flex-wrap items-center gap-space-md">
-              <WhatsAppCta source="hero">Konsultasikan Ruangan Anda</WhatsAppCta>
-              <Button href="/portfolio" variant="outline-inverse">
+            <div className="mt-space-md flex flex-col sm:flex-row sm:items-center gap-space-sm sm:gap-space-md">
+              <WhatsAppCta source="hero" className="w-full sm:w-auto">
+                Konsultasikan Ruangan Anda
+              </WhatsAppCta>
+              <Button
+                href="/portfolio"
+                variant="outline-inverse"
+                className="w-full sm:w-auto"
+              >
                 Lihat Portofolio Proyek
               </Button>
             </div>
@@ -105,15 +111,15 @@ export function Hero() {
           {/* Proof bar. Every number is counted from the published portfolio,
               so it cannot drift away from what the site actually shows. */}
           <Reveal delay={3}>
-            <dl className="mt-space-lg grid grid-cols-2 gap-y-space-md border-t border-border-hairline-dark pt-space-md sm:grid-cols-4 lg:gap-x-space-md">
+            <dl className="mt-space-md sm:mt-space-lg grid grid-cols-2 gap-x-space-md gap-y-space-sm border-t border-border-hairline-dark pt-space-sm sm:pt-space-md sm:grid-cols-4 lg:gap-x-space-md">
               {proof.map((item) => (
                 <div key={item.label}>
                   <dt className="sr-only">{item.label}</dt>
                   <dd>
-                    <span className="block text-headline-md-mobile font-semibold text-inverse-on-surface">
+                    <span className="block text-2xl font-semibold text-inverse-on-surface sm:text-headline-md-mobile lg:text-headline-md">
                       {item.value}
                     </span>
-                    <span className="mt-space-2xs block max-w-[10ch] text-label-eyebrow uppercase leading-snug text-inverse-on-surface/70">
+                    <span className="mt-space-2xs block text-label-eyebrow uppercase leading-snug text-inverse-on-surface/70 sm:max-w-[12ch]">
                       {item.label}
                     </span>
                   </dd>

@@ -77,15 +77,15 @@ export function ProjectCard({
             aria-hidden
             className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-deep-black/85 via-deep-black/45 to-transparent"
           />
-          <div className="absolute inset-x-0 bottom-0 p-space-md text-pure-white">
-            <span className="text-label-eyebrow uppercase text-primary-container">
+          <div className="absolute inset-x-0 bottom-0 p-space-xs sm:p-space-md text-pure-white">
+            <span className="text-[10px] sm:text-label-eyebrow uppercase text-primary-container">
               {project.categoryShort}
             </span>
-            <h3 className="mt-space-2xs text-headline-sm font-semibold leading-tight">
+            <h3 className="mt-0.5 sm:mt-space-2xs text-xs sm:text-headline-sm font-semibold leading-snug sm:leading-tight">
               {project.title}
             </h3>
             {meta ? (
-              <p className="mt-space-2xs text-body-sm text-surface-container-highest">
+              <p className="mt-0.5 sm:mt-space-2xs text-[10px] sm:text-body-sm text-surface-container-highest line-clamp-1">
                 {meta}
               </p>
             ) : null}

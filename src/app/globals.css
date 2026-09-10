@@ -89,9 +89,9 @@
   --text-display--letter-spacing: -0.03em;
   --text-display--font-weight: 600;
 
-  --text-display-mobile: 44px;
-  --text-display-mobile--line-height: 48px;
-  --text-display-mobile--letter-spacing: -0.02em;
+  --text-display-mobile: 34px;
+  --text-display-mobile--line-height: 40px;
+  --text-display-mobile--letter-spacing: -0.025em;
   --text-display-mobile--font-weight: 600;
 
   --text-headline-lg: 56px;

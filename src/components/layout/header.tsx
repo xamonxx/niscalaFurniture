@@ -118,6 +118,10 @@ export function Header() {
 
   const floating = pathname === "/" && !settled;
 
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <header
       onFocusCapture={() => setFocusWithin(true)}
