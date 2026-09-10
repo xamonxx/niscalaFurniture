@@ -40,6 +40,7 @@ way, that is a missing entry: add it.
 | Stack, folder map, routing, data flow | `CODEX_MEMORY.md` |
 | Setup, image pipeline, deploy | `README.md` |
 | Rules and traps (this file) | `AGENTS.md` |
+| Moving a second developer onto this repo | `SYNC-AGENT.md` |
 
 Keep `CODEX_MEMORY.md` current when the structure moves. It is the map, and a
 wrong map costs more than no map.

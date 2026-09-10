@@ -9,6 +9,18 @@ break by not knowing.
 
 ## Unreleased
 
+### A runnable migration prompt for the second developer's agent
+- **What** `SYNC-AGENT.md`: step-by-step instructions an AI agent executes to
+  move Developer B's clone onto this repository, with a proof step before the
+  switch and guardrails against force-pushing or committing secrets.
+- **Why** `CONTRIBUTING.md` explains the workflow to a person; this is written
+  to be run. The steps are ordered so nothing is discarded before it is proven
+  to exist on `master`.
+- **Watch** It describes `master`, not the open `feat/optimasi-gambar` branch.
+  The first draft claimed `public/v`, `prepare:variants` and a 98-page build,
+  all of which live only on that branch - `master` builds 65 pages and has no
+  image pipeline. Re-check those numbers when the branch merges.
+
 ### Migration steps for the second developer now cover the admin credentials
 - **What** `CONTRIBUTING.md` gains three steps: `npm install` (sharp moved to
   `dependencies`), the first `npm run build` that creates `public/v`, and
