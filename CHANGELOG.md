@@ -9,6 +9,32 @@ break by not knowing.
 
 ## Unreleased
 
+### Closed an authentication bypass in the admin panel
+- **What** Removed every credential default from `src/lib/auth.ts`, split the
+  session signing key from the password, bounded the session timestamp at both
+  ends, and added `npm run admin:secret` / `npm run admin:password` plus
+  scrypt-hashed password storage.
+- **Why** `ADMIN_PASSWORD` defaulted to a literal in the source and the signing
+  key defaulted to that literal plus a fixed suffix. The repository is public
+  and none of the variables were set, so the key was the public constant
+  `niscala2026_salt_niscala`. Anyone could compute
+  `<timestamp>.HMAC(timestamp, key)`, set the session cookie, and hold a full
+  admin session without touching the login form - which meant the rate limiter
+  never saw them. Verified by forging a token and using it; the admin list
+  returned 72 KB with four articles. After the fix the same token returns a
+  response byte-identical to sending no cookie at all.
+- **Watch** Three things a later change can get wrong here.
+  (1) `isAdminAuthenticated()` denies rather than throws when the config is
+  missing, on purpose: throwing would fail `next build` and turn a
+  misconfiguration into a dead site instead of a disabled panel. Verified the
+  build still succeeds with no admin variables set.
+  (2) scrypt, not bcrypt or argon2, because those are native addons and a build
+  on this host has already died over a native binary and an old glibc.
+  (3) The scrypt cost parameters live *inside* the hash string. Keeping them as
+  a shared constant is what broke the first attempt - the generator used
+  N=32768 while the verifier fell through to Node's default of 16384, and the
+  correct password was rejected.
+
 ### Agent and contributor documentation
 - **What** Added `CHANGELOG.md`, `CONTRIBUTING.md`, and a project-rules section
   in `AGENTS.md` covering commands, document ownership, and the traps that have

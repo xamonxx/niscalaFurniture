@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import {
+  AdminConfigError,
   clearAdminSessionCookie,
   extractClientIp,
   setAdminSessionCookie,
@@ -45,8 +46,25 @@ export async function loginAdminAction(
     return { error: "Username dan password wajib diisi." };
   }
 
-  // 2. Verify credentials
-  const isValid = verifyAdminCredentials(username, password);
+  // 2. Verify credentials.
+  //
+  //    A missing configuration is an operator problem, not a failed login, so
+  //    it is reported plainly and does not burn one of the three attempts.
+  //    Nothing secret is disclosed: the message names which variable is
+  //    absent, which is only useful to whoever can set it.
+  let isValid: boolean;
+  try {
+    isValid = verifyAdminCredentials(username, password);
+  } catch (error) {
+    if (error instanceof AdminConfigError) {
+      console.error(`[admin] ${error.message}`);
+      return {
+        error:
+          "Panel admin belum dikonfigurasi di server ini. Hubungi pengelola: variabel ADMIN_USERNAME, ADMIN_SECRET, dan ADMIN_PASSWORD_HASH belum lengkap.",
+      };
+    }
+    throw error;
+  }
 
   if (!isValid) {
     // Record failed attempt

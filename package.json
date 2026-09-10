@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "prepare:images": "node scripts/prepare-images.mjs"
+    "prepare:images": "node scripts/prepare-images.mjs",
+    "admin:secret": "node scripts/admin-credentials.mjs secret",
+    "admin:password": "node scripts/admin-credentials.mjs password"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

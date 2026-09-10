@@ -84,6 +84,13 @@ as content, not code, and decide deliberately whether it ships.
 git-ignored.** Uploaded images land in the repo. They also bypass the image
 pipeline entirely — they are rendered with a plain `<img>`, not `next/image`.
 
+**The admin panel fails closed and has no defaults.** `ADMIN_USERNAME`,
+`ADMIN_SECRET` and one of `ADMIN_PASSWORD_HASH` / `ADMIN_PASSWORD` are all
+required. Do not reintroduce a `||` fallback in `src/lib/auth.ts` - the previous
+one put a working password and, worse, the session signing key into public
+source, so anyone could forge a session cookie and skip the login form
+entirely. `ADMIN_SECRET` must stay independent of the password.
+
 **`next.config.mjs` must stay `.mjs`.** Hostinger's glibc is too old for the
 SWC binary that would compile a `.ts` config, and the build dies before the
 first page.
