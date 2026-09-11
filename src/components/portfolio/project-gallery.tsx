@@ -5,8 +5,29 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useSyncExternalStore } from "react";
 
+import { blurPlaceholder } from "@/lib/image-placeholder";
 import { cn } from "@/lib/cn";
 import type { ProjectImage } from "@/types";
+
+/*
+ * Slot widths, spelled out rather than approximated.
+ *
+ * `container-editorial` caps at 1440px with a 64px gutter above 1024px and a
+ * 20px one below, and the grid gap is 32px. The old `30vw` was a stand-in for
+ * that arithmetic and it drifted badly on wide screens: on a 1920px display a
+ * card is 416px, not 576px, so the browser was picking the 1200w variant where
+ * 828w would have done - roughly twice the bytes, and a second cold AVIF
+ * encode on the server for a variant nothing needed.
+ */
+const GALLERY_SIZES = [
+  "(min-width: 1440px) 416px",
+  "(min-width: 1024px) calc((100vw - 192px) / 3)",
+  "(min-width: 768px) calc((100vw - 72px) / 2)",
+  // Below md this is a carousel, so the slot is the slide's flex-basis share
+  // of the container's content box rather than a grid column.
+  "(min-width: 640px) calc(56vw - 22px)",
+  "calc(82vw - 33px)",
+].join(", ");
 
 /**
  * Project photo gallery.
@@ -88,9 +109,10 @@ export function ProjectGallery({ images }: { images: ProjectImage[] }) {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 46vw, 82vw"
+                  sizes={GALLERY_SIZES}
                   loading={index === 0 ? "eager" : "lazy"}
                   fetchPriority={index === 0 ? "high" : "auto"}
+                  {...blurPlaceholder(image.blurDataURL)}
                   className="object-cover"
                 />
               </div>
@@ -110,7 +132,7 @@ export function ProjectGallery({ images }: { images: ProjectImage[] }) {
               onClick={() => emblaApi?.scrollPrev()}
               disabled={!canPrev}
               aria-label="Foto sebelumnya"
-              className="inline-flex size-10 items-center justify-center rounded-lg border border-border-hairline-strong text-on-surface transition-colors disabled:opacity-40"
+              className="inline-flex size-10 pointer-coarse:size-11 items-center justify-center rounded-lg border border-border-hairline-strong text-on-surface transition-colors disabled:opacity-40"
             >
               <ArrowLeft aria-hidden className="size-4" />
             </button>
@@ -120,7 +142,7 @@ export function ProjectGallery({ images }: { images: ProjectImage[] }) {
               disabled={!canNext}
               aria-label="Foto berikutnya"
               className={cn(
-                "inline-flex size-10 items-center justify-center rounded-lg text-deep-black transition-colors",
+                "inline-flex size-10 pointer-coarse:size-11 items-center justify-center rounded-lg text-deep-black transition-colors",
                 canNext ? "bg-primary-container" : "bg-surface-container-high opacity-40"
               )}
             >

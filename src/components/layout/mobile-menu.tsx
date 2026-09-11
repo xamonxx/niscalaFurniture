@@ -25,7 +25,7 @@ export function MobileMenu({ inverse = false }: { inverse?: boolean }) {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         className={cn(
-          "inline-flex size-10 items-center justify-center rounded-md border shadow-hairline transition-[background-color,border-color,color,translate] duration-200 active:translate-y-px lg:hidden",
+          "inline-flex size-10 pointer-coarse:size-11 items-center justify-center rounded-md border shadow-hairline transition-[background-color,border-color,color,translate] duration-200 active:translate-y-px lg:hidden",
           inverse
             ? "border-border-hairline-dark bg-deep-black/20 text-inverse-on-surface backdrop-blur-xl hover:bg-pure-white/10"
             : "border-border-hairline bg-surface-container-lowest/80 text-on-surface backdrop-blur-xl hover:bg-surface-container"
@@ -37,7 +37,23 @@ export function MobileMenu({ inverse = false }: { inverse?: boolean }) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-[60] bg-deep-black/40 backdrop-blur-sm data-[state=open]:animate-overlay-in data-[state=closed]:animate-overlay-out" />
-        <Dialog.Content className="fixed left-space-md right-space-md top-space-md z-[70] origin-top rounded-lg border border-border-hairline bg-surface/95 p-space-lg shadow-panel backdrop-blur-xl data-[state=open]:animate-menu-in data-[state=closed]:animate-menu-out focus:outline-none">
+        {/*
+          The panel is capped and scrolls inside itself.
+
+          Radix locks the body while the dialog is open, so anything that falls
+          past the bottom edge is not merely off-screen, it is unreachable -
+          there is no scroll left to bring it back. Left uncapped the panel ran
+          466px tall, which fits a portrait phone but overflows a landscape one
+          (375px) by 95px, stranding the last nav link and the WhatsApp button.
+
+          Capping it against the viewport rather than a fixed height keeps the
+          menu correct at any height, and `overscroll-contain` stops a flick at
+          the end of the list from being handed to the page behind it.
+        */}
+        <Dialog.Content
+          data-lenis-prevent
+          className="fixed left-space-md right-space-md top-space-md z-[70] max-h-[calc(100dvh-2rem)] origin-top overflow-y-auto overscroll-contain rounded-lg border border-border-hairline bg-surface/95 p-space-lg shadow-panel backdrop-blur-xl data-[state=open]:animate-menu-in data-[state=closed]:animate-menu-out focus:outline-none"
+        >
           <Dialog.Title className="sr-only">Menu navigasi</Dialog.Title>
           <Dialog.Description className="sr-only">
             Tautan ke seluruh halaman Niscala Furniture.
@@ -48,7 +64,7 @@ export function MobileMenu({ inverse = false }: { inverse?: boolean }) {
               Niscala Furniture
             </span>
             <Dialog.Close
-              className="inline-flex size-10 items-center justify-center rounded-md border border-border-hairline text-on-surface transition-colors hover:bg-surface-container"
+              className="inline-flex size-10 pointer-coarse:size-11 items-center justify-center rounded-md border border-border-hairline text-on-surface transition-colors hover:bg-surface-container"
               aria-label="Tutup menu"
             >
               <X aria-hidden className="size-5" />

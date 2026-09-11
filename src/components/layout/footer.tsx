@@ -10,6 +10,22 @@ import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
 import { site } from "@/lib/site";
 import { servedLocations } from "@/data/projects";
 
+/**
+ * A row in one of the footer lists.
+ *
+ * Real height rather than the `tap-safe` pseudo-element: these rows sit 8px
+ * and 4px apart, so an invisible 44px slab on each would overlap the rows
+ * above and below it and the topmost one would swallow taps meant for its
+ * neighbours. Growing the rows is the only version that works, so on touch
+ * the lists hand their spacing over to the rows themselves.
+ *
+ * The inline `Kebijakan Privasi` link in the bottom bar is deliberately left
+ * out: it sits inside a sentence, where a block-level 44px row would break
+ * the line it belongs to.
+ */
+const footerRowClasses =
+  "transition-colors hover:text-on-surface pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:items-center";
+
 export function Footer() {
   const pathname = usePathname();
   const year = new Date().getFullYear();
@@ -44,12 +60,12 @@ export function Footer() {
 
           <nav aria-label="Navigasi footer" className="space-y-space-md lg:col-span-2">
             <h2 className="text-label-eyebrow uppercase text-muted-gray">Navigasi</h2>
-            <ul className="space-y-space-xs text-body-sm text-on-surface-variant">
+            <ul className="space-y-space-xs text-body-sm text-on-surface-variant pointer-coarse:space-y-0">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="transition-colors hover:text-on-surface"
+                    className={footerRowClasses}
                   >
                     {link.label}
                   </Link>
@@ -58,7 +74,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/survey"
-                  className="transition-colors hover:text-on-surface"
+                  className={footerRowClasses}
                 >
                   Ajukan Survey
                 </Link>
@@ -76,11 +92,11 @@ export function Footer() {
               <h2 className="text-label-eyebrow uppercase text-muted-gray">
                 Kontak Langsung
               </h2>
-              <ul className="space-y-space-2xs text-body-sm text-on-surface-variant">
+              <ul className="space-y-space-2xs text-body-sm text-on-surface-variant pointer-coarse:space-y-0">
                 <li>
                   <Link
                     href="/contact"
-                    className="transition-colors hover:text-on-surface"
+                    className={footerRowClasses}
                   >
                     Hubungi kami
                   </Link>
@@ -89,7 +105,7 @@ export function Footer() {
                   <li>
                     <a
                       href={`mailto:${site.email}`}
-                      className="transition-colors hover:text-on-surface"
+                      className={footerRowClasses}
                     >
                       {site.email}
                     </a>

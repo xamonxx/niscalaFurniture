@@ -5,8 +5,9 @@ import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Reveal } from "@/components/motion/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
+import { cn } from "@/lib/cn";
 import { services } from "@/data/content";
 import { getProjectsByCategory } from "@/data/projects";
 import {
@@ -125,7 +126,7 @@ export default function ServicesPage() {
                       {service.categorySlug && projectsForService.length > 0 ? (
                         <Link
                           href={`/portfolio/kategori/${service.categorySlug}`}
-                          className="group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface transition-colors hover:text-primary"
+                          className={cn(arrowRowClasses, "text-on-surface hover:text-primary")}
                         >
                           Lihat {projectsForService.length} proyek
                           <ArrowRight

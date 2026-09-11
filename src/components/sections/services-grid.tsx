@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
+import { cn } from "@/lib/cn";
 import { services } from "@/data/content";
 
 /**
@@ -49,7 +50,13 @@ export function ServicesGrid() {
                 </p>
                 <Link
                   href={`/services#${service.slug}`}
-                  className="group inline-flex items-center gap-1 sm:gap-space-2xs text-[11px] sm:text-label-md font-semibold text-on-surface transition-colors hover:text-primary pt-1 sm:pt-0"
+                  // Shared row, keeping `tap-safe`, with this grid's tighter
+                  // mobile type and the extra breathing room above it.
+                  className={cn(
+                    arrowRowClasses,
+                    "gap-1 pt-1 text-[11px] sm:gap-space-2xs sm:pt-0 sm:text-label-md",
+                    "text-on-surface hover:text-primary"
+                  )}
                 >
                   {service.ctaLabel}
                   <ArrowRight

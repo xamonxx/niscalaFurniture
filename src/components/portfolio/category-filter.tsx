@@ -25,7 +25,7 @@ export function CategoryFilter({ activeSlug }: { activeSlug?: string }) {
 
   return (
     <nav aria-label="Kategori portfolio">
-      <ul className="flex flex-wrap gap-space-2xs">
+      <ul className="flex flex-wrap gap-space-2xs pointer-coarse:gap-space-xs">
         {pills.map((pill) => {
           const active = pill.slug === activeSlug;
           return (
@@ -34,7 +34,7 @@ export function CategoryFilter({ activeSlug }: { activeSlug?: string }) {
                 href={pill.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex items-center gap-space-2xs rounded-lg px-space-md py-space-2xs text-label-md transition-colors",
+                  "inline-flex items-center gap-space-2xs rounded-lg px-space-md py-space-2xs text-label-md transition-colors pointer-coarse:min-h-11",
                   active
                     ? "bg-deep-black text-pure-white"
                     : "bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface"

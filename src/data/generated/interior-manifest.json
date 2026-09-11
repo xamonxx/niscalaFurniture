@@ -1,0 +1,1548 @@
+{
+  "generatedAt": "2026-09-09T13:07:13.969Z",
+  "source": "BAHAN/PORTOFOLIO PROJECT INTERIOR.pdf",
+  "projects": [
+    {
+      "slug": "apartemen-pakuwon-residences-mall-bekasi",
+      "categorySlug": "apartemen",
+      "client": null,
+      "venue": "Pakuwon Residences Mall Bekasi",
+      "location": "Bekasi",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/apartemen/apartemen-pakuwon-residences-mall-bekasi-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/apartemen/apartemen-pakuwon-residences-mall-bekasi-01.webp",
+          "width": 1088,
+          "height": 1316,
+          "orientation": "portrait",
+          "bytes": 185622,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=2&box=216,646,1304,1962",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoNABAABUB8JbACdAD0ZKQiFwAA/tX/i4dWkJNwGhn80df3Bz9N2lJbkmxAWYRaiBlniRjIzU26thOdElTpi1CvjCUjKhtgAAA="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-pakuwon-residences-mall-bekasi-02.webp",
+          "width": 990,
+          "height": 1314,
+          "orientation": "portrait",
+          "bytes": 138510,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=2&box=1316,646,2306,1960",
+          "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoMABAABUB8JbACdAEXYo/20oAA3iS/THYOdsfHNkCuLPunxobCuddsQlDFjzxwX4Q+vDlMxaItgFT4uli4kPsIT8XEp3YqNCLtfAegAAA="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-pakuwon-residences-mall-bekasi-03.webp",
+          "width": 1090,
+          "height": 1384,
+          "orientation": "portrait",
+          "bytes": 135480,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=2&box=222,1985,1312,3369",
+          "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoNABAABUB8JaACdADx3IffAAD30JpkHKXop/6Jpqe2eygsayDP+L6hig5g0qZWk7+mwSBSJIuOULdPEoMlB7EL/TBQCY78UbTMAAAA"
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-pakuwon-residences-mall-bekasi-04.webp",
+          "width": 969,
+          "height": 1393,
+          "orientation": "portrait",
+          "bytes": 145480,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=2&box=1321,1976,2290,3369",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoLABAABUB8JQBOgB6RZufjwCAA/NaE3wp5qawQ0NIysq0isjJrAn229F3VGFt5NihRkTpIDkmAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "apartemen-kemang-village",
+      "categorySlug": "apartemen",
+      "client": null,
+      "venue": "Kemang Village",
+      "location": "Jakarta Selatan",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/apartemen/apartemen-kemang-village-01.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/apartemen/apartemen-kemang-village-01.webp",
+          "width": 753,
+          "height": 492,
+          "orientation": "landscape",
+          "bytes": 29352,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=3&box=1551,868,2304,1360",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAoABUB8JYwAAxe25kVb2kAA/fmzm/vkrAuuRR0kOWGfxP5TnQjqrIPA8xeOciEbKH69WcCAAA=="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-kemang-village-02.webp",
+          "width": 1311,
+          "height": 1174,
+          "orientation": "square",
+          "bytes": 79282,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=3&box=219,1016,1530,2190",
+          "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAA4ABUB8JQBOgBjpXQnMSEwAAP6YsTQCKeC364Ohgk/JgwKdtfDlh1CMtcdOh0RpJKOrlE59cMgEjI7FPpEOeZrQ8Wjl3AAAAA=="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-kemang-village-03.webp",
+          "width": 584,
+          "height": 745,
+          "orientation": "portrait",
+          "bytes": 46112,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=3&box=1721,1385,2305,2130",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAQCdASoNABAABUB8JQAAN82ui3QA/dpi5JvSilg4NKBx0nAsrMdLMI72Sm3xWBy7jxchoSEM4luzEMu3Ut7/qN/X0lbeGWZLAAAA"
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-kemang-village-04.webp",
+          "width": 755,
+          "height": 1093,
+          "orientation": "portrait",
+          "bytes": 45478,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=3&box=1545,2271,2300,3364",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABwAQCdASoLABAABUB8JQBOgBrAAAD+jxgQ+GrdU3ZluvcXt2GsVQT1+mkoAcpzJx4is3a9mNloPwaYtHAz6K4wR34AAA=="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-kemang-village-05.webp",
+          "width": 953,
+          "height": 725,
+          "orientation": "landscape",
+          "bytes": 48024,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=3&box=217,2643,1170,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoQAAwABUB8JQBdgCIZX61Dir7gAAD97YdGQUqjuUIOS2nQ1qV4YiDuUzrTSvkS5ghoPnJXuzrfKDIalMbgoAAA"
+        }
+      ]
+    },
+    {
+      "slug": "apartemen-jakarta-residence",
+      "categorySlug": "apartemen",
+      "client": null,
+      "venue": "Jakarta Residence",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/apartemen/apartemen-jakarta-residence-04.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/apartemen/apartemen-jakarta-residence-01.webp",
+          "width": 681,
+          "height": 855,
+          "orientation": "portrait",
+          "bytes": 41638,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=4&box=231,649,912,1504",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoNABAABUB8JbAC7ADdNno3OAD+ZZlsHCigCjbBodeJVCqgFjv557Og3KAHOQvIIUb8jLTzg/x0ico5YeqsM4u1WA9UAA=="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-jakarta-residence-02.webp",
+          "width": 688,
+          "height": 857,
+          "orientation": "portrait",
+          "bytes": 41094,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=4&box=1616,656,2304,1513",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoNABAABUB8JZgC7ADdSnHdwbdIAPfRlTPefcwuXj1cIYuK3nP7P9pof4H6hYyQcUOubugMDrNYfpfEG3QPYDCYO8rIAAAA"
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-jakarta-residence-03.webp",
+          "width": 479,
+          "height": 600,
+          "orientation": "portrait",
+          "bytes": 25114,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=4&box=1128,912,1607,1512",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoNABAABUB8JbACdADcGVvwAAD5LCoaj8G5VroUTCxjhjMk755mCJfj+bt2VYfXhRPj2hYg+vEZFONiUfXCwAAA"
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-jakarta-residence-04.webp",
+          "width": 922,
+          "height": 642,
+          "orientation": "landscape",
+          "bytes": 46162,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=4&box=224,1903,1146,2545",
+          "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAsABUB8JbACdACjaLXGAAD96jvHsfWtuGnsCwBoW+GsCm4rrIw62CfVVGLkCY4EiUcprUPLUFoapV4k9oUtCwQ+A7b5HpgZreoAAAA="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-jakarta-residence-05.webp",
+          "width": 1023,
+          "height": 757,
+          "orientation": "landscape",
+          "bytes": 39758,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=4&box=1272,1852,2295,2609",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAwABUB8JbACdADcblIw+AD3SUwybnuNPLC0qn7dLrdj+NQLiqSLruyxAORiIKKMbeea7FGJfJHLn8KhuWcAAAA="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-jakarta-residence-06.webp",
+          "width": 438,
+          "height": 547,
+          "orientation": "portrait",
+          "bytes": 20032,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=4&box=1126,2815,1564,3362",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoNABAABUB8JYgC7AEDkzCxwhiAAPzO0/TnAyWWqh1nIgz0Xz6/4sXiZOzKM1AOZort7nf9yeoVuq8lbb/V+0+aulWqT8YbsAA="
+        }
+      ]
+    },
+    {
+      "slug": "apartemen-landmark-residence",
+      "categorySlug": "apartemen",
+      "client": null,
+      "venue": "Landmark Residence",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/apartemen/apartemen-landmark-residence-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/apartemen/apartemen-landmark-residence-01.webp",
+          "width": 744,
+          "height": 1280,
+          "orientation": "portrait",
+          "bytes": 50992,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=5&box=224,649,968,1929",
+          "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoJABAABUB8JZACdADWnEFAAPyidVGp75fLjlG7+3wKFhV0S9rvcCmYGzY0LIMx1hM18gAA"
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-landmark-residence-02.webp",
+          "width": 615,
+          "height": 939,
+          "orientation": "portrait",
+          "bytes": 39206,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=5&box=1696,992,2311,1931",
+          "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoKABAABUB8JYgCdADcJgyAAAD9dnj9dWkDF9DaiErbv9f5UzRQiU2jQhm6zGPdNlttAJuqKJW1BBZtsY8GjInU6mErgGdgkaVT4AAA"
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-landmark-residence-03.webp",
+          "width": 452,
+          "height": 540,
+          "orientation": "portrait",
+          "bytes": 11040,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=6&box=1843,2016,2295,2556",
+          "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAQCdASoNABAABUB8JZwAAbEmroAA+BnPlVcPodzzng6rkfVbKMNlOjxIDomlBEnXk5E0MLtz3rdAKAA="
+        },
+        {
+          "src": "/images/interior/apartemen/apartemen-landmark-residence-04.webp",
+          "width": 453,
+          "height": 657,
+          "orientation": "portrait",
+          "bytes": 13500,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=6&box=1844,2709,2297,3366",
+          "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACQAQCdASoLABAABUB8JZwAAp1hAAAA3b7qiTMeqskPr8YRnzPwLpgpbE25VVkIAAA="
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-bandung-tempoe-doeloe",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Kotabaru Parahyangan – Bandung Tempoe Doeloe",
+      "location": "Padalarang",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-bandung-tempoe-doeloe-01.webp",
+      "coverOrientation": "square",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-bandung-tempoe-doeloe-01.webp",
+          "width": 1114,
+          "height": 1278,
+          "orientation": "square",
+          "bytes": 90896,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=7&box=216,648,1330,1926",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoOABAABUB8JYwC7AEPR5woH6itIAD+VezuitGxvk09v/ECrkOFGZPCe0eHgtOM5DdYCNDJh5bj8/tC9tIDqMxyJ+0AAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-bandung-tempoe-doeloe-02.webp",
+          "width": 970,
+          "height": 1314,
+          "orientation": "portrait",
+          "bytes": 63512,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=7&box=1344,646,2314,1960",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoMABAABUB8JQBOgCIZr/eEVI9O2AD8p3jk/4O8VXFBiX9jAU0rXDAljmn4ph47Wtbay1xRg3T91ISHXy/wAAAA"
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-tatar-naganingrum",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Kotabaru Parahyangan – Tatar Naganingrum",
+      "location": "Padalarang",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-naganingrum-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-naganingrum-01.webp",
+          "width": 535,
+          "height": 676,
+          "orientation": "portrait",
+          "bytes": 31440,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=8&box=222,645,757,1321",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoNABAABUB8JQBOgBwsHRxUgDgAAP7EplarXzstL83s2uINgMh0/9k/Mw6TgH73keLXALqxxgAAAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-naganingrum-02.webp",
+          "width": 563,
+          "height": 709,
+          "orientation": "portrait",
+          "bytes": 20772,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=8&box=1082,649,1645,1358",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoNABAABUB8JZwAAxUnmEwZYAAA/tYnJ/LtC/36j1A+5Vf35ACKWDpu4H/97MDUr6lZRqukQaN4EAAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-naganingrum-03.webp",
+          "width": 366,
+          "height": 624,
+          "orientation": "portrait",
+          "bytes": 17904,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=8&box=1292,1544,1658,2168",
+          "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoJABAABUB8JZQAAlKX6AZIAAD+52fQU/xbf/xQ2nVQ2cFPE3U5qllvFIzQWlqfzZYQAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-naganingrum-04.webp",
+          "width": 1002,
+          "height": 1184,
+          "orientation": "portrait",
+          "bytes": 36240,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=8&box=1293,2182,2295,3366",
+          "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoOABAABUB8JZwAAtsGK287IAD+52L0vEgDsdp0gY9wIaOJnzrbddq4XNm6409RwAA="
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-tatar-wangsakerta",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Kotabaru Parahyangan – Tatar Wangsakerta",
+      "location": "Padalarang",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-wangsakerta-02.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-wangsakerta-01.webp",
+          "width": 1112,
+          "height": 1278,
+          "orientation": "square",
+          "bytes": 89794,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=9&box=222,646,1334,1924",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoOABAABUB8JQBOgBR9zTCU/4AA/NixFfC4aMNMmmlMMFRCHM0HyMsnLXoFtDsMjmtLQIHa2jG4AA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-wangsakerta-02.webp",
+          "width": 956,
+          "height": 361,
+          "orientation": "landscape",
+          "bytes": 20052,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=9&box=1350,1067,2306,1428",
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAYABUB8JZACdAEQFKGDigAA+/aea+FKfygwLmOr/r9yfo+lTsAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-wangsakerta-03.webp",
+          "width": 930,
+          "height": 1417,
+          "orientation": "portrait",
+          "bytes": 78284,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=9&box=216,1950,1146,3367",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoLABAABUB8JYgCdADZisCAAADN2IcxhzdhZ/YvPJdcSRckM2uJ4whnBNzc6hvFljoCXQW+3+flU2bhKFaVf0AA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-wangsakerta-04.webp",
+          "width": 1128,
+          "height": 1408,
+          "orientation": "portrait",
+          "bytes": 111824,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=9&box=1178,1958,2306,3366",
+          "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoNABAABUB8JQBOgBbrQuIwAP5pNrv2uTDyc7jdifGkj/OZwMAtOhTc28f1x8IAAAA="
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-tatar-spatirasmi",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Kotabaru Parahyangan – Tatar Spatirasmi",
+      "location": "Padalarang",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-spatirasmi-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-spatirasmi-01.webp",
+          "width": 1016,
+          "height": 1310,
+          "orientation": "portrait",
+          "bytes": 105724,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=10&box=222,645,1238,1955",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoMABAABUB8JZQAAY4uGy+AAP5XsEMbCS0KUbCzSp0TjgY9OmueuXtdrmowt1RHsOprYnSjpIpKcPoi/frKsRQEAAA="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-spatirasmi-02.webp",
+          "width": 1051,
+          "height": 1313,
+          "orientation": "portrait",
+          "bytes": 132158,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=10&box=1254,644,2305,1957",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoNABAABUB8JZQAAu0dYZxniUAA3NIxbk0Dooh2KMvUjfbTY4XMFmKh4PUhZo8xV2lOrclKYGFyaIQA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-spatirasmi-03.webp",
+          "width": 1026,
+          "height": 1282,
+          "orientation": "portrait",
+          "bytes": 75142,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=10&box=1267,1978,2293,3260",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoNABAABUB8JZQC7ADZl0FjwAAA/geDp1gcximvJOr9QgYA7A25d1YAfWjS7gMMx3eVFP0JsOb8w9+LUCNYAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kotabaru-parahyangan-tatar-spatirasmi-04.webp",
+          "width": 1027,
+          "height": 948,
+          "orientation": "square",
+          "bytes": 92586,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=10&box=214,2308,1241,3256",
+          "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoQAA8ABUB8JYgCdACkIApxgAD7GnnIEGGqkYCx3SbJKZd4lFPLKYBXf7gCrFg8JH0hoyQjAPtATlf8svUj9YNaH87zj7muvlUkc0jotgI1ydTTQAA="
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-bali-garden-city-view",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Bali Garden City View",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-bali-garden-city-view-04.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-bali-garden-city-view-01.webp",
+          "width": 1127,
+          "height": 1272,
+          "orientation": "square",
+          "bytes": 97396,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=11&box=216,648,1343,1920",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoOABAABUB8JZACdAD1WYAAAPhaOciffvCQqTzi7P0L1E6hXIUypU4DFS2RjjfXKyALRKVIreYNI0YI4D5M+FvvHvQIAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-bali-garden-city-view-02.webp",
+          "width": 947,
+          "height": 1279,
+          "orientation": "portrait",
+          "bytes": 65240,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=11&box=1351,649,2298,1928",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMABAABUB8JQBdgCGZEqckRjAA/ma/uJO503JBq0PNWwJnkhtBsR/1GrJ1cVhHceffoL5D1aOF98SjEhP68RCexZJJgAAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-bali-garden-city-view-03.webp",
+          "width": 1126,
+          "height": 1407,
+          "orientation": "portrait",
+          "bytes": 97434,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=11&box=217,1953,1343,3360",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoNABAABUB8JbACdAB6mIUAAAD+1fjMXX1U1PkxIJj3IduClbRa8UW94XUuJD0rMZo5rytZIaiZ+BU7cVdbjUZ4gIbF7YBLgAA="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-bali-garden-city-view-04.webp",
+          "width": 945,
+          "height": 344,
+          "orientation": "landscape",
+          "bytes": 16674,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=11&box=1358,3024,2303,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAYABUB8JYgCdAEOwAVAAP5YdELcevpbQ+ry4AXQMet+CvP05AAA"
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-kota-bali-residence",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Kota Bali Residence",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-kota-bali-residence-01.webp",
+      "coverOrientation": "square",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-kota-bali-residence-01.webp",
+          "width": 1118,
+          "height": 1250,
+          "orientation": "square",
+          "bytes": 99976,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=12&box=221,652,1339,1902",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoOABAABUB8JYwCw7DHPmKByAD+s/Vl8hwNp7pG+ZP0iQgs4I459mdvdZUW1Inu8HcXSJgfEV9AaanulrfAAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kota-bali-residence-02.webp",
+          "width": 939,
+          "height": 1251,
+          "orientation": "portrait",
+          "bytes": 110056,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=12&box=1368,652,2307,1903",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoMABAABUB8JQBOgCP/9kEKJ9WgAP6W6AOFjLy3UzMf1U/hd/+pIKglSs+7sYdDjbr4Hj81rqag17vyhSRkAAAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kota-bali-residence-03.webp",
+          "width": 548,
+          "height": 694,
+          "orientation": "portrait",
+          "bytes": 36504,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=12&box=1367,1921,1915,2615",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoNABAABUB8JQBYdhpIbF2EAAD5P7zM4ZNkDvOT7aI32sZcrG0GPAG6A6180vQjeluLZc6CSdtLEMZGS76jpgAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kota-bali-residence-04.webp",
+          "width": 367,
+          "height": 490,
+          "orientation": "portrait",
+          "bytes": 18278,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=12&box=1937,1921,2304,2411",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoMABAABUB8JYwC7AECvq4FiMcDAAD+ySuHF5kQRzmhqQuraUX76txouu0usoW275iDbffLy2Imv9bMU/nRlDAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kota-bali-residence-05.webp",
+          "width": 367,
+          "height": 457,
+          "orientation": "portrait",
+          "bytes": 25320,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=12&box=1935,2453,2302,2910",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoNABAABUB8JagCdADyZWdAAP5mYUf2EeWUVEfTIk+KbRNcRrSeAijUlBbvOw6BZ6TWA/YLg0wndcPvrXBClZwNBIAAAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-kota-bali-residence-06.webp",
+          "width": 511,
+          "height": 650,
+          "orientation": "portrait",
+          "bytes": 17392,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=12&box=1368,2712,1879,3362",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoNABAABUB8JZwAAudCHtxF4AD+4El11G+rc0IHXo1Vv8K6t+GnzLYJNDfNqyRyY8yYwhpnfgAAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-podomoro-park",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Podomoro Park",
+      "location": "Bandung",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-podomoro-park-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-podomoro-park-01.webp",
+          "width": 1021,
+          "height": 1275,
+          "orientation": "portrait",
+          "bytes": 168488,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=13&box=1274,647,2295,1922",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoNABAABUB8JQBOgjlcejGUAADyjR7/4mTnfiMl3zxc25d6XTSE6vtSNxNAmrl21TyKdLLCaqdNR0dR6QGH5LSd7nGQAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-podomoro-park-02.webp",
+          "width": 1026,
+          "height": 1409,
+          "orientation": "portrait",
+          "bytes": 86280,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=13&box=223,1958,1249,3367",
+          "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoMABAABUB8JQBOgCIBjuaoAAD30Uwfg4NyNbTI08h/3cFMzk0CT69HtqQkbwAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-podomoro-park-03.webp",
+          "width": 1033,
+          "height": 1407,
+          "orientation": "portrait",
+          "bytes": 90886,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=13&box=1270,1956,2303,3363",
+          "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMABAABUB8JQAATO3dV7a9YADNmEOu1G/lW+BeeEO5L0tDfRryHVNWBbzxnVA+9+HBQAAA"
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-summarecon-bandung",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Summarecon Bandung",
+      "location": "Bandung",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-summarecon-bandung-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-summarecon-bandung-01.webp",
+          "width": 759,
+          "height": 1166,
+          "orientation": "portrait",
+          "bytes": 57922,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=14&box=1540,734,2299,1900",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoKABAABUB8JZQAAxYTIWhKJAD4YuPrGcP57Wuqqv9/Pr3EonJvMobQO9LA2xpDPW++ZWh7Vz4J453MgAA="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-summarecon-bandung-02.webp",
+          "width": 610,
+          "height": 1008,
+          "orientation": "portrait",
+          "bytes": 33450,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=14&box=230,892,840,1900",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoKABAABUB8JZQAAp1gAMedgsgA/mbRS7mwEz0SaOFwoJ23OSis2QiJvgW3LKE9xNfhfQAhw44dHBHK71TbLUAA"
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-summarecon-bandung-03.webp",
+          "width": 928,
+          "height": 903,
+          "orientation": "square",
+          "bytes": 48372,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=14&box=227,2450,1155,3353",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQABAABUB8JQBdgB52YyTfIAD9098jsuewV6Y5gN9G/RgayPhjblrt7jog8LDfWqbx01KBrByC3yid2oAAAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-summarecon-bandung-04.webp",
+          "width": 1011,
+          "height": 901,
+          "orientation": "square",
+          "bytes": 51610,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=14&box=1288,2450,2299,3351",
+          "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAA4ABUB8JZQCw7DF/LhVwYAA/MiMei+AOM8PLyi6nBNTBlkpBg0yI2CMDaYT7Q+nJ6AA"
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-jakarta-garden-city",
+      "categorySlug": "real-estate",
+      "client": null,
+      "venue": "Jakarta Garden City",
+      "location": "Jakarta Timur",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/real-estate/real-estate-jakarta-garden-city-04.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/real-estate/real-estate-jakarta-garden-city-01.webp",
+          "width": 941,
+          "height": 1012,
+          "orientation": "square",
+          "bytes": 60788,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=15&box=1365,654,2306,1666",
+          "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoPABAABUB8JZACw7DJzZ0QgJN/AAD98FA4n72XPrfHykyD3chjU6+J3NWapHS3I6pgrUwR8dnCq8tGjYlJQMREg/CY6TlRb2AAAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-jakarta-garden-city-02.webp",
+          "width": 1142,
+          "height": 1098,
+          "orientation": "square",
+          "bytes": 106094,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=15&box=210,984,1352,2082",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAA8ABUB8JYgCdADp2cZJw4dSAADiLcVijJtXNK04WRLnEsqh/e14Qi8TCJLr22kh6VY4C2ZK/wio9SDwMzzHwTagAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-jakarta-garden-city-03.webp",
+          "width": 943,
+          "height": 1055,
+          "orientation": "square",
+          "bytes": 79738,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=15&box=1365,1707,2308,2762",
+          "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoOABAABUB8JYgCdAEfni59ocAA+224J3ChCWYVHjwxEBd43woGqSCEEKJoT7Y/i4CdXnNGAAA="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-jakarta-garden-city-04.webp",
+          "width": 1142,
+          "height": 634,
+          "orientation": "landscape",
+          "bytes": 42698,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=15&box=210,2720,1352,3354",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAkABUB8JbACdH8AELah9jQAAP7AdSHQWFZ1uPyubkrJWey8iVwqBgM7JCAsr7T7IYHHh+ZrgTU4ZAAAAA=="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-jakarta-garden-city-05.webp",
+          "width": 472,
+          "height": 588,
+          "orientation": "portrait",
+          "bytes": 16332,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=15&box=1365,2775,1837,3363",
+          "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoNABAABUB8JbACdAEDYh/gANztVjC2FpDByuo2GSEIgYkaZ2Y7e6ii5R0afQ7vdAA="
+        },
+        {
+          "src": "/images/interior/real-estate/real-estate-jakarta-garden-city-06.webp",
+          "width": 453,
+          "height": 562,
+          "orientation": "portrait",
+          "bytes": 21460,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=15&box=1855,2796,2308,3358",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoNABAABUB8JbACdACQdQwAAP5rCps2JfxVCX0/+pYgfup1mmytEY2i8x3REI/VRpsAtFT6HY9GTIAA"
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-kalibata-indah",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Kalibata Indah",
+      "location": "Jakarta Selatan",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-kalibata-indah-04.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-kalibata-indah-01.webp",
+          "width": 666,
+          "height": 1193,
+          "orientation": "portrait",
+          "bytes": 42956,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=16&box=224,727,890,1920",
+          "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoJABAABUB8JZQAAlrrZJcAAOAKmUOTECdZ1Tj/j5SijKqxPaLDH7dltdQoAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-kalibata-indah-02.webp",
+          "width": 644,
+          "height": 1228,
+          "orientation": "portrait",
+          "bytes": 42968,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=16&box=1655,703,2299,1931",
+          "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIABAABUB8JYgCdADxwXnWAADKK5Aa4CbSYLSgYX5t86EXjY7RzUUYAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-kalibata-indah-03.webp",
+          "width": 911,
+          "height": 882,
+          "orientation": "square",
+          "bytes": 29374,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=16&box=224,2480,1135,3362",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAA8ABUB8JbAC7ADcptQRAAD8snuCKpqS/X8IRnR2oh9kwdd7FxJTGP2p/73J5tNT7taaBAAAAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-kalibata-indah-04.webp",
+          "width": 1114,
+          "height": 873,
+          "orientation": "landscape",
+          "bytes": 30588,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=16&box=1185,2480,2299,3353",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAA0ABUB8JQBOgCIJEaFdlQAA/P7zougDOt7g1+5bDTOpm0dEQSOap7poplkgpVjSusOWv3AAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-cherryfield",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Cherryfield",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-cherryfield-04.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-cherryfield-01.webp",
+          "width": 743,
+          "height": 1066,
+          "orientation": "portrait",
+          "bytes": 54552,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=17&box=216,639,959,1705",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoLABAABUB8JYgCdAEW0rudH5QAAP2opq9nfbsffAJn6HnmcR5GI0IOOK44+haFafgf+nXyLwfVzb63vgqNQAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-cherryfield-02.webp",
+          "width": 1033,
+          "height": 1287,
+          "orientation": "portrait",
+          "bytes": 81830,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=17&box=1279,639,2312,1926",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoNABAABUB8JQBOgBJ/1wQA/lfjmvTQx0yPCa9Rah1ZkPPS1CL81UVrFxVYfWy8Z6jd4d6Q9xr/WY8/3xToEBIAAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-cherryfield-03.webp",
+          "width": 1119,
+          "height": 1171,
+          "orientation": "square",
+          "bytes": 79976,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=17&box=1193,2183,2312,3354",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoPABAABUB8JbACdADB8iAhIAD5Kol0z4vtwDpPCKR/Vovz53ynra03/QzFHd0YkRWjPg5YG4vheSB9/DRJFn2eWyq1v23AAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-cherryfield-04.webp",
+          "width": 949,
+          "height": 625,
+          "orientation": "landscape",
+          "bytes": 35516,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=17&box=218,2327,1167,2952",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAsABUB8JbACdADdbTryu9zVAAD+j48+9f3PIeEls2/7FE+ChpeEN+xby6gfIrumgML8hX/L67x1xjKDQKrSNZuuvJ8AAAA="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-antapani-city",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Antapani City",
+      "location": "Antapani",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-antapani-city-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-antapani-city-01.webp",
+          "width": 1107,
+          "height": 1274,
+          "orientation": "portrait",
+          "bytes": 148426,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=18&box=220,649,1327,1923",
+          "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoOABAABUB8JZgCdMn8BmUMqJAA4VGIBsq/NPT6USSN45TD1T6z1OLEsQXkQmROeu0R5r+g4c9DGIwRuImQKBw4kyBKM7+z4RdAAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-antapani-city-02.webp",
+          "width": 955,
+          "height": 1273,
+          "orientation": "portrait",
+          "bytes": 73862,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=18&box=1329,649,2284,1922",
+          "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoMABAABUB8JZQAAueMpu8gkdgA/f0HQEfjzXdguWUjMqbvpynHXetccg5C6AAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-antapani-city-03.webp",
+          "width": 981,
+          "height": 1408,
+          "orientation": "portrait",
+          "bytes": 142002,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=18&box=1327,1960,2308,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoLABAABUB8JZgC7ADzfY3gsAD+WzDUKPIM1eEx1fW1Osec7zfGFrLTqdaEJc1tt2HPdIL6mpem8egA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-antapani-city-04.webp",
+          "width": 1094,
+          "height": 959,
+          "orientation": "square",
+          "bytes": 97316,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=18&box=226,2413,1320,3372",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAQCdASoQAA4ABUB8JYwAATFBzUgA/dW8rC4d/Xfn9US1KULlc4anjBr6fTk8nclhgSvNRdKUNdCUbxXaPhGyAAA="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-bumi-mas-kencana",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Bumi Mas Kencana",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-bumi-mas-kencana-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-bumi-mas-kencana-01.webp",
+          "width": 1036,
+          "height": 1292,
+          "orientation": "portrait",
+          "bytes": 71282,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=19&box=221,659,1257,1951",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoNABAABUB8JbACw7EQdpCrUwAA/pBUDs+LZjmbj3IpYHKj5tleHeA/LoU7Fh1W5Vj7KEOIbSxV27n5iDBUfD+x7ULIgAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bumi-mas-kencana-02.webp",
+          "width": 1039,
+          "height": 1296,
+          "orientation": "portrait",
+          "bytes": 75074,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=19&box=1264,656,2303,1952",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoNABAABUB8JbACdADF4/NRAADiK3qRyfyezceRNKrUeBwHLuS6Wadv3QJHGWC7F6D2xZWtKKzLnv0uqaFtkzwIb+ulhiDmAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bumi-mas-kencana-03.webp",
+          "width": 1114,
+          "height": 1185,
+          "orientation": "square",
+          "bytes": 72210,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=19&box=221,2183,1335,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoPABAABUB8JQAAMwmAvHF7AAD+ZmsMsL+7o5TJJQ/OmdgFXF/P/fvau+PJIrweD0MrAo9KP2ZjhtzgiV1niiLk4th9FyXNbZD+AAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bumi-mas-kencana-04.webp",
+          "width": 898,
+          "height": 1141,
+          "orientation": "portrait",
+          "bytes": 106812,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=19&box=1407,2218,2305,3359",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoNABAABUB8JZACdAD50orgAPvrBaISWI6MBVcLTbW7rh64Asf21ASWpNgX7yMKvw7Vm6Y2+8wOdUekz2kNndaLyYgAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-griya-alamaya-pangalengan",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Griya Alamaya Pangalengan",
+      "location": "Pangalengan",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-griya-alamaya-pangalengan-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-griya-alamaya-pangalengan-01.webp",
+          "width": 1129,
+          "height": 1503,
+          "orientation": "portrait",
+          "bytes": 144282,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=20&box=223,648,1352,2151",
+          "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoMABAABUB8JaAC7AC4qsWu/SAAAP6U1fX/icd/bRMUrEeOfmacveDumKYQ4lvjRtQHk32JgCB/gAr95V2KN56STOw0Tys+rE1urQD6jXtvIoztZYAAAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-griya-alamaya-pangalengan-02.webp",
+          "width": 938,
+          "height": 1259,
+          "orientation": "portrait",
+          "bytes": 139736,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=20&box=1374,900,2312,2159",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAgCdASoMABAABUB8JZQAAtz3k0bLHkLWAADLCjYo2TZFQe0OWQvFK0909tqD4/WYePD6rwmaxQR5RSNzwBWtFI8cAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-griya-alamaya-pangalengan-03.webp",
+          "width": 1137,
+          "height": 1192,
+          "orientation": "square",
+          "bytes": 151688,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=20&box=223,2178,1360,3370",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoPABAABUB8JQBdgCB+aszDbogAyIyHOnPT1PRqT9Socqzq3pTUoGgeeUAgKGgP90IQ3K5kS6TXs9vFLcomzSLKMWXxoAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-griya-alamaya-pangalengan-04.webp",
+          "width": 937,
+          "height": 1190,
+          "orientation": "portrait",
+          "bytes": 72770,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=20&box=1375,2178,2312,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoNABAABUB8JZAC7ADcrJpUnKYYAADbnF7kjNfurEgjw0zd4oh3HkkDALCQ2J016lZHxZhkuLLFGKzY6Z9uyxd/gwAAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-graha-raya-bintaro",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Graha Raya Bintaro",
+      "location": "Bintaro",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-graha-raya-bintaro-01.webp",
+      "coverOrientation": "square",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-graha-raya-bintaro-01.webp",
+          "width": 1130,
+          "height": 1286,
+          "orientation": "square",
+          "bytes": 103184,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=21&box=216,649,1346,1935",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoOABAABUB8JYgCdABzIsGAAPyKk9UiRQ79QfQJR8JYtxwQo6ghUHPxCPu3WfwqcfB9JzSfZtMrMZMrAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-graha-raya-bintaro-02.webp",
+          "width": 956,
+          "height": 1285,
+          "orientation": "portrait",
+          "bytes": 74328,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=21&box=1358,650,2314,1935",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMABAABUB8JagCdAEObhOnEKAA+3YMsisO+R3+pnnY+OYwBUtPhLmsb9JY8kmgtkVtakSBDzgWm1m64Im6AAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-graha-raya-bintaro-03.webp",
+          "width": 1112,
+          "height": 1433,
+          "orientation": "portrait",
+          "bytes": 110506,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=21&box=222,1935,1334,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoMABAABUB8JbACdADdc3BNwvgAANzDMpRaiuP1D+kDOSAbicrE+UK3LpnwJpRhLiQ7pSHLPwYCUAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-graha-raya-bintaro-04.webp",
+          "width": 954,
+          "height": 1433,
+          "orientation": "portrait",
+          "bytes": 96498,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=21&box=1344,1935,2298,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoLABAABUB8JYgCdACPTjKAAP6MDwDW2r0xbwfthGZcv0FPDg10nOsAwOKMBRKMG0yGelS1KnFZuLwAAAA="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-bsd-city",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "BSD City",
+      "location": "Tangerang Selatan",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-bsd-city-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-bsd-city-01.webp",
+          "width": 642,
+          "height": 939,
+          "orientation": "portrait",
+          "bytes": 31640,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=22&box=230,641,872,1580",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAwAgCdASoLABAABUB8JZgC7AEDde5Htmc1AADb/EqAZt0IjMLTdxK/PxZb51RlUaprOCqxPXrTs6aVSQqEaYVYAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bsd-city-02.webp",
+          "width": 696,
+          "height": 918,
+          "orientation": "portrait",
+          "bytes": 41280,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=22&box=888,670,1584,1588",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoMABAABUB8JaACdAEDDzjEzkAA/a5DEY4G3vhzFqC78TJZYP5qKry3uVCCdKWGfZMUUZvWRQAAAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bsd-city-03.webp",
+          "width": 704,
+          "height": 939,
+          "orientation": "portrait",
+          "bytes": 49302,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=22&box=1600,641,2304,1580",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMABAABUB8JaAC7ADZmjKzXIAA+5yXhK1pmFQgJqYkFaG6saNdVV/1kYxXF14AcKgheMIinSJYW8FATjakQAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bsd-city-04.webp",
+          "width": 692,
+          "height": 1087,
+          "orientation": "portrait",
+          "bytes": 39414,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=22&box=222,1776,914,2863",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoKABAABUB8JQBOgBu1GK5ZnGQgAP0r0GKi8GMyqKBIhqEjUAjBflqDM1sXwgOqnYOB4H3Sp3oKA8shQAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bsd-city-05.webp",
+          "width": 364,
+          "height": 487,
+          "orientation": "portrait",
+          "bytes": 16394,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=22&box=222,2881,586,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoMABAABUB8JaACdAERAxOmwxAA/Zo0H3FE5lWdk2ex/PX9bcZ6rwAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-bsd-city-06.webp",
+          "width": 547,
+          "height": 479,
+          "orientation": "square",
+          "bytes": 26128,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=22&box=998,2881,1545,3360",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAA4ABUB8JagCdADGoIh+GEAA/oeAxCCYAKsysC8C7QczKDUaRzgdD4iAa6U4IVdISwbxAI2nAAAA"
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-grand-depok-city",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Grand Depok City",
+      "location": "Depok",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-grand-depok-city-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-grand-depok-city-01.webp",
+          "width": 686,
+          "height": 911,
+          "orientation": "portrait",
+          "bytes": 40836,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=23&box=217,649,903,1560",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoMABAABUB8JaACdAEQXArpfMVIAAD2rWZiojXKLmRqWF2m3BdesPJ/p0eKDSNNW0MCCtZFLNmlzSOavTr3qEEx2vHQGYAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-grand-depok-city-02.webp",
+          "width": 697,
+          "height": 928,
+          "orientation": "portrait",
+          "bytes": 38778,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=23&box=912,640,1609,1568",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMABAABUB8JYgCdADbaQSB7LAA+yOHYQtZIpSV+wtyYaMyLHZgCxvnFkeYBeLeYVoL3ayjia0xTz1h4mqBN2BgAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-grand-depok-city-03.webp",
+          "width": 695,
+          "height": 918,
+          "orientation": "portrait",
+          "bytes": 57122,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=23&box=1617,650,2312,1568",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMABAABUB8JQBOgCHeiY4i74AAzCYBSf/w+91+QuzsG4pE6TQjxESaLiJ6Sz2Gae8AoJcZQNqgXkNBGmg6PAAA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-grand-depok-city-04.webp",
+          "width": 676,
+          "height": 947,
+          "orientation": "portrait",
+          "bytes": 27658,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=23&box=230,1575,906,2522",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoLABAABUB8JQBOgAthBbwAAP3wNtxMNOv52tZ9jvU4us9KJKPrzaXzrXHpqQvkXRhWr15+8p/mpdYTAAA="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-grand-depok-city-05.webp",
+          "width": 698,
+          "height": 921,
+          "orientation": "portrait",
+          "bytes": 47046,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=23&box=912,1577,1610,2498",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMABAABUB8JZACdACRu+ugAAD8juJ+FygBuxIE9/1nWJwtvsJQ3wqPLkMVl1FACE0mbe3UwffQAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-grand-depok-city-06.webp",
+          "width": 681,
+          "height": 801,
+          "orientation": "portrait",
+          "bytes": 28662,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=23&box=920,2553,1601,3354",
+          "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoOABAABUB8JYgCdAD1j9rzkxUgAP6NPvDDSX+MhqSDuFAVfyzCn+Ifcn7VmHozTGVXREwtKdOk2nS4O7xYAA=="
+        }
+      ]
+    },
+    {
+      "slug": "perumahan-shila-at-sawangan",
+      "categorySlug": "perumahan",
+      "client": null,
+      "venue": "Shila at Sawangan",
+      "location": "Sawangan",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/perumahan/perumahan-shila-at-sawangan-02.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/perumahan/perumahan-shila-at-sawangan-01.webp",
+          "width": 715,
+          "height": 629,
+          "orientation": "square",
+          "bytes": 28422,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=24&box=222,1020,937,1649",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAA4ABUB8JQBdgB6QaBgQOgAA4lAVBXtFf+AETBTofAEmGgEyJ2UsQoo5kYN5JacC/eLJyQAAAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-shila-at-sawangan-02.webp",
+          "width": 1025,
+          "height": 887,
+          "orientation": "landscape",
+          "bytes": 50502,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=24&box=1286,1060,2311,1947",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoQAA4ABUB8JZgCdAD0i63k8sAAAP6+bAQAlrcYP0EOQZaIxnwAXZkqak5N/MbhVE3ejtVpUO4AAA=="
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-shila-at-sawangan-03.webp",
+          "width": 853,
+          "height": 954,
+          "orientation": "square",
+          "bytes": 44942,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=24&box=228,2063,1081,3017",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoOABAABUB8JZgCdH8AGZMKxo6ZgAD89h0dWqY02YgqgCQAGf8UUeVxNGxBWPOTrOeCHGDJ1tI8HXGQDg2CsxBF5hGmiugA"
+        },
+        {
+          "src": "/images/interior/perumahan/perumahan-shila-at-sawangan-04.webp",
+          "width": 576,
+          "height": 977,
+          "orientation": "portrait",
+          "bytes": 28778,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=24&box=1714,2383,2290,3360",
+          "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoJABAABUB8JagCdADc9xRHi2AAAP6HlcdANFV1+UZ76YHPAzJgZm079rMa57HA27poDGzAAAA="
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-star-parahyangan-residence",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Star Parahyangan Residence",
+      "location": null,
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-star-parahyangan-residence-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-star-parahyangan-residence-01.webp",
+          "width": 736,
+          "height": 917,
+          "orientation": "portrait",
+          "bytes": 48300,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=25&box=225,650,961,1567",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoNABAABUB8JQBOgCHKOrHUgAD+ml6dLVtsF28I4UXVjBeqIGku2bhaqCrwNw5Xe9/vjTs5/MivngqHOGIWxqC7buuy7gAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-star-parahyangan-residence-02.webp",
+          "width": 730,
+          "height": 938,
+          "orientation": "portrait",
+          "bytes": 40652,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=25&box=980,1576,1710,2514",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMABAABUB8JYwCdADZmYx7IAD+jz3b6htL88mUSZYYFT193CU1xvjgElJt+o99zI4kVfWjSZ2vOZy6oAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-star-parahyangan-residence-03.webp",
+          "width": 583,
+          "height": 943,
+          "orientation": "portrait",
+          "bytes": 33134,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=25&box=1720,1570,2303,2513",
+          "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoKABAABUB8JbACdAEDcxtSvAAA/rX7D8pvK+yE2CVAMpFniC/lwXlqH5wZRYRZXaJqILL92GFBymGIr/hvQjjdY42TTzBuriUbWdQQAAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-star-parahyangan-residence-04.webp",
+          "width": 579,
+          "height": 816,
+          "orientation": "portrait",
+          "bytes": 38950,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=25&box=223,2552,802,3368",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoLABAABUB8JbACdADbgLwAAP5gI7DlMRzHezvKIW53XeW2caQfsfq4Z+JS0e8pAe1j/VROeR1cABV1q1tGuT/YEyVtUigA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-star-parahyangan-residence-05.webp",
+          "width": 656,
+          "height": 818,
+          "orientation": "portrait",
+          "bytes": 41080,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=25&box=1623,2544,2279,3362",
+          "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoNABAABUB8JbACdAEflApXGOG4APa4eV9hQjmas1Pn3wRT2Fg8rrsLk4rbNtn8xoNaUHG6VQ1eAWNMQ+1Hen1VVAJiGFWk0iQAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-cileunyi-residence",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Cileunyi Residence",
+      "location": "Cileunyi",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-cileunyi-residence-01.webp",
+      "coverOrientation": "square",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-cileunyi-residence-01.webp",
+          "width": 922,
+          "height": 864,
+          "orientation": "square",
+          "bytes": 56896,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=26&box=1384,939,2306,1803",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAA8ABUB8JZQAAtmGjebwAP5YG9A/yK+8csNfSLTHZ2mgH0jr5uAv/O9/9lh31yS9kduG1+WZ0qMCfN2ugy8AAAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-cileunyi-residence-02.webp",
+          "width": 859,
+          "height": 1065,
+          "orientation": "portrait",
+          "bytes": 86156,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=26&box=504,1041,1363,2106",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoNABAABUB8JYgCdADv3MNzMG2AAP5A+MO9oSNqfwSPy3Hq2x5cqd1NK98ywhRd3Q9lqPTm+uv2KyCb4fLNwAAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-cileunyi-residence-03.webp",
+          "width": 1145,
+          "height": 1225,
+          "orientation": "square",
+          "bytes": 70778,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=26&box=218,2140,1363,3365",
+          "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoPABAABUB8JZACw7dwB4D1suT5akgA/mrxdb+00a40vNVgibeb7gc83UIE3Xn9ykZ5u8T9i5qsqiW0RLrOWNdd8G8AOKvd9KklJ3omjgDg9ZMcSAAAAA=="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-cileunyi-residence-04.webp",
+          "width": 547,
+          "height": 763,
+          "orientation": "portrait",
+          "bytes": 47654,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=26&box=1768,2302,2315,3065",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoLABAABUB8JZACdACxcE7cAADLTZXqSne2fcz0bmzDDhE57W9S2MTuY2cy9QLvOtpgUvI8Edt0I/qHNtbZuNos7XPUi2N7QAA="
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-griya-padalarang-asri",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Griya Padalarang Asri",
+      "location": "Padalarang",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-griya-padalarang-asri-01.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-padalarang-asri-01.webp",
+          "width": 1600,
+          "height": 1074,
+          "orientation": "landscape",
+          "bytes": 88672,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=27&box=229,809,2298,2198",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsABUB8JZQCw7DpuRNXaTAAAM1eNZtLJB3bTdcElOJMMZyPRL1shjb48scr2Z56VapoGMHi/bROugCtWTkvl88rVyAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-padalarang-asri-02.webp",
+          "width": 646,
+          "height": 902,
+          "orientation": "portrait",
+          "bytes": 39562,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=27&box=214,2442,860,3344",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoLABAABUB8JQAASyt0B0MgAPwzVVfuNDKUSCRHMmFVBFp6fOLtv/DuUFsCsXMG1BOeSjqjEyEP3JqxRYgYweN++hkRQAAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-padalarang-asri-03.webp",
+          "width": 1201,
+          "height": 845,
+          "orientation": "landscape",
+          "bytes": 46076,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=27&box=1089,2508,2290,3353",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAsABUB8JZACdADD3ZP424AA/sF9xqvHdKXb+LBOFqZ253MsotjeHeFF2dweCvsWkXfoBhSQ5Yk5rK2e53uN01fzTEvroAA="
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-bukit-cipageran-indah",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Bukit Cipageran Indah",
+      "location": "Cimahi",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-bukit-cipageran-indah-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-bukit-cipageran-indah-01.webp",
+          "width": 1044,
+          "height": 1304,
+          "orientation": "portrait",
+          "bytes": 55212,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=28&box=220,650,1264,1954",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoNABAABUB8JYgCdACt/CTAAAD+w5DI0c7GbjJ1AgckjHHtGsLgTvzoiE/InRWiNMth+DzJR8vCgAAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-bukit-cipageran-indah-02.webp",
+          "width": 684,
+          "height": 650,
+          "orientation": "square",
+          "bytes": 42746,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=28&box=226,2156,910,2806",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAQCdASoQAA8ABUB8JQBOgCEfg4AA/dtU/p58xKah8lLrFrLOD3Czo37nW/ofSqTme0BGALn7VQpDZFk4oAAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-bukit-cipageran-indah-03.webp",
+          "width": 523,
+          "height": 605,
+          "orientation": "portrait",
+          "bytes": 17056,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=28&box=1015,2197,1538,2802",
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoOABAABUB8JZgCdADJu0nSHScgAPyw6Ui9qtU4F9RtlGw2X/tCl2WDq/HzFSRKjepvPkbMFepbAAAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-bukit-cipageran-indah-04.webp",
+          "width": 697,
+          "height": 661,
+          "orientation": "square",
+          "bytes": 31752,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=28&box=1608,2141,2305,2802",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoQAA8ABUB8JbACdAC4RpgAAPAgG3TojowCJSq4sVGfDFd12+V1ghPtn+DNcuZY9jN9QO+GKv4H0OJAAAA="
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-rancaekek-permai",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Rancaekek Permai",
+      "location": "Rancaekek",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-rancaekek-permai-01.webp",
+      "coverOrientation": "portrait",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-rancaekek-permai-01.webp",
+          "width": 1044,
+          "height": 1305,
+          "orientation": "portrait",
+          "bytes": 95224,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=29&box=222,652,1266,1957",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoNABAABUB8JYgAAxV1WAAA4h3ZO5sY/Hig22IWoibRa7PPSypELAggGB3Br9qwQBRe0b7BodY7wzyKzH3lrgOAAAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-rancaekek-permai-02.webp",
+          "width": 1024,
+          "height": 1316,
+          "orientation": "portrait",
+          "bytes": 71968,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=29&box=1274,648,2298,1964",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoMABAABUB8JQBdgBt9jbSjvPAAAP3gMRLt6ir8bpmXqv7DUipFoLbciUvu8BcSyzBDXRiI87uQO311AAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-rancaekek-permai-03.webp",
+          "width": 1117,
+          "height": 1396,
+          "orientation": "portrait",
+          "bytes": 95588,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=29&box=1183,1969,2300,3365",
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoNABAABUB8JbACdADdBWsSgAAA+p1AQKuLPhtUaXmZy87yXOVc3sfCJUTEgm81TUYHHCip183Si49LwuzhCLIT3fnSJgAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-rancaekek-permai-04.webp",
+          "width": 956,
+          "height": 1016,
+          "orientation": "square",
+          "bytes": 58112,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=29&box=218,2346,1174,3362",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoPABAABUB8JQBOgCKmmxLKAAD+xCuR+Q121rPOhq+PzQKKrkVOn2ZdGK2qVADOHozHZRlbZieuhgDlF3I5MAAA"
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-ciparay-residence",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Ciparay Residence",
+      "location": "Ciparay",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-ciparay-residence-02.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-ciparay-residence-01.webp",
+          "width": 928,
+          "height": 992,
+          "orientation": "square",
+          "bytes": 49410,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=30&box=1375,970,2303,1962",
+          "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoPABAABUB8JYwAAxbYScptXKYAAPY+NKGvSybRr3RAdLrU9/+n6am+2XKL8EGPJmAy0J0W7rWeJL0lurDvehfbo6xXw9xfzt9/03EUAAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-ciparay-residence-02.webp",
+          "width": 1044,
+          "height": 886,
+          "orientation": "landscape",
+          "bytes": 33324,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=30&box=214,1064,1258,1950",
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAA4ABUB8JYwCdACSmxMAAP3RVEmuJAANLjlDxCU7XPzrxKBMo72n4sMutEuXh4sB9q9G/sgAAA=="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-ciparay-residence-03.webp",
+          "width": 1075,
+          "height": 1285,
+          "orientation": "portrait",
+          "bytes": 26826,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=30&box=215,2070,1290,3355",
+          "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACQAQCdASoNABAABUB8JQBdgCHCmAAA/pgKuRSl5UlNkw3TOevysy5TKUFoik8AAAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-ciparay-residence-04.webp",
+          "width": 915,
+          "height": 1351,
+          "orientation": "portrait",
+          "bytes": 41500,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=30&box=1387,2000,2302,3351",
+          "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoLABAABUB8JZQAAmcqPaVFAAD413O5DloF7tlbwXXo3J6Aj/JwM7LZolFxFM23vvKeAAAA"
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-griya-cinunuk-indah",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Griya Cinunuk Indah",
+      "location": "Cinunuk",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-griya-cinunuk-indah-01.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-cinunuk-indah-01.webp",
+          "width": 1600,
+          "height": 1201,
+          "orientation": "landscape",
+          "bytes": 121672,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=31&box=220,642,2296,2200",
+          "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAwABUB8JQBYdiHhNHIxEaoAAPyEmduN62AjYnvNqrTKdAgAbHD9BSxVog8NCgPP/WqFsIaxyYNAAAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-cinunuk-indah-02.webp",
+          "width": 1097,
+          "height": 1132,
+          "orientation": "square",
+          "bytes": 94418,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=31&box=218,2220,1315,3352",
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQABAABUB8JQAAR41pPpIgGgAA4YwSNnj2O2JnuTO0AccSAG2yxA3IVUd8xSZbVmNb06HW0ep8O/E98S3FaadfL7petdA4KAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-cinunuk-indah-03.webp",
+          "width": 960,
+          "height": 644,
+          "orientation": "landscape",
+          "bytes": 33972,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=31&box=1336,2223,2296,2867",
+          "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAsABUB8JZgCdADIMpQhQAD89XsYgqFl6VAboHtkqEq3v0jTbE+RV2J6tYfEW0MJC+WvSgKRq0+jW72c0ZF8H8FIC33T9tK737MYCUAAAA=="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-cinunuk-indah-04.webp",
+          "width": 382,
+          "height": 476,
+          "orientation": "portrait",
+          "bytes": 22132,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=31&box=1333,2877,1715,3353",
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoNABAABUB8JYgCdAB70FGQAP3dnCtTHbG/OWpwbiVM6R+xJ4d3yKMGIeYemrojH7IRB7tNRpN4D2lErEpJHMRYoAA="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-cinunuk-indah-05.webp",
+          "width": 574,
+          "height": 477,
+          "orientation": "landscape",
+          "bytes": 29216,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=31&box=1721,2879,2295,3356",
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAA0ABUB8JQBOgBbJid1FgAD5XWfCe4S/d4qbQMLOLUljvkjldwNlPgrHov+B9pGSwmDE1QeKgLdOpHpGeEVgwsAAAA=="
+        }
+      ]
+    },
+    {
+      "slug": "rumah-subsidi-griya-setu-permai",
+      "categorySlug": "rumah-subsidi",
+      "client": null,
+      "venue": "Griya Setu Permai",
+      "location": "Bekasi",
+      "style": null,
+      "year": null,
+      "coverImage": "/images/interior/rumah-subsidi/rumah-subsidi-griya-setu-permai-01.webp",
+      "coverOrientation": "landscape",
+      "images": [
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-setu-permai-01.webp",
+          "width": 1018,
+          "height": 759,
+          "orientation": "landscape",
+          "bytes": 60628,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=32&box=226,1151,1244,1910",
+          "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAQCdASoQAAwABUB8JZQAAU80pAAA37LL7Ps5Za6d14q5PYG1ekXPVDq35qTOU3wv2+SRaZH8I+Nd8x1OQXf23oAuAAAA"
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-setu-permai-02.webp",
+          "width": 565,
+          "height": 499,
+          "orientation": "square",
+          "bytes": 22104,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=32&box=1740,1127,2305,1626",
+          "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAA4ABUB8JQBdgCKIowxHQIAA/Tr2ulXm4wOaLos+FabcVFZz2Yl+dNtYm2QTpIAAAA=="
+        },
+        {
+          "src": "/images/interior/rumah-subsidi/rumah-subsidi-griya-setu-permai-03.webp",
+          "width": 612,
+          "height": 949,
+          "orientation": "portrait",
+          "bytes": 19862,
+          "source": "PORTOFOLIO PROJECT INTERIOR.pdf#page=32&box=218,2417,830,3366",
+          "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoKABAABUB8JZQAAeGu8riAAP379sK2M4OaV3658kcvICePytc9sEyEX3Ha7zytg7sAAA=="
+        }
+      ]
+    }
+  ]
+}

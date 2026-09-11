@@ -17,10 +17,10 @@ export function LoginForm() {
     <form action={formAction} className="space-y-4">
       {state.error ? (
         <div
-          className={`flex items-start gap-2 rounded-md border p-3 text-xs ${
+          className={`flex items-start gap-2.5 rounded-lg border p-3 text-xs ${
             state.isBlocked
-              ? "border-error/40 bg-error/15 text-error font-medium"
-              : "border-error/20 bg-error/10 text-error"
+              ? "border-error/40 bg-error-container/50 text-on-error-container font-medium"
+              : "border-error/20 bg-error-container/30 text-on-error-container"
           }`}
         >
           {state.isBlocked ? (
@@ -41,6 +41,7 @@ export function LoginForm() {
           Username Admin
         </label>
         <div className="relative">
+          <User className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-gray" />
           <input
             id="username"
             name="username"
@@ -48,9 +49,8 @@ export function LoginForm() {
             required
             autoComplete="username"
             placeholder="Masukkan username admin..."
-            className="w-full rounded-md border border-border-hairline bg-surface-container-low px-3.5 py-2.5 pl-10 text-sm text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            className="w-full rounded-lg border border-border-hairline bg-surface-container-low px-3.5 py-2.5 pl-10 text-sm text-on-surface placeholder:text-muted-gray transition-colors focus:border-primary focus:bg-surface focus:outline-none focus:ring-1 focus:ring-primary"
           />
-          <User className="pointer-events-none absolute left-3 top-3 size-4 text-muted-gray" />
         </div>
       </div>
 
@@ -63,6 +63,7 @@ export function LoginForm() {
           Password Admin
         </label>
         <div className="relative">
+          <Lock className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-gray" />
           <input
             id="password"
             name="password"
@@ -70,9 +71,8 @@ export function LoginForm() {
             required
             autoComplete="current-password"
             placeholder="Masukkan password admin..."
-            className="w-full rounded-md border border-border-hairline bg-surface-container-low px-3.5 py-2.5 pl-10 pr-10 text-sm text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            className="w-full rounded-lg border border-border-hairline bg-surface-container-low px-3.5 py-2.5 pl-10 pr-10 text-sm text-on-surface placeholder:text-muted-gray transition-colors focus:border-primary focus:bg-surface focus:outline-none focus:ring-1 focus:ring-primary"
           />
-          <Lock className="pointer-events-none absolute left-3 top-3 size-4 text-muted-gray" />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
@@ -90,14 +90,19 @@ export function LoginForm() {
       </div>
 
       {/* Security note / Dev helper */}
-      <div className="rounded border border-border-hairline/60 bg-surface-container-low/50 p-2 text-[11px] text-muted-gray">
-        <span className="font-semibold text-on-surface">Proteksi Keamanan:</span> Maksimal 3 kali percobaan salah. Jika gagal 3x, IP akan otomatis diblokir selama 10 menit.
+      <div className="flex items-start gap-2 rounded-lg border border-border-hairline/60 bg-surface-container-low/50 p-2.5 text-[11px] leading-relaxed text-muted-gray">
+        <ShieldAlert className="size-3.5 shrink-0 mt-0.5 text-muted-gray" />
+        <span>
+          <span className="font-semibold text-on-surface">Proteksi Keamanan:</span>{" "}
+          Maksimal 3 kali percobaan salah. Jika gagal 3x, akses akan diblokir
+          otomatis selama 10 menit.
+        </span>
       </div>
 
       <button
         type="submit"
         disabled={isPending || state.isBlocked}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary-container px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-deep-black transition-opacity hover:opacity-90 disabled:opacity-50"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-container px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-deep-black shadow-hairline transition-all hover:bg-primary-container-hover active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
       >
         {isPending ? (
           <>

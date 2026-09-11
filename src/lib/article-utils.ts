@@ -1,6 +1,46 @@
 import type { KnowledgeBlock } from "@/types";
 
 /**
+ * Schemes a rendered `[text](url)` link may use. `javascript:` is the one
+ * that matters: `[Klik di sini](javascript:fetch(...))` parses out of body
+ * text exactly like a real link and, unfiltered, becomes a clickable
+ * `<a href="javascript:...">` on the public article page - it runs in
+ * whichever visitor's browser clicks it, not the account that typed it.
+ *
+ * Built on `URL` rather than a regex on purpose: the WHATWG URL parser strips
+ * embedded tabs/newlines before reading the scheme, which is what closes the
+ * classic `jav\tascript:` filter-bypass a naive string check would miss.
+ */
+const SAFE_HREF_SCHEMES = new Set(["http:", "https:", "mailto:", "tel:"]);
+
+export function isSafeHref(href: string): boolean {
+  const trimmed = href.trim();
+  if (!trimmed) return false;
+  // A relative path ("/knowledge/...", "#bagian") has no scheme to check.
+  if (/^[/#]/.test(trimmed)) return true;
+  try {
+    return SAFE_HREF_SCHEMES.has(new URL(trimmed, "https://placeholder.invalid").protocol);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * "2026-01-15" -> "15 Jan 2026". The card footer's date, not the article
+ * page's own - that one spells the month out because it sits alongside a full
+ * byline; a card's date shares a row with a category pill and has no room
+ * for "Januari".
+ */
+export function formatArticleDateShort(iso: string): string {
+  return new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(iso));
+}
+
+/**
  * Extracts a YouTube 11-character video ID from any standard YouTube link,
  * embed URL, short link, or raw ID.
  */

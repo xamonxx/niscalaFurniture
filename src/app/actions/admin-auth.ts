@@ -11,8 +11,11 @@ import {
 } from "@/lib/auth";
 import {
   getRateLimitStatus,
+  getUsernameRateLimitStatus,
   recordFailedAttempt,
+  recordUsernameFailedAttempt,
   resetRateLimit,
+  resetUsernameRateLimit,
 } from "@/lib/rate-limiter";
 
 export type LoginState = {
@@ -28,19 +31,33 @@ export async function loginAdminAction(
 ): Promise<LoginState> {
   const headersList = await headers();
   const clientIp = extractClientIp(headersList);
-
-  // 1. Check rate limit status for this IP
-  const rateLimit = getRateLimitStatus(clientIp);
-  if (rateLimit.isBlocked) {
-    return {
-      error: `Akses ditolak: Terlalu banyak percobaan gagal. IP Anda (${clientIp}) diblokir sementara. Silakan tunggu ${rateLimit.retryAfterMinutes} menit lagi sebelum mencoba kembali.`,
-      isBlocked: true,
-      retryAfterMinutes: rateLimit.retryAfterMinutes,
-    };
-  }
-
   const username = (formData.get("username") as string) || "";
   const password = (formData.get("password") as string) || "";
+
+  /*
+    Two checks, not one. `clientIp` comes from a client-supplied header
+    (see extractClientIp) - an attacker who varies X-Forwarded-For on every
+    request gets a fresh IP-keyed record each time and the IP check alone
+    never trips. The username check has no such escape: this panel has one
+    account, so it caps total guesses against it no matter what IP is
+    claimed.
+  */
+  const ipStatus = getRateLimitStatus(clientIp);
+  const usernameStatus = username.trim()
+    ? getUsernameRateLimitStatus(username)
+    : null;
+
+  if (ipStatus.isBlocked || usernameStatus?.isBlocked) {
+    const retryAfterMinutes = Math.max(
+      ipStatus.retryAfterMinutes,
+      usernameStatus?.retryAfterMinutes ?? 0
+    );
+    return {
+      error: `Akses ditolak: Terlalu banyak percobaan gagal. Silakan tunggu ${retryAfterMinutes} menit lagi sebelum mencoba kembali.`,
+      isBlocked: true,
+      retryAfterMinutes,
+    };
+  }
 
   if (!username.trim() || !password) {
     return { error: "Username dan password wajib diisi." };
@@ -67,25 +84,33 @@ export async function loginAdminAction(
   }
 
   if (!isValid) {
-    // Record failed attempt
-    const attemptResult = recordFailedAttempt(clientIp);
+    // Record the failed attempt against both limiters - see the comment above.
+    const ipResult = recordFailedAttempt(clientIp);
+    const usernameResult = recordUsernameFailedAttempt(username);
+    const isBlocked = ipResult.isBlocked || usernameResult.isBlocked;
+    const remainingAttempts = Math.min(
+      ipResult.remainingAttempts,
+      usernameResult.remainingAttempts
+    );
 
-    if (attemptResult.isBlocked) {
+    if (isBlocked) {
       return {
-        error: `PERINGATAN KEAMANAN: Anda telah gagal login sebanyak 3 kali. IP Anda (${clientIp}) telah diblokir selama 10 menit demi keamanan sistem.`,
+        error:
+          "PERINGATAN KEAMANAN: Anda telah gagal login sebanyak 3 kali. Akses telah diblokir selama 10 menit demi keamanan sistem.",
         isBlocked: true,
         retryAfterMinutes: 10,
       };
     }
 
     return {
-      error: `Username atau password salah. Sisa kesempatan: ${attemptResult.remainingAttempts} kali sebelum IP Anda diblokir selama 10 menit.`,
+      error: `Username atau password salah. Sisa kesempatan: ${remainingAttempts} kali sebelum akses diblokir selama 10 menit.`,
       isBlocked: false,
     };
   }
 
-  // 3. Reset rate limiter on successful login
+  // 3. Reset both rate limiters on successful login
   resetRateLimit(clientIp);
+  resetUsernameRateLimit(username);
 
   await setAdminSessionCookie();
   redirect("/admin/articles");

@@ -94,14 +94,39 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={2}>
-            <div className="mt-space-md flex flex-col sm:flex-row sm:items-center gap-space-sm sm:gap-space-md">
-              <WhatsAppCta source="hero" className="w-full sm:w-auto">
+            {/*
+              A one-column grid until `sm`, a row after it.
+
+              As a wrapping flex row the two buttons sized to their own labels,
+              so on a phone they stacked at 301px and 230px - two left-aligned
+              buttons of different widths, which reads as a mistake rather than
+              a pair. Grid items stretch, so stacked they always match.
+
+              `items-stretch` on the row is for the other axis: the outline
+              button carries a 1px border the filled one does not, so side by
+              side they stand 46px and 44px unless something makes them agree.
+            */}
+            <div className="mt-space-md grid gap-space-sm sm:flex sm:flex-wrap sm:items-stretch sm:gap-space-md">
+              {/*
+                Narrower padding while the buttons are full width, the size's
+                own `px-space-xl` back once they size to their labels again.
+
+                Padding is what sets the width of an auto-width button and dead
+                weight on a stretched one, where it only eats into the room the
+                label has. At 320px it left 190px for a label needing 200, so
+                "Konsultasikan Ruangan Anda" wrapped and stood 64px against its
+                46px neighbour.
+              */}
+              <WhatsAppCta
+                source="hero"
+                className="px-space-md sm:px-space-xl"
+              >
                 Konsultasikan Ruangan Anda
               </WhatsAppCta>
               <Button
                 href="/portfolio"
                 variant="outline-inverse"
-                className="w-full sm:w-auto"
+                className="px-space-md sm:px-space-xl"
               >
                 Lihat Portofolio Proyek
               </Button>
@@ -119,6 +144,14 @@ export function Hero() {
                     <span className="block text-2xl font-semibold text-inverse-on-surface sm:text-headline-md-mobile lg:text-headline-md">
                       {item.value}
                     </span>
+                    {/*
+                      The cap keeps the captions honest in the four-column
+                      layout, and it has to stay scoped to `sm`. Below that
+                      there are two columns of about 154px, where an unscoped
+                      cap squeezed them to 77px - wrapping every label onto a
+                      second line for no reason and making the proof bar 34px
+                      taller than it needed to be.
+                    */}
                     <span className="mt-space-2xs block text-label-eyebrow uppercase leading-snug text-inverse-on-surface/70 sm:max-w-[12ch]">
                       {item.label}
                     </span>

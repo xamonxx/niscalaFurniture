@@ -20,6 +20,8 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import heicConvert from "heic-convert";
 
+import { addBlurPlaceholders } from "./add-blur-placeholders.mjs";
+
 // Keep libvips memory flat: the archive contains 3000px+ frames and the
 // shared cache made the largest ones fail on Windows.
 sharp.cache(false);
@@ -458,7 +460,7 @@ const PROCESS_FRAMES = [
 /**
  * Encode the order-process frames into public/images/process.
  *
- * Runs after the portfolio pass, which wipes OUT_IMAGES wholesale, so these
+ * Runs after the portfolio pass, which wipes public/images/process, so these
  * files are written rather than merely left in place.
  */
 async function buildProcessImages() {
@@ -877,8 +879,14 @@ async function main() {
     return;
   }
 
+  // Only the directories this script owns get wiped. public/images also holds
+  // interior/, written by scripts/extract-portfolio-pdf.py from a source archive
+  // this machine may not have - widening this back to OUT_IMAGES would delete
+  // 30 committed projects that nothing here can regenerate.
   console.log("Cleaning previous output...");
-  await rm(OUT_IMAGES, { recursive: true, force: true });
+  for (const owned of ["portfolio", "process"]) {
+    await rm(path.join(OUT_IMAGES, owned), { recursive: true, force: true });
+  }
   await mkdir(OUT_IMAGES, { recursive: true });
   await mkdir(OUT_MANIFEST, { recursive: true });
 
@@ -1038,6 +1046,11 @@ async function main() {
     path.join(OUT_MANIFEST, "portfolio-manifest.json"),
     `${JSON.stringify(manifest, null, 2)}\n`
   );
+
+  // Placeholders are derived from the files just written, so this has to come
+  // after the manifest lands on disk.
+  console.log("");
+  await addBlurPlaceholders([path.join(OUT_MANIFEST, "portfolio-manifest.json")]);
 
   const mb = (totalBytes / 1024 / 1024).toFixed(2);
   console.log("");

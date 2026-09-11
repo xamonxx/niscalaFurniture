@@ -20,16 +20,16 @@ export default async function AdminLayout({
   const isAuthed = await isAdminAuthenticated();
 
   return (
-    <div className="min-h-screen bg-surface-container-lowest text-on-surface">
+    <div className="min-h-screen bg-gradient-to-b from-surface via-surface-container-lowest to-surface-container-lowest text-on-surface">
       {isAuthed ? (
-        <header className="sticky top-0 z-40 border-b border-border-hairline bg-surface/90 backdrop-blur-md">
+        <header className="sticky top-0 z-40 border-b border-border-hairline bg-surface/85 backdrop-blur-md shadow-hairline">
           <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
             <div className="flex items-center gap-6">
               <Link
                 href="/admin/articles"
-                className="flex items-center gap-2 font-bold tracking-tight text-on-surface"
+                className="flex items-center gap-2.5 font-bold tracking-tight text-on-surface"
               >
-                <span className="flex size-7 items-center justify-center rounded bg-primary-container text-xs font-black text-deep-black">
+                <span className="flex size-8 items-center justify-center rounded-lg bg-primary-container text-sm font-black text-deep-black shadow-hairline">
                   N
                 </span>
                 <span className="text-sm uppercase tracking-wider">
@@ -37,22 +37,24 @@ export default async function AdminLayout({
                 </span>
               </Link>
 
-              <nav className="hidden sm:flex items-center gap-2">
+              <div className="hidden h-6 w-px bg-border-hairline sm:block" />
+
+              <nav className="hidden sm:flex items-center gap-1">
                 <Link
                   href="/admin/articles"
-                  className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold text-on-surface bg-surface-container-high transition-colors hover:bg-surface-container-highest"
+                  className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold text-on-surface transition-colors hover:bg-surface-container-high"
                 >
-                  <FileText className="size-3.5" />
+                  <FileText className="size-3.5 text-primary" />
                   Artikel Edukasi
                 </Link>
               </nav>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Link
                 href="/knowledge"
                 target="_blank"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border-hairline px-3 py-1.5 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors hover:bg-surface-container-low"
+                className="inline-flex items-center gap-1.5 rounded-md border border-border-hairline px-3 py-1.5 text-xs font-medium text-on-surface-variant transition-colors hover:border-border-hairline-strong hover:text-on-surface"
               >
                 Lihat Publik
                 <ExternalLink className="size-3" />
@@ -61,7 +63,7 @@ export default async function AdminLayout({
               <form action={logoutAdminAction}>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium text-error hover:bg-error/10 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium text-error transition-colors hover:bg-error-container/50"
                 >
                   <LogOut className="size-3.5" />
                   Keluar

@@ -1,13 +1,20 @@
 /**
  * Portfolio data.
  *
- * Every field here traces back to the studio archive: client names, locations,
+ * Every field here traces back to a studio record. Client names, locations,
  * finishing styles and years are parsed from the original file names by
- * `scripts/prepare-images.mjs`. Nothing is invented - a project with no
- * recorded client simply has none.
+ * `scripts/prepare-images.mjs`; the interior deck contributes venue names read
+ * off its own printed pages by `scripts/extract-portfolio-pdf.py`. Nothing is
+ * invented - a project with no recorded client simply has none, and the deck
+ * projects record no client, style or year at all.
+ *
+ * The two manifests stay separate files because they have separate owners: one
+ * is rebuilt from BAHAN/ by a Node script, the other from a PDF by a Python
+ * script, and neither machine is guaranteed to have both sources.
  */
 
-import manifest from "@/data/generated/portfolio-manifest.json";
+import bahanManifest from "@/data/generated/portfolio-manifest.json";
+import interiorManifest from "@/data/generated/interior-manifest.json";
 import { categories, categoryBySlug } from "@/data/categories";
 import type { Orientation, Project, ProjectImage } from "@/types";
 
@@ -18,6 +25,7 @@ type ManifestImage = {
   orientation: string;
   bytes: number;
   source: string;
+  blurDataURL?: string;
 };
 
 type ManifestProject = {
@@ -26,6 +34,8 @@ type ManifestProject = {
   categoryName: string;
   categoryShort: string;
   client: string | null;
+  /** Only the interior deck records these; the archive has no venue field. */
+  venue?: string | null;
   location: string | null;
   style: string | null;
   year: number | null;
@@ -46,11 +56,27 @@ function asOrientation(value: string): Orientation {
  * "Lemari Bawah Tangga Ibu Yeni". Galleries grouped by finishing style or by
  * shoot year get named for that instead.
  */
+/**
+ * "Podomoro Park, Bandung", or whichever half we actually know.
+ *
+ * Several venues already name their town ("Summarecon Bandung", "Grand Depok
+ * City"), so the town is dropped when the venue already contains it rather
+ * than printing "di Summarecon Bandung, Bandung".
+ */
+function buildPlace(project: ManifestProject): string | null {
+  const { venue, location } = project;
+  if (!venue) return location ?? null;
+  if (!location) return venue;
+  if (venue.toLowerCase().includes(location.toLowerCase())) return venue;
+  return `${venue}, ${location}`;
+}
+
 function buildTitle(
   project: ManifestProject,
   category: { name: string; short: string }
 ): string {
   if (project.client) return `${category.short} ${project.client}`;
+  if (project.venue) return `${category.short} ${project.venue}`;
   if (project.style) return `${category.short} ${project.style}`;
   if (project.year) return `${category.short} Koleksi ${project.year}`;
   return category.name;
@@ -58,16 +84,20 @@ function buildTitle(
 
 function buildDescription(project: ManifestProject, categoryName: string): string {
   const parts: string[] = [];
+  const place = buildPlace(project);
 
   if (project.client) {
     parts.push(
       `Pengerjaan ${categoryName.toLowerCase()} untuk ${project.client}`
     );
+  } else if (project.venue) {
+    // A named venue is a real record, so this is a delivery, not just a photo.
+    parts.push(`Pengerjaan ${categoryName.toLowerCase()}`);
   } else {
     parts.push(`Dokumentasi pengerjaan ${categoryName.toLowerCase()}`);
   }
 
-  if (project.location) parts.push(`di ${project.location}`);
+  if (place) parts.push(`di ${place}`);
   if (project.style) parts.push(`dengan finishing ${project.style.toLowerCase()}`);
 
   let sentence = `${parts.join(" ")}.`;
@@ -110,7 +140,8 @@ function buildSeoDescription(base: string): string {
 function buildAlt(project: ManifestProject, index: number): string {
   const resolved = resolveCategory(project.categorySlug, project.categoryName, project.categoryShort);
   const parts = [`${resolved.name} custom karya Niscala Furniture`];
-  if (project.location) parts.push(`di ${project.location}`);
+  const place = buildPlace(project);
+  if (place) parts.push(`di ${place}`);
   if (project.style) parts.push(`finishing ${project.style.toLowerCase()}`);
   const base = parts.join(", ");
   return index === 0 ? base : `${base} - detail ${index + 1}`;
@@ -138,6 +169,7 @@ function toProject(source: ManifestProject): Project {
     height: image.height,
     orientation: asOrientation(image.orientation),
     alt: buildAlt(source, index),
+    blurDataURL: image.blurDataURL,
   }));
 
   const category = resolveCategory(
@@ -155,11 +187,16 @@ function toProject(source: ManifestProject): Project {
     categoryName: category.name,
     categoryShort: category.short,
     client: source.client,
+    venue: source.venue ?? null,
     location: source.location,
     style: source.style,
     year: source.year,
     coverImage: source.coverImage,
     coverOrientation: asOrientation(source.coverOrientation),
+    // The cover is one of the gallery frames, so its placeholder is already
+    // in hand - no need for the manifest to carry the same string twice.
+    coverBlurDataURL: gallery.find((image) => image.src === source.coverImage)
+      ?.blurDataURL,
     gallery,
     description,
     seoDescription: buildSeoDescription(description),
@@ -169,13 +206,33 @@ function toProject(source: ManifestProject): Project {
 /**
  * When the portfolio content itself last changed.
  *
- * Written by `scripts/prepare-images.mjs`, so it moves only when the archive is
+ * Written by the two ingest scripts, so it moves only when a source is
  * re-processed. The sitemap uses it instead of `new Date()`, which used to mark
- * every project URL as freshly modified on each build.
+ * every project URL as freshly modified on each build. Whichever manifest was
+ * regenerated most recently wins.
  */
-export const portfolioUpdatedAt: string = manifest.generatedAt;
+export const portfolioUpdatedAt: string = [
+  bahanManifest.generatedAt,
+  interiorManifest.generatedAt,
+].sort()[1];
 
-const allEntries = (manifest.projects as ManifestProject[]).map(toProject);
+const manifestProjects: ManifestProject[] = [
+  ...(bahanManifest.projects as ManifestProject[]),
+  ...(interiorManifest.projects as ManifestProject[]),
+];
+
+// A slug colliding across the two manifests would emit duplicate entries from
+// generateStaticParams and silently drop one of the two projects from the site.
+// Failing the build is the cheap version of finding that out.
+const seenSlugs = new Set<string>();
+for (const entry of manifestProjects) {
+  if (seenSlugs.has(entry.slug)) {
+    throw new Error(`Duplicate project slug across manifests: ${entry.slug}`);
+  }
+  seenSlugs.add(entry.slug);
+}
+
+const allEntries = manifestProjects.map(toProject);
 
 /** Public portfolio, newest first, case study excluded. */
 export const projects: Project[] = allEntries
@@ -271,7 +328,7 @@ export const heroSlides: ProjectImage[] = heroProject.gallery.slice(0, 3);
 /* Case study                                                          */
 /* ------------------------------------------------------------------ */
 
-const caseStudySource = (manifest.projects as ManifestProject[]).find(
+const caseStudySource = (bahanManifest.projects as ManifestProject[]).find(
   (project) => project.categorySlug === CASE_STUDY_CATEGORY
 );
 
@@ -306,6 +363,7 @@ export const caseStudy =
           height: beforeImage.height,
           orientation: asOrientation(beforeImage.orientation),
           alt: "Kondisi ruangan sebelum pengerjaan custom furniture Niscala",
+          blurDataURL: beforeImage.blurDataURL,
         } satisfies ProjectImage,
         after: {
           src: afterImage.src,
@@ -313,6 +371,7 @@ export const caseStudy =
           height: afterImage.height,
           orientation: asOrientation(afterImage.orientation),
           alt: "Ruangan yang sama setelah pemasangan custom furniture Niscala",
+          blurDataURL: afterImage.blurDataURL,
         } satisfies ProjectImage,
       }
     : null;
@@ -327,7 +386,7 @@ export { categoryBySlug };
  * used to cycle unrelated project photos, which said nothing about the stage
  * the reader was on.
  */
-export const processImages: ProjectImage[] = manifest.process
+export const processImages: ProjectImage[] = bahanManifest.process
   .slice()
   .sort((a, b) => a.step.localeCompare(b.step))
   .map((frame) => ({
@@ -336,6 +395,7 @@ export const processImages: ProjectImage[] = manifest.process
     height: frame.height,
     orientation: asOrientation(frame.orientation),
     alt: frame.alt,
+    blurDataURL: frame.blurDataURL,
   }));
 
 /**
@@ -355,18 +415,50 @@ export const storyImages: ProjectImage[] = (() => {
     usedSrc.add(image.src);
   };
 
+  // Archive frames only. The interior-deck photos are crops out of a flattened
+  // print layout - fine at card size, but this panel runs large on the about
+  // page and is making a claim about the workshop's own craft, so it should be
+  // shot-for-purpose photography rather than a re-compressed page scan.
+  const fromArchive = projects.filter((project) =>
+    project.coverImage.startsWith("/images/portfolio/")
+  );
+
   // First pass: one cover per category, so no two panels look alike.
-  for (const project of projects) {
+  for (const project of fromArchive) {
     if (usedCategory.has(project.categorySlug)) continue;
     usedCategory.add(project.categorySlug);
     take(project.gallery[0]);
   }
 
   // Second pass: top up to eight from whatever else is available.
-  for (const project of projects) {
+  for (const project of fromArchive) {
     if (picked.length >= 8) break;
     take(project.gallery[1] ?? project.gallery[0]);
   }
 
   return picked;
 })();
+
+/**
+ * Intrinsic dimensions for every photograph the image pipeline published,
+ * keyed by the path it is served from.
+ *
+ * Articles reference these by hand - `![alt](/images/portfolio/x.webp)` - so
+ * the block that carries them has a `src` and nothing else. `next/image` needs
+ * a width and a height to reserve the space, and the manifests already know
+ * both. Looking them up here means an article can use the optimised pipeline
+ * without the editor having to record dimensions it never sees.
+ *
+ * Uploaded and remote images are absent by design; the caller falls back to a
+ * plain `<img>` for those.
+ */
+export const publishedImageSizes: ReadonlyMap<string, { width: number; height: number }> =
+  new Map(
+    [
+      ...(bahanManifest.projects as ManifestProject[]),
+      ...(interiorManifest.projects as ManifestProject[]),
+    ]
+      .flatMap((project) => project.images)
+      .concat(bahanManifest.process)
+      .map((image) => [image.src, { width: image.width, height: image.height }])
+  );

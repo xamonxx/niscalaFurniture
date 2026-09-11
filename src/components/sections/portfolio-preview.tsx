@@ -10,6 +10,22 @@ import {
   projectCount,
 } from "@/data/projects";
 
+/*
+ * Slot widths for this section's own grid.
+ *
+ * Deliberately not `portfolioGridSizes`: that one describes /portfolio, which
+ * is a single column below 640px, while this preview is two-up all the way
+ * down. Everything from 640px up is identical - container capped at 1440px,
+ * 64px gutters above 1024px, 32px grid gap - so only the last clause differs,
+ * where the pair sits inside a 20px margin and a 12px gap.
+ */
+const PREVIEW_SIZES = [
+  "(min-width: 1440px) 416px",
+  "(min-width: 1024px) calc((100vw - 192px) / 3)",
+  "(min-width: 640px) calc((100vw - 72px) / 2)",
+  "calc((100vw - 52px) / 2)",
+].join(", ");
+
 /**
  * Section 04 - Selected portfolio.
  *
@@ -55,7 +71,7 @@ export function PortfolioPreview() {
               <ProjectCard
                 project={project}
                 ratio={index === 0 ? "tall" : "standard"}
-                sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 46vw"
+                sizes={PREVIEW_SIZES}
               />
             </RevealItem>
           ))}

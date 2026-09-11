@@ -55,8 +55,22 @@ export function describedBy(id: string, hint?: string, error?: string) {
   return ids.length > 0 ? ids.join(" ") : undefined;
 }
 
+/**
+ * Shared appearance for every text control.
+ *
+ * The size is 14px on a mouse-driven screen and 16px wherever the pointer is
+ * coarse. That is not a taste decision: Safari on iOS zooms the whole page in
+ * whenever focus lands on a control rendering below 16px, so on a phone the
+ * first tap into this form threw the visitor to roughly 1.3x and left them
+ * pinching their way back out - on the one form the site exists to collect.
+ * `-webkit-text-size-adjust` does not suppress it; only a 16px control does.
+ *
+ * Keyed on `pointer: coarse` rather than a width breakpoint because the zoom
+ * follows the input device, not the viewport: a phone held in landscape is
+ * wider than `sm` and still zooms.
+ */
 export const controlClasses =
-  "w-full rounded-md border border-border-hairline-strong bg-surface-container-lowest px-space-md py-space-sm text-body-sm text-on-surface " +
+  "w-full rounded-md border border-border-hairline-strong bg-surface-container-lowest px-space-md py-space-sm text-body-sm pointer-coarse:text-body-md text-on-surface " +
   "transition-colors placeholder:text-muted-gray focus:border-on-surface focus:outline-none " +
   "aria-[invalid=true]:border-error";
 

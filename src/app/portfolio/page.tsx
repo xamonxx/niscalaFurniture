@@ -17,7 +17,10 @@ import {
   webPageJsonLd,
 } from "@/lib/seo";
 
-const PORTFOLIO_DESCRIPTION = `Dokumentasi ${projectCount} proyek furniture custom Niscala: kitchen set, lemari pakaian, lemari bawah tangga, backdrop TV, kamar tidur, apartemen, dan interior komersial.`;
+// Naming all ten categories no longer fits the 158-character snippet, so this
+// names the two the studio is best known for and then the property segments,
+// which is what the newer half of the portfolio is actually indexed on.
+const PORTFOLIO_DESCRIPTION = `Dokumentasi ${projectCount} proyek furniture custom Niscala: kitchen set, lemari pakaian, sampai interior rumah penuh di apartemen, perumahan, dan rumah subsidi.`;
 
 export const metadata = buildMetadata({
   title: "Portofolio Proyek",

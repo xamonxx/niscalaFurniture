@@ -79,6 +79,18 @@ export function SectionHeading({
 }
 
 /**
+ * The shape shared by every arrow row on the site: the `TextLink` below and
+ * the half-dozen hand-built ones that carry a leading `ArrowLeft` instead of
+ * a trailing `ArrowRight` and so cannot be expressed as `TextLink`. Only the
+ * geometry and the type live here - each caller still names its own colour.
+ *
+ * `tap-safe` is the reason this is worth sharing. The row draws 16px tall, so
+ * without it every one of these is the smallest target on its page.
+ */
+export const arrowRowClasses =
+  "group inline-flex items-center gap-space-2xs text-label-md font-semibold transition-colors tap-safe";
+
+/**
  * Editorial text link: understated type with a directional arrow and an
  * underline that grows from zero on hover.
  */
@@ -113,10 +125,7 @@ export function TextLink({
     </>
   );
 
-  const classes = cn(
-    "group inline-flex items-center gap-space-2xs text-label-md font-semibold text-on-surface hover:text-primary",
-    className
-  );
+  const classes = cn(arrowRowClasses, "text-on-surface hover:text-primary", className);
 
   if (external) {
     return (

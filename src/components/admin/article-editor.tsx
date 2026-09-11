@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -15,10 +15,12 @@ import {
   Loader2,
   Check,
   AlertCircle,
-  HelpCircle,
+  Image as ImageIcon,
+  Upload,
+  X,
 } from "lucide-react";
 
-import { saveArticleAction } from "@/app/actions/admin-articles";
+import { saveArticleAction, uploadArticleImageAction } from "@/app/actions/admin-articles";
 import { ArticleMarkdownEditor } from "@/components/admin/article-markdown-editor";
 import {
   parseRawTextToBlocks,
@@ -62,6 +64,54 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
   const [status, setStatus] = useState<"aktif" | "tidak_aktif">(
     initialArticle?.status || "aktif"
   );
+  const [coverImage, setCoverImage] = useState(initialArticle?.coverImage || "");
+  const [coverImageAlt, setCoverImageAlt] = useState(
+    initialArticle?.coverImageAlt || ""
+  );
+  const [isUploadingCover, setIsUploadingCover] = useState(false);
+  const [coverError, setCoverError] = useState<string | null>(null);
+  const coverFileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleCoverFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCoverError(null);
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const isJpgOrPng = ["image/jpeg", "image/jpg", "image/png"].includes(
+      file.type.toLowerCase()
+    );
+    if (!isJpgOrPng) {
+      setCoverError("Format file tidak didukung. Mohon gunakan file JPG atau PNG.");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setCoverError("Ukuran file terlalu besar. Maksimal 10 MB.");
+      return;
+    }
+
+    setIsUploadingCover(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const result = await uploadArticleImageAction(formData);
+      if (result.success && result.url) {
+        setCoverImage(result.url);
+        if (!coverImageAlt) {
+          setCoverImageAlt(
+            file.name.replace(/\.(jpe?g|png)$/i, "").replace(/[-_]+/g, " ")
+          );
+        }
+      } else {
+        setCoverError(result.error || "Gagal mengupload gambar sampul.");
+      }
+    } catch (error) {
+      console.error("Cover image upload failed:", error);
+      setCoverError("Terjadi kendala saat upload gambar sampul.");
+    } finally {
+      setIsUploadingCover(false);
+      e.target.value = "";
+    }
+  };
 
   // Content state
   const [blocks, setBlocks] = useState<KnowledgeBlock[]>(
@@ -203,6 +253,8 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
       category,
       summary,
       seoTitle: seoTitle.trim() || undefined,
+      coverImage: coverImage.trim() || undefined,
+      coverImageAlt: coverImage.trim() ? coverImageAlt.trim() || title : undefined,
       readingMinutes: Number(readingMinutes) || estimateReadingMinutes(cleanedBlocks),
       publishedAt:
         initialArticle?.publishedAt || new Date().toISOString().split("T")[0],
@@ -373,6 +425,101 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
             placeholder="Penjelasan singkat 1-2 kalimat untuk kartu depan dan meta description Google..."
             className="w-full rounded-md border border-border-hairline bg-surface-container-low px-3.5 py-2 text-sm text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           />
+        </div>
+
+        {/* Cover Image / Thumbnail (Optional) */}
+        <div className="space-y-1.5 sm:col-span-12 border-t border-border-hairline/60 pt-3">
+          <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-on-surface">
+            <ImageIcon className="size-3.5 text-primary" />
+            Gambar Sampul / Thumbnail (Opsional)
+          </label>
+          <p className="text-[11px] text-muted-gray">
+            Tampil di kartu artikel pada halaman Panduan dan beranda. Tanpa gambar,
+            kartu tetap tampil rapi dalam mode teks.
+          </p>
+
+          {coverError ? (
+            <div className="flex items-center gap-2 rounded-md border border-error/20 bg-error/10 p-2.5 text-xs text-error">
+              <AlertCircle className="size-4 shrink-0" />
+              <span>{coverError}</span>
+            </div>
+          ) : null}
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <div
+              onClick={() => coverFileInputRef.current?.click()}
+              className="group relative flex h-32 w-full shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-dashed border-border-hairline bg-surface-container-low transition-colors hover:border-primary/50 sm:w-48"
+            >
+              <input
+                ref={coverFileInputRef}
+                type="file"
+                accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                onChange={handleCoverFileChange}
+                className="hidden"
+              />
+              {isUploadingCover ? (
+                <Loader2 className="size-5 animate-spin text-muted-gray" />
+              ) : coverImage ? (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element -- Admin-only preview of an upload/pasted URL with no pipeline variants, same as the body image block above. */}
+                  <img
+                    src={coverImage}
+                    alt={coverImageAlt || "Pratinjau sampul"}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-deep-black/0 opacity-0 transition-all group-hover:bg-deep-black/40 group-hover:opacity-100">
+                    <span className="text-[11px] font-semibold text-pure-white">
+                      Ganti gambar
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCoverImage("");
+                      setCoverImageAlt("");
+                    }}
+                    className="absolute right-1.5 top-1.5 rounded-full bg-deep-black/60 p-1 text-pure-white opacity-0 transition-opacity group-hover:opacity-100"
+                    title="Hapus gambar sampul"
+                  >
+                    <X className="size-3.5" />
+                  </button>
+                </>
+              ) : (
+                <div className="flex flex-col items-center gap-1 text-muted-gray">
+                  <Upload className="size-5" />
+                  <span className="text-[10px] font-semibold">Upload JPG/PNG</span>
+                </div>
+              )}
+            </div>
+
+            <div className="flex-1 space-y-2">
+              <div>
+                <label className="block text-[11px] font-semibold text-on-surface">
+                  URL / Path Gambar
+                </label>
+                <input
+                  type="text"
+                  value={coverImage}
+                  onChange={(e) => setCoverImage(e.target.value)}
+                  placeholder="/uploads/articles/... atau tempel URL gambar"
+                  className="w-full mt-1 rounded-md border border-border-hairline bg-surface-container-low px-3 py-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-on-surface">
+                  Alt Text (Deskripsi SEO)
+                </label>
+                <input
+                  type="text"
+                  value={coverImageAlt}
+                  onChange={(e) => setCoverImageAlt(e.target.value)}
+                  placeholder="Deskripsi gambar untuk aksesibilitas & SEO..."
+                  className="w-full mt-1 rounded-md border border-border-hairline bg-surface-container-low px-3 py-2 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* SEO Title (Optional) */}
@@ -743,6 +890,7 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                     </div>
                     {block.src ? (
                       <div className="pt-2">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- Admin-only thumbnail of whatever path the editor holds; no variants exist for it, so next/image would be a pass-through wrapper. */}
                         <img
                           src={block.src}
                           alt={block.alt || "Preview"}
@@ -873,6 +1021,14 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
       {activeTab === "preview" ? (
         <div className="rounded-xl border border-border-hairline bg-surface p-6 shadow-sm sm:p-10">
           <div className="mx-auto max-w-3xl space-y-6">
+            {coverImage ? (
+              // eslint-disable-next-line @next/next/no-img-element -- Admin-only preview; same upload/URL source as the meta form's own preview.
+              <img
+                src={coverImage}
+                alt={coverImageAlt || title || "Gambar sampul"}
+                className="aspect-video w-full rounded-xl border border-border-hairline object-cover shadow-sm"
+              />
+            ) : null}
             <div className="space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-primary">
                 {category}
@@ -907,6 +1063,7 @@ export function ArticleEditor({ initialArticle, isEditing = false }: Props) {
                   if (block.type === "image") {
                     return (
                       <figure key={i} className="my-4 space-y-1.5">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- Admin-only live preview. Same sources as the public page, which picks next/image only when the pipeline published the file. */}
                         <img
                           src={block.src}
                           alt={block.alt || "Gambar artikel"}

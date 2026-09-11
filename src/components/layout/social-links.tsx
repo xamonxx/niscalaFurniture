@@ -86,7 +86,7 @@ export function SocialLinks({
                     "size-[3.25rem] border border-border-hairline bg-surface-container-lowest text-on-surface-variant shadow-hairline hover:scale-[1.05] md:size-[3.75rem] lg:size-[4.25rem]",
                     showcaseClass,
                   )
-                : "size-9 text-on-surface-variant hover:bg-surface-container hover:text-on-surface",
+                : "size-9 pointer-coarse:size-11 text-on-surface-variant hover:bg-surface-container hover:text-on-surface",
             )}
           >
             <Icon className={isShowcase ? "size-7 md:size-8 lg:size-9" : "size-[18px]"} />

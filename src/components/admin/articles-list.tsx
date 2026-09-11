@@ -10,6 +10,8 @@ import {
   Sparkles,
   CheckCircle2,
   XCircle,
+  X,
+  FileQuestion,
 } from "lucide-react";
 import type { KnowledgeArticle } from "@/types";
 import { ToggleStatusButton } from "./toggle-status-button";
@@ -51,67 +53,93 @@ export function ArticlesList({ articles }: Props) {
       );
     });
 
+  const hasActiveFilter = filter !== "semua" || searchQuery.trim().length > 0;
+
+  const clearFilters = () => {
+    setFilter("semua");
+    setSearchQuery("");
+  };
+
   return (
     <div className="space-y-4">
       {/* Search & Filter Header Bar */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         {/* Status Tabs */}
-        <div className="flex flex-wrap gap-1.5 rounded-lg border border-border-hairline bg-surface p-1">
+        <div
+          role="tablist"
+          className="inline-flex w-full flex-wrap gap-1 rounded-lg border border-border-hairline bg-surface-container-low p-1 sm:w-auto"
+        >
           <button
             type="button"
+            role="tab"
+            aria-selected={filter === "semua"}
             onClick={() => setFilter("semua")}
-            className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-colors ${
+            className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
               filter === "semua"
-                ? "bg-primary-container text-deep-black shadow-sm"
+                ? "bg-surface text-on-surface shadow-hairline"
                 : "text-muted-gray hover:text-on-surface"
             }`}
           >
-            Semua ({articles.length})
+            Semua <span className="tabular-nums">({articles.length})</span>
           </button>
 
           <button
             type="button"
+            role="tab"
+            aria-selected={filter === "aktif"}
             onClick={() => setFilter("aktif")}
-            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
               filter === "aktif"
-                ? "bg-primary-container text-deep-black shadow-sm"
+                ? "bg-surface text-primary shadow-hairline"
                 : "text-muted-gray hover:text-on-surface"
             }`}
           >
             <CheckCircle2 className="size-3.5" />
-            Aktif ({activeArticles.length})
+            Aktif <span className="tabular-nums">({activeArticles.length})</span>
           </button>
 
           <button
             type="button"
+            role="tab"
+            aria-selected={filter === "tidak_aktif"}
             onClick={() => setFilter("tidak_aktif")}
-            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
               filter === "tidak_aktif"
-                ? "bg-primary-container text-deep-black shadow-sm"
+                ? "bg-surface text-on-surface shadow-hairline"
                 : "text-muted-gray hover:text-on-surface"
             }`}
           >
             <XCircle className="size-3.5" />
-            Tidak Aktif ({inactiveArticles.length})
+            Tidak Aktif <span className="tabular-nums">({inactiveArticles.length})</span>
           </button>
         </div>
 
         {/* Search input */}
-        <div className="relative w-full sm:w-64">
+        <div className="relative w-full sm:w-72">
+          <Search className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-gray" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Cari judul atau kategori..."
-            className="w-full rounded-md border border-border-hairline bg-surface px-3 py-1.5 pl-8 text-xs text-on-surface placeholder:text-muted-gray focus:border-primary focus:outline-none"
+            className="w-full rounded-lg border border-border-hairline bg-surface py-2 pl-9 pr-8 text-xs text-on-surface placeholder:text-muted-gray transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           />
-          <Search className="pointer-events-none absolute left-2.5 top-2 size-3.5 text-muted-gray" />
+          {searchQuery ? (
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-0.5 text-muted-gray hover:text-on-surface"
+              title="Hapus pencarian"
+            >
+              <X className="size-3.5" />
+            </button>
+          ) : null}
         </div>
       </div>
 
       {/* Articles Table/List Container */}
-      <div className="overflow-hidden rounded-xl border border-border-hairline bg-surface shadow-sm">
-        <div className="border-b border-border-hairline bg-surface-container-low/40 px-4 py-3 sm:px-6 flex items-center justify-between">
+      <div className="overflow-hidden rounded-xl border border-border-hairline bg-surface shadow-hairline">
+        <div className="flex items-center justify-between border-b border-border-hairline bg-surface-container-low/40 px-4 py-3 sm:px-6">
           <h2 className="text-xs font-bold uppercase tracking-wider text-muted-gray">
             Menampilkan:{" "}
             <span className="text-on-surface">
@@ -123,15 +151,25 @@ export function ArticlesList({ articles }: Props) {
         </div>
 
         {filtered.length === 0 ? (
-          <div className="p-8 text-center space-y-2">
-            <p className="text-sm text-muted-gray">Tidak ada artikel yang cocok.</p>
-            {searchQuery ? (
+          <div className="flex flex-col items-center gap-3 px-6 py-16 text-center">
+            <span className="flex size-12 items-center justify-center rounded-full bg-surface-container-high text-muted-gray">
+              <FileQuestion className="size-5" />
+            </span>
+            <div className="space-y-1">
+              <p className="text-sm font-semibold text-on-surface">
+                Tidak ada artikel yang cocok
+              </p>
+              <p className="text-xs text-muted-gray">
+                Coba ubah kata kunci pencarian atau filter status di atas.
+              </p>
+            </div>
+            {hasActiveFilter ? (
               <button
                 type="button"
-                onClick={() => setSearchQuery("")}
-                className="text-xs text-primary underline"
+                onClick={clearFilters}
+                className="mt-1 inline-flex items-center gap-1.5 rounded-md border border-border-hairline px-3 py-1.5 text-xs font-semibold text-on-surface transition-colors hover:bg-surface-container-low"
               >
-                Hapus pencarian
+                Reset filter &amp; pencarian
               </button>
             ) : null}
           </div>
@@ -143,20 +181,22 @@ export function ArticlesList({ articles }: Props) {
               return (
                 <div
                   key={article.slug}
-                  className={`flex flex-col gap-4 p-4 transition-colors hover:bg-surface-container-lowest sm:flex-row sm:items-center sm:justify-between sm:px-6 ${
-                    !isActive ? "bg-surface-container-low/30" : ""
+                  className={`group relative flex flex-col gap-4 border-l-2 p-4 transition-colors hover:bg-surface-container-lowest sm:flex-row sm:items-center sm:justify-between sm:px-6 ${
+                    isActive
+                      ? "border-l-transparent"
+                      : "border-l-border-hairline-strong bg-surface-container-low/30"
                   }`}
                 >
                   <div className="space-y-1.5 min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       {/* Status badge */}
                       {isActive ? (
-                        <span className="inline-flex items-center gap-1 rounded bg-primary/15 px-2 py-0.5 text-[10px] font-bold text-primary">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-bold text-primary">
                           <span className="size-1.5 rounded-full bg-primary" />
                           Aktif (Publik)
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 rounded bg-muted-gray/20 px-2 py-0.5 text-[10px] font-bold text-muted-gray">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-muted-gray/15 px-2 py-0.5 text-[10px] font-bold text-muted-gray">
                           <span className="size-1.5 rounded-full bg-muted-gray" />
                           Tidak Aktif (Draft)
                         </span>
@@ -183,7 +223,7 @@ export function ArticlesList({ articles }: Props) {
                       </span>
                     </div>
 
-                    <h3 className="text-sm font-bold text-on-surface">
+                    <h3 className="text-sm font-bold text-on-surface transition-colors group-hover:text-primary">
                       {article.title}
                     </h3>
 

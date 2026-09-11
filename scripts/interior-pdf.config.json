@@ -1,0 +1,604 @@
+{
+  "source": "BAHAN/PORTOFOLIO PROJECT INTERIOR.pdf",
+  "dpi": 300,
+  "frame": [
+    210,
+    630,
+    2320,
+    3390
+  ],
+  "maxEdge": 1600,
+  "maxBytes": 409600,
+  "maxPhotos": 6,
+  "projects": [
+    {
+      "slug": "apartemen-pakuwon-residences-mall-bekasi",
+      "categorySlug": "apartemen",
+      "venue": "Pakuwon Residences Mall Bekasi",
+      "location": "Bekasi",
+      "pages": [
+        2
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "apartemen-kemang-village",
+      "categorySlug": "apartemen",
+      "venue": "Kemang Village",
+      "location": "Jakarta Selatan",
+      "pages": [
+        3
+      ],
+      "boxes": {
+        "3": [
+          [
+            210,
+            700,
+            1530,
+            2190
+          ],
+          [
+            1545,
+            700,
+            2320,
+            1370
+          ],
+          [
+            1545,
+            1385,
+            2320,
+            2130
+          ],
+          [
+            210,
+            2570,
+            1170,
+            3390
+          ],
+          [
+            1180,
+            2200,
+            1535,
+            3390
+          ],
+          [
+            1545,
+            2200,
+            2320,
+            3390
+          ]
+        ]
+      },
+      "exclude": {
+        "3": [
+          4
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "apartemen-jakarta-residence",
+      "categorySlug": "apartemen",
+      "venue": "Jakarta Residence",
+      "location": null,
+      "pages": [
+        4
+      ],
+      "boxes": {},
+      "exclude": {
+        "4": [
+          6
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "apartemen-landmark-residence",
+      "categorySlug": "apartemen",
+      "venue": "Landmark Residence",
+      "location": null,
+      "pages": [
+        5,
+        6
+      ],
+      "boxes": {},
+      "exclude": {
+        "5": [
+          2,
+          4
+        ],
+        "6": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-bandung-tempoe-doeloe",
+      "categorySlug": "real-estate",
+      "venue": "Kotabaru Parahyangan – Bandung Tempoe Doeloe",
+      "location": "Padalarang",
+      "pages": [
+        7
+      ],
+      "boxes": {},
+      "exclude": {
+        "7": [
+          3,
+          4
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-tatar-naganingrum",
+      "categorySlug": "real-estate",
+      "venue": "Kotabaru Parahyangan – Tatar Naganingrum",
+      "location": "Padalarang",
+      "pages": [
+        8
+      ],
+      "boxes": {},
+      "exclude": {
+        "8": [
+          3,
+          6
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-tatar-wangsakerta",
+      "categorySlug": "real-estate",
+      "venue": "Kotabaru Parahyangan – Tatar Wangsakerta",
+      "location": "Padalarang",
+      "pages": [
+        9
+      ],
+      "boxes": {},
+      "exclude": {
+        "9": [
+          3
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-kotabaru-parahyangan-tatar-spatirasmi",
+      "categorySlug": "real-estate",
+      "venue": "Kotabaru Parahyangan – Tatar Spatirasmi",
+      "location": "Padalarang",
+      "pages": [
+        10
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "real-estate-bali-garden-city-view",
+      "categorySlug": "real-estate",
+      "venue": "Bali Garden City View",
+      "location": null,
+      "pages": [
+        11
+      ],
+      "boxes": {},
+      "exclude": {
+        "11": [
+          4,
+          5
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-kota-bali-residence",
+      "categorySlug": "real-estate",
+      "venue": "Kota Bali Residence",
+      "location": null,
+      "pages": [
+        12
+      ],
+      "boxes": {},
+      "exclude": {
+        "12": [
+          3,
+          6
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-podomoro-park",
+      "categorySlug": "real-estate",
+      "venue": "Podomoro Park",
+      "location": "Bandung",
+      "pages": [
+        13
+      ],
+      "boxes": {},
+      "exclude": {
+        "13": [
+          1
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "real-estate-summarecon-bandung",
+      "categorySlug": "real-estate",
+      "venue": "Summarecon Bandung",
+      "location": "Bandung",
+      "pages": [
+        14
+      ],
+      "boxes": {
+        "14": [
+          [
+            210,
+            700,
+            840,
+            1900
+          ],
+          [
+            1540,
+            700,
+            2320,
+            1900
+          ],
+          [
+            210,
+            2450,
+            1170,
+            3390
+          ],
+          [
+            1180,
+            2450,
+            2320,
+            3390
+          ]
+        ]
+      },
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "real-estate-jakarta-garden-city",
+      "categorySlug": "real-estate",
+      "venue": "Jakarta Garden City",
+      "location": "Jakarta Timur",
+      "pages": [
+        15
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "perumahan-kalibata-indah",
+      "categorySlug": "perumahan",
+      "venue": "Kalibata Indah",
+      "location": "Jakarta Selatan",
+      "pages": [
+        16
+      ],
+      "boxes": {
+        "16": [
+          [
+            210,
+            700,
+            890,
+            1955
+          ],
+          [
+            1655,
+            700,
+            2320,
+            1955
+          ],
+          [
+            210,
+            2480,
+            1150,
+            3390
+          ],
+          [
+            1160,
+            2480,
+            2320,
+            3390
+          ]
+        ]
+      },
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "perumahan-cherryfield",
+      "categorySlug": "perumahan",
+      "venue": "Cherryfield",
+      "location": null,
+      "pages": [
+        17
+      ],
+      "boxes": {},
+      "exclude": {
+        "17": [
+          5
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "perumahan-antapani-city",
+      "categorySlug": "perumahan",
+      "venue": "Antapani City",
+      "location": "Antapani",
+      "pages": [
+        18
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "perumahan-bumi-mas-kencana",
+      "categorySlug": "perumahan",
+      "venue": "Bumi Mas Kencana",
+      "location": null,
+      "pages": [
+        19
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "perumahan-griya-alamaya-pangalengan",
+      "categorySlug": "perumahan",
+      "venue": "Griya Alamaya Pangalengan",
+      "location": "Pangalengan",
+      "pages": [
+        20
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "perumahan-graha-raya-bintaro",
+      "categorySlug": "perumahan",
+      "venue": "Graha Raya Bintaro",
+      "location": "Bintaro",
+      "pages": [
+        21
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "perumahan-bsd-city",
+      "categorySlug": "perumahan",
+      "venue": "BSD City",
+      "location": "Tangerang Selatan",
+      "pages": [
+        22
+      ],
+      "boxes": {},
+      "exclude": {
+        "22": [
+          5
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "perumahan-grand-depok-city",
+      "categorySlug": "perumahan",
+      "venue": "Grand Depok City",
+      "location": "Depok",
+      "pages": [
+        23
+      ],
+      "boxes": {},
+      "exclude": {
+        "23": [
+          6,
+          7
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "perumahan-shila-at-sawangan",
+      "categorySlug": "perumahan",
+      "venue": "Shila at Sawangan",
+      "location": "Sawangan",
+      "pages": [
+        24
+      ],
+      "boxes": {},
+      "exclude": {
+        "24": [
+          5
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-star-parahyangan-residence",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Star Parahyangan Residence",
+      "location": null,
+      "pages": [
+        25
+      ],
+      "boxes": {},
+      "exclude": {
+        "25": [
+          2,
+          6,
+          7
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-cileunyi-residence",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Cileunyi Residence",
+      "location": "Cileunyi",
+      "pages": [
+        26
+      ],
+      "boxes": {},
+      "exclude": {
+        "26": [
+          1
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-griya-padalarang-asri",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Griya Padalarang Asri",
+      "location": "Padalarang",
+      "pages": [
+        27
+      ],
+      "boxes": {
+        "27": [
+          [
+            210,
+            700,
+            2320,
+            2210
+          ],
+          [
+            210,
+            2270,
+            1075,
+            3390
+          ],
+          [
+            1085,
+            2270,
+            2320,
+            3390
+          ]
+        ]
+      },
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-bukit-cipageran-indah",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Bukit Cipageran Indah",
+      "location": "Cimahi",
+      "pages": [
+        28
+      ],
+      "boxes": {},
+      "exclude": {
+        "28": [
+          2,
+          3,
+          7
+        ]
+      },
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-rancaekek-permai",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Rancaekek Permai",
+      "location": "Rancaekek",
+      "pages": [
+        29
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-ciparay-residence",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Ciparay Residence",
+      "location": "Ciparay",
+      "pages": [
+        30
+      ],
+      "boxes": {
+        "30": [
+          [
+            210,
+            700,
+            1290,
+            1990
+          ],
+          [
+            1300,
+            700,
+            2320,
+            1990
+          ],
+          [
+            210,
+            2000,
+            1290,
+            3390
+          ],
+          [
+            1300,
+            2000,
+            2320,
+            3390
+          ]
+        ]
+      },
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-griya-cinunuk-indah",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Griya Cinunuk Indah",
+      "location": "Cinunuk",
+      "pages": [
+        31
+      ],
+      "boxes": {},
+      "exclude": {},
+      "cover": null
+    },
+    {
+      "slug": "rumah-subsidi-griya-setu-permai",
+      "categorySlug": "rumah-subsidi",
+      "venue": "Griya Setu Permai",
+      "location": "Bekasi",
+      "pages": [
+        32
+      ],
+      "boxes": {},
+      "exclude": {
+        "32": [
+          1,
+          4
+        ]
+      },
+      "cover": null
+    }
+  ]
+}

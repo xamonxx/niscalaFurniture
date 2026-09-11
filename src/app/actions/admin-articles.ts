@@ -147,6 +147,7 @@ export async function uploadArticleImageAction(
   try {
     const fs = await import("node:fs/promises");
     const path = await import("node:path");
+    const { default: sharp } = await import("sharp");
 
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
@@ -154,18 +155,35 @@ export async function uploadArticleImageAction(
     const uploadsDir = path.join(process.cwd(), "public", "uploads", "articles");
     await fs.mkdir(uploadsDir, { recursive: true });
 
-    const isPng = fileType.includes("png") || file.name.toLowerCase().endsWith(".png");
-    const ext = isPng ? ".png" : ".jpg";
     const cleanBase = file.name
       .toLowerCase()
       .replace(/\.(jpg|jpeg|png)$/, "")
       .replace(/[^a-z0-9_-]/g, "-")
       .slice(0, 30);
 
-    const fileName = `${Date.now()}-${cleanBase || "gambar"}${ext}`;
+    const fileName = `${Date.now()}-${cleanBase || "gambar"}.webp`;
     const filePath = path.join(uploadsDir, fileName);
 
-    await fs.writeFile(filePath, buffer);
+    /*
+      Uploads used to be written through untouched, at up to the 10 MB the
+      check above allows, and then rendered at full size on the public article
+      page. A phone on mobile data was downloading a camera original to look at
+      a picture in a blog post.
+
+      Everything else on this site is resized before it ships; there is no
+      reason an uploaded illustration should be the exception. 1600px matches
+      MAX_EDGE in the image pipeline, and the encode costs a second or two on
+      an action only a logged-in editor ever triggers - it is not on any
+      visitor's path.
+
+      `rotate()` with no argument applies the EXIF orientation and then drops
+      the tag, which is what keeps phone photos from arriving sideways.
+    */
+    await sharp(buffer)
+      .rotate()
+      .resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 78 })
+      .toFile(filePath);
 
     return {
       success: true,
