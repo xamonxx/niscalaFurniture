@@ -9,6 +9,28 @@ break by not knowing.
 
 ## Unreleased
 
+### Stopped animating `box-shadow` on the knowledge card hover-lift
+- **What** `knowledge-preview.tsx` and `knowledge-search-grid.tsx` both had
+  `transition-all` on the card `<Link>`, which also has `hover:shadow-panel`
+  (a two-layer, 32px-blur box-shadow). Scoped the transition to
+  `transition-transform` instead - the card still lifts (`-translate-y-1`)
+  with an eased transition, but the shadow now snaps instantly on hover
+  rather than animating.
+- **Why** Reported as the site feeling noticeably heavier while scrolling.
+  `transition-all` makes the browser watch every animatable property, and
+  animating `box-shadow` specifically forces a full repaint of an area larger
+  than the element (the blur radius), every frame, for as long as the hover
+  state and the 300ms transition overlap - which is exactly what happens when
+  a visitor scrolls with a wheel while the cursor rests over a card. The
+  project's own `project-card.tsx` already scopes its hover transition to
+  `transition-transform` for this reason; these two cards just didn't follow
+  it.
+- **Watch** An instantly-snapping shadow on hover is the intended trade-off,
+  not a bug - don't "fix" it by adding the shadow back into a broad
+  transition. If a card ever needs an animated shadow specifically, the cheap
+  way is a separate absolutely-positioned shadow layer whose *opacity*
+  crossfades (compositor-only), not animating `box-shadow` directly.
+
 ### Login rate limiter now also keys on username, not just the spoofable client IP
 - **What** `src/lib/rate-limiter.ts` runs two independent limiters instead of
   one: the existing per-IP counter, plus a new per-username counter.
