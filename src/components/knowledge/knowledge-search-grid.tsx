@@ -80,7 +80,7 @@ export function KnowledgeSearchGrid({ articles }: Props) {
             <RevealItem as="li" key={article.slug}>
               <Link
                 href={`/knowledge/${article.slug}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-lg bg-surface-container-lowest shadow-hairline transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-panel"
+                className="group relative flex h-full flex-col overflow-hidden rounded-lg bg-surface-container-lowest shadow-hairline transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-panel"
               >
                 {article.coverImage ? (
                   <div className="aspect-[16/10] w-full shrink-0 overflow-hidden bg-surface-container-high">
@@ -114,7 +114,7 @@ export function KnowledgeSearchGrid({ articles }: Props) {
                     <h2 className="text-headline-sm font-semibold leading-snug text-on-surface transition-colors group-hover:text-primary">
                       {article.title}
                     </h2>
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border-hairline-strong transition-all duration-300 group-hover:border-primary-container group-hover:bg-primary-container">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border-hairline-strong transition-colors duration-300 group-hover:border-primary-container group-hover:bg-primary-container">
                       <ArrowRight
                         aria-hidden
                         className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-deep-black"
