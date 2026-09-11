@@ -166,6 +166,15 @@ export type KnowledgeArticle = {
    */
   seoTitle?: string;
   summary: string;
+  /**
+   * Thumbnail shown on article cards and at the top of the article itself.
+   * A path the image pipeline published, or an admin upload/pasted URL - same
+   * two kinds already handled for in-body images. Optional: cards fall back to
+   * a text-only layout rather than a placeholder box when it is unset.
+   */
+  coverImage?: string;
+  /** Required alongside `coverImage` once one is set - never left to fall back to the title. */
+  coverImageAlt?: string;
   /** Estimated reading time in minutes. */
   readingMinutes: number;
   publishedAt: string;

@@ -99,8 +99,13 @@ async function main() {
       return;
     }
 
+    // Next.js's env loader interpolates unescaped `$word` as a reference to
+    // another env var, so the hash's `$`-delimited fields must be escaped or
+    // they get silently gutted on load. See CHANGELOG.md.
+    const escapedHash = hashPassword(password).replace(/\$/g, "\\$");
+
     console.log("\nAdd this to .env.local and to the environment on the server:\n");
-    console.log(`ADMIN_PASSWORD_HASH=${hashPassword(password)}`);
+    console.log(`ADMIN_PASSWORD_HASH=${escapedHash}`);
     console.log("\nRemove any ADMIN_PASSWORD line once this is in place.\n");
     return;
   }

@@ -1,12 +1,16 @@
 [
   {
     "slug": "checklist-sebelum-mulai-custom",
-    "category": "Persiapan Pra-Renovasi",
     "title": "Checklist Sebelum Mulai Custom: Elektrikal, Pipa, hingga Level Lantai.",
-    "seoTitle": "Checklist Sebelum Mulai Furniture Custom",
+    "category": "Persiapan Pra-Renovasi",
     "summary": "Hal-hal esensial yang wajib dipastikan pada dinding dan lantai agar proses instalasi furnitur berjalan lancar dan rapi.",
+    "seoTitle": "Checklist Sebelum Mulai Furniture Custom",
+    "coverImage": "/images/process/02-survey-lokasi.webp",
+    "coverImageAlt": "Tim Niscala Furniture melakukan survey lokasi dan menandai titik stopkontak sebelum instalasi",
     "readingMinutes": 5,
     "publishedAt": "2026-03-08",
+    "updatedAt": "2026-09-11",
+    "status": "aktif",
     "body": [
       {
         "type": "paragraph",
@@ -59,18 +63,20 @@
         "title": "Satu hal yang paling sering terlupa",
         "text": "Ukur lebar pintu masuk dan tikungan koridor. Modul yang sempurna di gambar bisa gagal masuk ruangan, dan memotongnya di lokasi selalu mengorbankan kerapian."
       }
-    ],
-    "status": "aktif",
-    "updatedAt": "2026-09-10"
+    ]
   },
   {
     "slug": "ukuran-ideal-lemari-pakaian",
-    "category": "Perencanaan Penyimpanan",
     "title": "Berapa Ukuran Ideal Kedalaman Lemari Pakaian & Pembagian Gantungan?",
-    "seoTitle": "Ukuran Ideal Lemari Pakaian Custom",
+    "category": "Perencanaan Penyimpanan",
     "summary": "Kedalaman 60cm vs 55cm, pembagian baju panjang (gamis/long coat) vs kemeja lipat agar lemari tidak cepat sesak.",
+    "seoTitle": "Ukuran Ideal Lemari Pakaian Custom",
+    "coverImage": "/images/portfolio/wardrobe/bpk-darwin-padalarang-01.webp",
+    "coverImageAlt": "Lemari pakaian custom dengan pembagian gantungan dan rak terbuka",
     "readingMinutes": 5,
     "publishedAt": "2026-02-20",
+    "updatedAt": "2026-09-11",
+    "status": "aktif",
     "body": [
       {
         "type": "paragraph",
@@ -118,18 +124,20 @@
         "title": "Cara paling cepat menghitung kebutuhan",
         "text": "Ukur lemari lama Anda: berapa sentimeter batang gantungan yang terisi, dan berapa tumpukan lipat yang ada. Tambahkan 20% untuk pertumbuhan. Angka itu jauh lebih akurat daripada menebak dari denah."
       }
-    ],
-    "status": "aktif",
-    "updatedAt": "2026-09-10"
+    ]
   },
   {
     "slug": "ergonomi-dan-layout-kitchen",
-    "category": "Ergonomi Dapur",
     "title": "Bagaimana Menentukan Ergonomi & Layout Kitchen yang Efisien?",
-    "seoTitle": "Ergonomi & Layout Kitchen Set yang Efisien",
+    "category": "Ergonomi Dapur",
     "summary": "Cara menghitung ketinggian tabletop sesuai tinggi badan dan alur gerak natural saat mencuci, memotong, hingga memasak.",
+    "seoTitle": "Ergonomi & Layout Kitchen Set yang Efisien",
+    "coverImage": "/images/portfolio/kitchen-set/ibu-qisty-soreang-01.webp",
+    "coverImageAlt": "Kitchen set custom dengan layout L-shape dan area kerja sink-kompor yang efisien",
     "readingMinutes": 7,
     "publishedAt": "2026-02-04",
+    "updatedAt": "2026-09-11",
+    "status": "aktif",
     "body": [
       {
         "type": "paragraph",
@@ -177,8 +185,71 @@
         "title": "Sebelum menyetujui desain",
         "text": "Minta gambar tampak depan lengkap dengan angka tinggi, bukan hanya render 3D. Render memperlihatkan suasana; gambar kerja memperlihatkan apakah dapur itu akan nyaman dipakai."
       }
-    ],
+    ]
+  },
+  {
+    "slug": "plywood-mdf-atau-hmr",
+    "title": "Plywood, MDF, atau HMR? Kenali karakter masing-masing material.",
+    "category": "Panduan Material",
+    "summary": "Panduan memahami mengapa kami merekomendasikan High Moisture Resistance (HMR) untuk area lembab dibanding MDF standar.",
+    "seoTitle": "Plywood, MDF, atau HMR: Pilih yang Mana?",
+    "coverImage": "/images/portfolio/kitchen-set/semi-classic-01.webp",
+    "coverImageAlt": "Kabinet dapur dengan finishing material tahan lembab untuk area basah",
+    "readingMinutes": 6,
+    "publishedAt": "2026-01-15",
+    "updatedAt": "2026-09-11",
     "status": "aktif",
-    "updatedAt": "2026-09-10"
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Bagian termahal dari sebuah custom furniture justru yang tidak terlihat: papan yang menjadi badan lemari. Finishing bisa diganti bertahun-tahun kemudian, tetapi kalau papannya salah pilih, kerusakan dimulai dari dalam dan tidak bisa diperbaiki tanpa membongkar seluruh modul."
+      },
+      {
+        "type": "heading",
+        "text": "Plywood (multipleks)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Plywood dibuat dari lembaran kayu tipis yang direkatkan berlapis dengan arah serat bersilangan. Struktur silang inilah yang membuatnya kuat menahan beban dan tidak mudah melendut. Untuk rak yang menahan barang berat atau bentang lebar di atas 80 cm, plywood adalah pilihan paling aman. Kekurangannya: permukaannya tidak sehalus MDF, sehingga untuk finishing cat duco biasanya perlu lapisan tambahan."
+      },
+      {
+        "type": "heading",
+        "text": "MDF (Medium Density Fibreboard)"
+      },
+      {
+        "type": "paragraph",
+        "text": "MDF dibuat dari serat kayu halus yang dipadatkan. Permukaannya sangat rata dan sisinya bisa dibentuk profil, jadi MDF unggul untuk pintu bergaya klasik dan finishing cat duco yang menuntut permukaan mulus. Masalahnya ada pada air: begitu MDF standar menyerap air, seratnya mengembang dan tidak bisa kembali. Pembengkakan di kaki kabinet dapur hampir selalu berasal dari sini."
+      },
+      {
+        "type": "heading",
+        "text": "HMR (High Moisture Resistance)"
+      },
+      {
+        "type": "paragraph",
+        "text": "HMR adalah papan berbasis serat yang diberi resin tahan lembab, biasanya ditandai warna hijau di penampangnya. Ia mempertahankan kerataan permukaan seperti MDF, tetapi jauh lebih tahan terhadap uap dan cipratan. Untuk kabinet bawah sink, area kompor, dan kamar mandi, HMR adalah standar yang kami pakai."
+      },
+      {
+        "type": "callout",
+        "title": "Yang perlu diingat",
+        "text": "Tidak ada satu material yang menang di semua kondisi. Yang benar adalah mencampurnya sesuai posisi: HMR untuk area basah, plywood untuk rak berbeban dan bentang lebar, MDF untuk pintu profil yang akan dicat duco."
+      },
+      {
+        "type": "heading",
+        "text": "Yang sering terlewat: edging"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sebagus apa pun papannya, air masuk lewat sisi potongan. Edging ABS yang dipasang dengan mesin hot-melt menutup sisi itu rapat. Edging tipis yang dipasang manual dengan lem biasa akan terkelupas dalam hitungan bulan di area lembab, dan begitu terkelupas, papan mulai menyerap air."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Minta spesifikasi papan ditulis di SPK, bukan hanya disebut lisan.",
+          "Pastikan ada perbedaan material antara area basah dan area kering.",
+          "Tanyakan tebal edging dan apakah dipasang mesin atau manual.",
+          "Periksa penampang papan sampel: HMR asli berwarna kehijauan."
+        ]
+      }
+    ]
   }
 ]

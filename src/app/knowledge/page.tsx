@@ -1,10 +1,6 @@
-import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
-
 import { PageHeader } from "@/components/layout/page-header";
-import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { Eyebrow } from "@/components/ui/typography";
+import { KnowledgeSearchGrid } from "@/components/knowledge/knowledge-search-grid";
 import { articleSeoTitle } from "@/data/knowledge";
 import { getAllArticles } from "@/lib/articles";
 import type { KnowledgeArticle } from "@/types";
@@ -76,39 +72,7 @@ export default async function KnowledgePage() {
 
       <section className="bg-surface-container-low py-space-4xl">
         <div className="container-editorial">
-          <RevealGroup as="ul" className="grid gap-gutter-desktop md:grid-cols-2">
-            {articles.map((article) => (
-              <RevealItem as="li" key={article.slug}>
-                <Link
-                  href={`/knowledge/${article.slug}`}
-                  className="group flex h-full flex-col justify-between gap-space-lg rounded-md bg-surface-container-lowest p-space-xl shadow-hairline transition-shadow hover:shadow-panel"
-                >
-                  <div className="space-y-space-sm">
-                    <Eyebrow>{article.category}</Eyebrow>
-                    <h2 className="text-headline-sm font-semibold leading-snug text-on-surface">
-                      {article.title}
-                    </h2>
-                    <p className="text-body-sm leading-relaxed text-on-surface-variant">
-                      {article.summary}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between text-label-md">
-                    <span className="inline-flex items-center gap-space-2xs text-muted-gray">
-                      <Clock aria-hidden className="size-4" />
-                      {article.readingMinutes} menit baca
-                    </span>
-                    <span className="inline-flex items-center gap-space-2xs font-semibold text-on-surface transition-colors group-hover:text-primary">
-                      Baca panduan
-                      <ArrowRight
-                        aria-hidden
-                        className="size-4 transition-transform group-hover:translate-x-0.5"
-                      />
-                    </span>
-                  </div>
-                </Link>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          <KnowledgeSearchGrid articles={articles} />
         </div>
       </section>
 

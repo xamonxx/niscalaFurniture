@@ -35,6 +35,7 @@ import {
 import {
   parseRawTextToBlocks,
   extractYouTubeVideoId,
+  isSafeHref,
 } from "@/lib/article-utils";
 import { uploadArticleImageAction } from "@/app/actions/admin-articles";
 
@@ -451,6 +452,12 @@ export function ArticleMarkdownEditor({
       }
       const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
       if (linkMatch) {
+        if (!isSafeHref(linkMatch[2])) {
+          // Same degrade-to-text as the public renderer - this preview
+          // should show the admin exactly what a reader will see, including
+          // the fact that an unsafe link gets stripped rather than shipped.
+          return linkMatch[1];
+        }
         return (
           <a
             key={index}

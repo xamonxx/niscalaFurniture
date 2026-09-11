@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
 
-import { arrowRowClasses, Eyebrow } from "@/components/ui/typography";
+import { arrowRowClasses, Eyebrow, TextLink } from "@/components/ui/typography";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
 import { FormattedText } from "@/components/ui/formatted-text";
 import {
@@ -84,6 +84,15 @@ function articleGraph(article: KnowledgeArticle) {
       // dateModified that tracks the build would be a freshness claim the
       // content does not back up.
       ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
+      // `coverImage` can already be a full URL (a pasted external link) or a
+      // site-relative upload path - only the second kind needs `absoluteUrl`.
+      ...(article.coverImage
+        ? {
+            image: /^https?:\/\//.test(article.coverImage)
+              ? article.coverImage
+              : absoluteUrl(article.coverImage),
+          }
+        : {}),
       wordCount: countWords(article),
       timeRequired: `PT${article.readingMinutes}M`,
       inLanguage: "id-ID",
@@ -155,7 +164,9 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
             Semua panduan
           </Link>
 
-          <header className="mx-auto mt-space-lg max-w-3xl space-y-space-sm">
+          <div className="mt-space-lg grid gap-x-gutter-desktop gap-y-space-3xl lg:grid-cols-12">
+          <div className="lg:col-span-8">
+          <header className="max-w-3xl space-y-space-sm">
             <Eyebrow>{article.category}</Eyebrow>
             <h1 className="text-headline-lg-mobile text-on-surface lg:text-headline-lg">
               {article.title}
@@ -189,7 +200,18 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
             </div>
           </header>
 
-          <div className="mx-auto mt-space-2xl max-w-3xl space-y-space-lg">
+          {article.coverImage ? (
+            <div className="mt-space-xl max-w-3xl overflow-hidden rounded-lg shadow-hairline">
+              {/* eslint-disable-next-line @next/next/no-img-element -- Admin upload/pasted URL, no pipeline variants - same reasoning as in-body images below. */}
+              <img
+                src={article.coverImage}
+                alt={article.coverImageAlt || article.title}
+                className="aspect-video w-full object-cover"
+              />
+            </div>
+          ) : null}
+
+          <div className="mt-space-2xl max-w-3xl space-y-space-lg">
             {article.body.map((block, index) => {
               switch (block.type) {
                 case "heading":
@@ -329,7 +351,7 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
             })}
           </div>
 
-          <div className="mx-auto mt-space-3xl max-w-3xl rounded-md bg-surface-container-low p-space-xl">
+          <div className="mt-space-3xl max-w-3xl rounded-md bg-surface-container-low p-space-xl">
             <div className="flex flex-col items-start justify-between gap-space-md sm:flex-row sm:items-center">
               <div className="space-y-1">
                 <p className="text-headline-sm font-semibold text-on-surface">
@@ -349,33 +371,65 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
               </WhatsAppCta>
             </div>
           </div>
+          </div>
+
+          {others.length > 0 ? (
+            <aside className="lg:col-span-4">
+              {/*
+                Sticky rather than scrolling away with the article: a reader
+                three screens deep in "Ergonomi Dapur" is exactly the reader
+                who wants "Panduan lainnya" still in view, not left behind at
+                the top of a long piece.
+              */}
+              <div className="space-y-space-md lg:sticky lg:top-24">
+                <h2 className="text-headline-sm font-semibold text-on-surface">
+                  Panduan Lainnya
+                </h2>
+                <ul className="space-y-space-sm">
+                  {others.slice(0, 4).map((item) => (
+                    <li key={item.slug}>
+                      <Link
+                        href={`/knowledge/${item.slug}`}
+                        className="group flex gap-space-sm rounded-md p-space-2xs transition-colors hover:bg-surface-container-low"
+                      >
+                        {item.coverImage ? (
+                          <div className="aspect-square w-16 shrink-0 overflow-hidden rounded-md bg-surface-container-high sm:w-20">
+                            {/* eslint-disable-next-line @next/next/no-img-element -- Cover is an admin upload/pasted URL with no pipeline variants. */}
+                            <img
+                              src={item.coverImage}
+                              alt={item.coverImageAlt || item.title}
+                              loading="lazy"
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <div className="flex aspect-square w-16 shrink-0 items-center justify-center rounded-md bg-surface-container-high text-muted-gray sm:w-20">
+                            <Clock aria-hidden className="size-5" />
+                          </div>
+                        )}
+                        <div className="min-w-0 flex-1 space-y-0.5 py-0.5">
+                          <Eyebrow className="text-[10px]">{item.category}</Eyebrow>
+                          <h3 className="line-clamp-2 text-label-lg font-semibold leading-snug text-on-surface transition-colors group-hover:text-primary">
+                            {item.title}
+                          </h3>
+                          <span className="inline-flex items-center gap-1 text-[11px] text-muted-gray">
+                            <Clock aria-hidden className="size-3" />
+                            {item.readingMinutes} menit baca
+                          </span>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                {others.length > 4 ? (
+                  <TextLink href="/knowledge">Lihat Semua Panduan</TextLink>
+                ) : null}
+              </div>
+            </aside>
+          ) : null}
+          </div>
         </div>
       </article>
-
-      {others.length > 0 ? (
-        <section className="border-t border-border-hairline bg-surface-container-low py-space-4xl">
-          <div className="container-editorial">
-            <h2 className="mb-space-xl text-headline-md-mobile text-on-surface lg:text-headline-md">
-              Panduan lainnya
-            </h2>
-            <ul className="grid gap-gutter-desktop md:grid-cols-3">
-              {others.map((item) => (
-                <li key={item.slug}>
-                  <Link
-                    href={`/knowledge/${item.slug}`}
-                    className="group block h-full space-y-space-sm rounded-md bg-surface-container-lowest p-space-lg shadow-hairline transition-shadow hover:shadow-panel"
-                  >
-                    <Eyebrow>{item.category}</Eyebrow>
-                    <h3 className="text-headline-sm font-semibold leading-snug text-on-surface transition-colors group-hover:text-primary">
-                      {item.title}
-                    </h3>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
     </>
   );
 }

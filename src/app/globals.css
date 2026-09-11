@@ -301,6 +301,27 @@
     border-radius: var(--radius-xs);
   }
 
+  /*
+    Chrome and Safari paint autofilled inputs with their own background (a
+    yellow or blue tint depending on platform and whether a saved credential
+    matched) the instant a value is filled in, ignoring the input's own
+    background-color entirely. Left alone, the admin login's warm surface
+    tokens get replaced by whatever tint the browser feels like that day.
+
+    The transition-delay is the actual fix: Chrome only applies its tint via
+    a "background-color" transition it triggers internally, so pushing that
+    transition 9999s into the future means it never visibly happens. The
+    box-shadow repaints the input in our own surface color without touching
+    `background`, which is the one property `-webkit-autofill` fights back on.
+  */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-on-surface);
+    box-shadow: 0 0 0 1000px var(--color-surface-container-low) inset;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
   ::selection {
     background-color: var(--color-primary-container);
     color: var(--color-deep-black);

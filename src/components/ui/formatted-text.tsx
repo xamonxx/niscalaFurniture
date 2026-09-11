@@ -1,5 +1,7 @@
 import React from "react";
 
+import { isSafeHref } from "@/lib/article-utils";
+
 export function FormattedText({
   text,
   className,
@@ -42,6 +44,11 @@ export function FormattedText({
         const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
         if (linkMatch) {
           const href = linkMatch[2];
+          if (!isSafeHref(href)) {
+            // Degrade to plain text rather than a dead or dangerous link -
+            // the reader still gets the label, just not something clickable.
+            return linkMatch[1];
+          }
           const isExternal = href.startsWith("http");
           return (
             <a
