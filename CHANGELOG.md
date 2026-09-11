@@ -9,6 +9,30 @@ break by not knowing.
 
 ## Unreleased
 
+### Cover images now go through the image pipeline, not a flat full-size `<img>`
+- **What** New `CoverImage` component (`src/components/ui/cover-image.tsx`)
+  looks up `article.coverImage` in `publishedImageSizes` (the same map the
+  in-body image block already uses) and renders `next/image` with `fill` and
+  a real `sizes` attribute when the path is one the build pipeline published;
+  only a genuine admin upload or pasted external URL - which has no known
+  dimensions - falls back to a plain `<img>`. Wired into all four places a
+  cover image renders: the `/knowledge` grid, the homepage preview cards, the
+  article hero, and the sidebar's 80px thumbnails.
+- **Why** Every cover image added this session happens to be a real portfolio
+  or process photo already in `public/images` with pre-built `public/v`
+  variants - but the first pass rendered all of them as plain `<img src>`
+  regardless, serving the full 1600px file everywhere a cover image appears,
+  including an 80px sidebar thumbnail. Confirmed the fix: the sidebar
+  thumbnail's `srcset` now offers 256w-1600w and its `sizes="80px"` picks the
+  256w variant instead of downloading the 1600px original six times per
+  article page (three sidebar items, duplicated for the responsive layout).
+- **Watch** `CoverImage` requires a `position: relative` ancestor with a
+  defined size (an `aspect-*` wrapper) - it renders with `fill` on the
+  pipeline path, which needs a sized, positioned parent to fill. The plain
+  `<img>` fallback still exists and is still correct for uploads: don't
+  remove it to "simplify" the component, or a real admin upload with no
+  pipeline variant will break.
+
 ### Stopped animating `box-shadow` on the knowledge card hover-lift
 - **What** `knowledge-preview.tsx` and `knowledge-search-grid.tsx` both had
   `transition-all` on the card `<Link>`, which also has `hover:shadow-panel`

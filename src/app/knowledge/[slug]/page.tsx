@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
 
 import { arrowRowClasses, Eyebrow, TextLink } from "@/components/ui/typography";
+import { CoverImage } from "@/components/ui/cover-image";
 import { WhatsAppCta } from "@/components/ui/whatsapp-cta";
 import { FormattedText } from "@/components/ui/formatted-text";
 import {
@@ -201,12 +202,11 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
           </header>
 
           {article.coverImage ? (
-            <div className="mt-space-xl max-w-3xl overflow-hidden rounded-lg shadow-hairline">
-              {/* eslint-disable-next-line @next/next/no-img-element -- Admin upload/pasted URL, no pipeline variants - same reasoning as in-body images below. */}
-              <img
+            <div className="relative mt-space-xl aspect-video w-full max-w-3xl overflow-hidden rounded-lg shadow-hairline">
+              <CoverImage
                 src={article.coverImage}
                 alt={article.coverImageAlt || article.title}
-                className="aspect-video w-full object-cover"
+                sizes="(min-width: 48rem) 768px, 92vw"
               />
             </div>
           ) : null}
@@ -393,13 +393,11 @@ export default async function ArticlePage(props: PageProps<"/knowledge/[slug]">)
                         className="group flex gap-space-sm rounded-md p-space-2xs transition-colors hover:bg-surface-container-low"
                       >
                         {item.coverImage ? (
-                          <div className="aspect-square w-16 shrink-0 overflow-hidden rounded-md bg-surface-container-high sm:w-20">
-                            {/* eslint-disable-next-line @next/next/no-img-element -- Cover is an admin upload/pasted URL with no pipeline variants. */}
-                            <img
+                          <div className="relative aspect-square w-16 shrink-0 overflow-hidden rounded-md bg-surface-container-high sm:w-20">
+                            <CoverImage
                               src={item.coverImage}
                               alt={item.coverImageAlt || item.title}
-                              loading="lazy"
-                              className="h-full w-full object-cover"
+                              sizes="80px"
                             />
                           </div>
                         ) : (
