@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Clock, Search, X, FileQuestion } from "lucide-react";
 
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
+import { CoverImage } from "@/components/ui/cover-image";
 import { formatArticleDateShort } from "@/lib/article-utils";
 import type { KnowledgeArticle } from "@/types";
 
@@ -83,13 +84,12 @@ export function KnowledgeSearchGrid({ articles }: Props) {
                 className="group relative flex h-full flex-col overflow-hidden rounded-lg bg-surface-container-lowest shadow-hairline transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-panel"
               >
                 {article.coverImage ? (
-                  <div className="aspect-[16/10] w-full shrink-0 overflow-hidden bg-surface-container-high">
-                    {/* eslint-disable-next-line @next/next/no-img-element -- Cover is an admin upload/pasted URL with no pipeline variants, same reasoning as in-body images. */}
-                    <img
+                  <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-surface-container-high">
+                    <CoverImage
                       src={article.coverImage}
                       alt={article.coverImageAlt || article.title}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                      sizes="(min-width: 1024px) 600px, (min-width: 640px) 45vw, 92vw"
+                      className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                     />
                   </div>
                 ) : (
