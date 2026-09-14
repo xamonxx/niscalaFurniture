@@ -4,7 +4,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   CheckCircle2,
-  Sparkles,
   Layers,
   ChevronRight,
 } from "lucide-react";
@@ -115,7 +114,7 @@ export default async function CustomFurnitureCategoryPage({ params }: Props) {
         aria-label="Breadcrumb"
         className="border-b border-border-hairline bg-surface-container-lowest/50 py-3"
       >
-        <div className="container-site flex items-center gap-1.5 text-xs text-muted-gray">
+        <div className="container-editorial flex items-center gap-1.5 text-xs text-muted-gray">
           <Link href="/" className="hover:text-on-surface transition-colors">
             Beranda
           </Link>
@@ -136,14 +135,14 @@ export default async function CustomFurnitureCategoryPage({ params }: Props) {
       {/* Category Highlights Grid */}
       <section
         aria-labelledby="highlights-heading"
-        className="section-padding-sm bg-surface"
+        className="bg-surface py-space-3xl"
       >
-        <div className="container-site">
+        <div className="container-editorial">
           <div className="mb-6">
             <Eyebrow>Standar Produksi & Keunggulan</Eyebrow>
             <h2
               id="highlights-heading"
-              className="mt-1.5 font-serif text-title-md text-on-surface"
+              className="mt-1.5 text-headline-sm text-on-surface"
             >
               Kenapa Memilih {category.name} di Niscala?
             </h2>
@@ -172,18 +171,15 @@ export default async function CustomFurnitureCategoryPage({ params }: Props) {
       {/* Main Gallery Section with Grid & Lightbox */}
       <section
         aria-labelledby="gallery-heading"
-        className="section-padding bg-surface-container-lowest/30"
+        className="bg-surface-container-lowest/30 py-space-4xl"
       >
-        <div className="container-site">
+        <div className="container-editorial">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
             <div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="size-4 text-primary" />
-                <Eyebrow>Galeri Inspirasi</Eyebrow>
-              </div>
+              <Eyebrow>Galeri Inspirasi</Eyebrow>
               <h2
                 id="gallery-heading"
-                className="mt-1.5 font-serif text-headline-sm sm:text-headline-md text-on-surface"
+                className="mt-1.5 text-headline-sm sm:text-headline-md text-on-surface"
               >
                 Koleksi Referensi {category.name}
               </h2>
@@ -209,9 +205,9 @@ export default async function CustomFurnitureCategoryPage({ params }: Props) {
       {/* Explore Other Custom Furniture Categories */}
       <section
         aria-labelledby="other-categories-heading"
-        className="section-padding bg-surface border-t border-border-hairline"
+        className="bg-surface border-t border-border-hairline py-space-4xl"
       >
-        <div className="container-site">
+        <div className="container-editorial">
           <div className="mb-8 text-center max-w-xl mx-auto">
             <div className="flex items-center justify-center gap-2">
               <Layers className="size-4 text-primary" />
@@ -219,7 +215,7 @@ export default async function CustomFurnitureCategoryPage({ params }: Props) {
             </div>
             <h2
               id="other-categories-heading"
-              className="mt-2 font-serif text-title-lg sm:text-headline-sm text-on-surface"
+              className="mt-2 text-headline-sm sm:text-headline-md text-on-surface"
             >
               Jelajahi Kategori Furniture Custom Lainnya
             </h2>
@@ -229,7 +225,7 @@ export default async function CustomFurnitureCategoryPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {otherCategories.map((other) => {
               const coverItem = other.references[0];
               return (

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  Sparkles,
   CheckCircle2,
   ShieldCheck,
   Ruler,
@@ -84,7 +83,7 @@ export default function CustomFurnitureIndexPage() {
         aria-label="Breadcrumb"
         className="border-b border-border-hairline bg-surface-container-lowest/50 py-3"
       >
-        <div className="container-site flex items-center gap-1.5 text-xs text-muted-gray">
+        <div className="container-editorial flex items-center gap-1.5 text-xs text-muted-gray">
           <Link href="/" className="hover:text-on-surface transition-colors">
             Beranda
           </Link>
@@ -98,18 +97,15 @@ export default function CustomFurnitureIndexPage() {
       {/* 5 Main Categories Showcase Grid */}
       <section
         aria-labelledby="categories-heading"
-        className="section-padding bg-surface"
+        className="bg-surface py-space-4xl"
       >
-        <div className="container-site">
+        <div className="container-editorial">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="size-4 text-primary" />
-                <Eyebrow>Katalog Kategori</Eyebrow>
-              </div>
+              <Eyebrow>Katalog Kategori</Eyebrow>
               <h2
                 id="categories-heading"
-                className="mt-1.5 font-serif text-headline-sm sm:text-headline-md text-on-surface"
+                className="mt-1.5 text-headline-sm sm:text-headline-md text-on-surface"
               >
                 Pilih Kategori Kebutuhan Hunian Anda
               </h2>
@@ -129,7 +125,7 @@ export default function CustomFurnitureIndexPage() {
               return (
                 <div
                   key={cat.slug}
-                  className="rounded-2xl border border-border-hairline bg-surface-container-lowest overflow-hidden shadow-card hover:shadow-panel transition-shadow duration-300"
+                  className="rounded-2xl border border-border-hairline bg-surface-container-lowest overflow-hidden shadow-hairline hover:shadow-panel transition-shadow duration-200"
                 >
                   <div
                     className={`grid lg:grid-cols-12 gap-6 items-center p-6 sm:p-8 ${
@@ -151,7 +147,7 @@ export default function CustomFurnitureIndexPage() {
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-title-lg sm:text-headline-sm text-on-surface">
+                      <h3 className="text-headline-sm sm:text-headline-md text-on-surface">
                         {cat.name}
                       </h3>
 
@@ -249,14 +245,14 @@ export default function CustomFurnitureIndexPage() {
       {/* Key Advantages of Custom Furniture */}
       <section
         aria-labelledby="advantages-heading"
-        className="section-padding bg-surface-container-lowest/50 border-t border-border-hairline"
+        className="bg-surface-container-lowest/50 border-t border-border-hairline py-space-4xl"
       >
-        <div className="container-site">
+        <div className="container-editorial">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <Eyebrow>Standar Mutu Niscala</Eyebrow>
             <h2
               id="advantages-heading"
-              className="mt-2 font-serif text-headline-sm sm:text-headline-md text-on-surface"
+              className="mt-2 text-headline-sm sm:text-headline-md text-on-surface"
             >
               Mengapa Furniture Custom Lebih Menguntungkan Jangka Panjang?
             </h2>
@@ -333,14 +329,14 @@ export default function CustomFurnitureIndexPage() {
       {/* Simple 4-Step Production Workflow */}
       <section
         aria-labelledby="workflow-heading"
-        className="section-padding bg-surface"
+        className="bg-surface py-space-4xl"
       >
-        <div className="container-site">
+        <div className="container-editorial">
           <div className="text-center max-w-xl mx-auto mb-10">
             <Eyebrow>Alur Pengerjaan</Eyebrow>
             <h2
               id="workflow-heading"
-              className="mt-2 font-serif text-headline-sm text-on-surface"
+              className="mt-2 text-headline-sm text-on-surface"
             >
               4 Langkah Mudah Mewujudkan Furniture Custom
             </h2>
@@ -373,7 +369,7 @@ export default function CustomFurnitureIndexPage() {
                 key={item.step}
                 className="relative rounded-xl border border-border-hairline bg-surface-container-lowest p-5 space-y-2"
               >
-                <span className="text-2xl font-serif font-bold text-primary-container/40">
+                <span className="text-2xl font-bold text-primary-container/40">
                   {item.step}
                 </span>
                 <h3 className="font-semibold text-sm text-on-surface">

@@ -34,7 +34,7 @@ export function FurnitureCategoryGallery({
       </div>
 
       {/* Responsive Grid: STRICT 2 COLUMNS ON MOBILE, 3 ON MD, 4 ON LG */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-space-sm sm:gap-space-md md:grid-cols-3 lg:grid-cols-4">
         {references.map((item, idx) => (
           <button
             key={item.id}
@@ -74,13 +74,13 @@ export function FurnitureCategoryGallery({
                 <h3 className="text-xs sm:text-sm font-semibold text-on-surface line-clamp-2 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-on-surface-variant line-clamp-2 mt-1 hidden sm:block">
+                <p className="text-xs sm:text-body-sm text-on-surface-variant line-clamp-2 mt-1">
                   {item.description}
                 </p>
               </div>
 
               {/* Specs tags / footer */}
-              <div className="pt-1 border-t border-border-hairline/60 flex items-center gap-1 text-[10px] text-muted-gray overflow-hidden">
+              <div className="pt-1 border-t border-border-hairline/60 flex items-center gap-1 text-xs sm:text-body-sm text-muted-gray overflow-hidden">
                 <Tag className="size-2.5 sm:size-3 shrink-0" />
                 <span className="truncate">{item.specs[0] || item.style}</span>
               </div>
