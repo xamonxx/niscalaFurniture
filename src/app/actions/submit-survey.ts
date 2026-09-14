@@ -6,6 +6,7 @@ import {
   resolveProjectNeed,
   surveySchema,
 } from "@/lib/schemas/survey";
+import { postToWebhook } from "@/lib/webhook";
 
 export type SurveyActionResult =
   | { status: "success" }
@@ -64,32 +65,21 @@ export async function submitSurvey(
   const webhook = process.env.LEAD_WEBHOOK_URL;
 
   if (webhook) {
-    try {
-      const response = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...parsed.data,
-          // Pre-resolved so a webhook consumer never has to re-implement the
-          // "Lainnya" fallback or the Indonesian date formatting.
-          need: resolveProjectNeed(parsed.data),
-          scheduleLabel: `${formatSurveyDate(parsed.data.surveyDate)}, ${formatSurveyTime(parsed.data.surveyTime)}`,
-          submittedAt: new Date().toISOString(),
-        }),
-      });
+    const result = await postToWebhook(webhook, {
+      ...parsed.data,
+      // Pre-resolved so a webhook consumer never has to re-implement the
+      // "Lainnya" fallback or the Indonesian date formatting.
+      need: resolveProjectNeed(parsed.data),
+      scheduleLabel: `${formatSurveyDate(parsed.data.surveyDate)}, ${formatSurveyTime(parsed.data.surveyTime)}`,
+      submittedAt: new Date().toISOString(),
+    });
 
-      if (!response.ok) {
-        return {
-          status: "error",
-          message:
-            "Data gagal terkirim ke sistem kami. Silakan coba lagi atau hubungi kami langsung via WhatsApp.",
-        };
-      }
-    } catch {
+    if (!result.ok) {
+      console.error("[survey] Webhook delivery failed:", result.error);
       return {
         status: "error",
         message:
-          "Koneksi ke sistem kami terputus. Silakan coba lagi atau hubungi kami langsung via WhatsApp.",
+          "Data gagal terkirim ke sistem kami. Silakan coba lagi atau hubungi kami langsung via WhatsApp.",
       };
     }
   }

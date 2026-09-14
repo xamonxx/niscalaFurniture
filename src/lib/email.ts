@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import type { PublicReview } from "@/lib/reviews";
+import { postToWebhook } from "@/lib/webhook";
 
 const TARGET_EMAIL = process.env.REVIEW_NOTIFICATION_EMAIL || "info@niscalafurniture.com";
 
@@ -114,18 +115,15 @@ export async function sendReviewEmailNotification(
   // 2. Forward to LEAD_WEBHOOK_URL if available
   const webhook = process.env.LEAD_WEBHOOK_URL;
   if (webhook) {
-    try {
-      await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "public_review",
-          ...review,
-          sentToEmail: TARGET_EMAIL,
-        }),
-      });
-    } catch (err) {
-      console.error("[reviews] Webhook forward error:", err);
+    const result = await postToWebhook(webhook, {
+      type: "public_review",
+      ...review,
+      sentToEmail: TARGET_EMAIL,
+    });
+    if (!result.ok) {
+      // Logged, not thrown: a broken webhook must never turn a successfully
+      // saved review into a failed submission for the visitor.
+      console.error("[reviews] Webhook forward error:", result.error);
     }
   }
 
