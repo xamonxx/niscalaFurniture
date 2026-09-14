@@ -34,19 +34,23 @@ const variants: Record<ButtonVariant, string> = {
    * read as an accident rather than a control.
    *
    * The fill is what makes it visible and the blur is what keeps it calm - a
-   * 10% white wash lifts it off any ground, and blurring what is behind it
-   * stops the photograph's detail from competing with the label. The inset
-   * highlight is the top edge catching light, which is what separates the
-   * shape from a bright patch of photograph where a drop shadow cannot.
+   * top-to-bottom wash (brighter at the top, thinner at the bottom) reads as a
+   * curved pane of glass rather than a flat tint, and `backdrop-saturate`
+   * pushes some colour back into whatever the blur just flattened, which is
+   * the part that actually makes it look wet rather than frosted. The inset
+   * highlight is the top edge catching light, the second, faint inset along
+   * the bottom is the same edge losing it - together they are what separates
+   * the shape from a bright patch of photograph where a drop shadow cannot.
    *
    * The order matters for degradation: the wash and the border are ordinary
    * paint, so a browser without `backdrop-filter` still gets a button that is
-   * plainly a button. The blur is additive.
+   * plainly a button. The blur and saturation boost are additive.
    */
   "outline-inverse":
-    "border border-pure-white/25 bg-pure-white/10 text-inverse-on-surface backdrop-blur-md " +
-    "shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_24px_-12px_rgba(9,11,13,0.7)] " +
-    "hover:border-pure-white/50 hover:bg-pure-white/20",
+    "border border-pure-white/30 bg-gradient-to-b from-pure-white/30 to-pure-white/15 " +
+    "text-inverse-on-surface backdrop-blur-xl backdrop-saturate-150 " +
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-1px_1px_rgba(255,255,255,0.06),0_8px_24px_-12px_rgba(9,11,13,0.7)] " +
+    "hover:border-pure-white/50 hover:from-pure-white/38 hover:to-pure-white/20",
 };
 
 const sizes: Record<ButtonSize, string> = {

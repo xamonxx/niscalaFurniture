@@ -78,14 +78,14 @@ export function Hero() {
       <div className="container-editorial relative w-full pb-space-xl pt-[calc(5rem+var(--spacing-space-md))] sm:pb-space-2xl">
         <div className="max-w-2xl lg:max-w-[46rem]">
           <Reveal>
-            <h1 className="text-display-mobile text-inverse-on-surface sm:text-5xl sm:leading-[1.12] md:text-6xl md:leading-[1.1] lg:text-display">
+            <h1 className="text-display-mobile text-inverse-on-surface [text-shadow:0_4px_24px_rgba(9,11,13,0.45)] sm:text-5xl sm:leading-[1.12] md:text-6xl md:leading-[1.1] lg:text-display">
               Ruang yang dirancang untuk cara Anda{" "}
               <span className="text-primary-container">hidup</span>.
             </h1>
           </Reveal>
 
           <Reveal delay={1}>
-            <p className="mt-space-sm sm:mt-space-md max-w-2xl text-body-md sm:text-body-lg leading-relaxed text-inverse-on-surface/85">
+            <p className="mt-space-sm sm:mt-space-md max-w-2xl text-body-md sm:text-body-lg leading-relaxed text-inverse-on-surface/85 [text-shadow:0_2px_12px_rgba(9,11,13,0.4)]">
               {site.name} merancang interior dan furniture custom berdasarkan
               ukuran ruang, kebutuhan, dan cara Anda menggunakannya — dari
               konsultasi, survey, desain, produksi di workshop sendiri, hingga
