@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 
+import { withFileLock } from "@/lib/file-lock";
 import { knowledgeArticles as baselineArticles } from "@/data/knowledge";
 import type { KnowledgeArticle } from "@/types";
 export { parseRawTextToBlocks, estimateReadingMinutes } from "./article-utils";
@@ -126,39 +127,44 @@ export async function isCustomArticle(slug: string): Promise<boolean> {
 export async function saveArticle(
   article: KnowledgeArticle
 ): Promise<{ success: boolean; error?: string }> {
-  try {
-    if (!article.slug || !article.title || !article.summary) {
-      return { success: false, error: "Slug, Judul, dan Ringkasan wajib diisi." };
-    }
+  // Serialized per file: see file-lock.ts. Without this, two admin tabs (or
+  // an autosave racing a manual save) can each read the same array and one
+  // save silently disappears when the other writes on top of it.
+  return withFileLock(DATA_FILE_PATH, async () => {
+    try {
+      if (!article.slug || !article.title || !article.summary) {
+        return { success: false, error: "Slug, Judul, dan Ringkasan wajib diisi." };
+      }
 
-    const custom = await readCustomArticles();
-    const existingIndex = custom.findIndex((a) => a.slug === article.slug);
+      const custom = await readCustomArticles();
+      const existingIndex = custom.findIndex((a) => a.slug === article.slug);
 
-    const articleToSave: KnowledgeArticle = {
-      ...article,
-      status: article.status || "aktif",
-    };
-
-    if (existingIndex >= 0) {
-      // Update existing
-      custom[existingIndex] = {
-        ...articleToSave,
-        updatedAt: new Date().toISOString().split("T")[0],
+      const articleToSave: KnowledgeArticle = {
+        ...article,
+        status: article.status || "aktif",
       };
-    } else {
-      // Insert new
-      custom.push({
-        ...articleToSave,
-        publishedAt: article.publishedAt || new Date().toISOString().split("T")[0],
-      });
-    }
 
-    await writeCustomArticles(custom);
-    return { success: true };
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Gagal menyimpan artikel.";
-    return { success: false, error: message };
-  }
+      if (existingIndex >= 0) {
+        // Update existing
+        custom[existingIndex] = {
+          ...articleToSave,
+          updatedAt: new Date().toISOString().split("T")[0],
+        };
+      } else {
+        // Insert new
+        custom.push({
+          ...articleToSave,
+          publishedAt: article.publishedAt || new Date().toISOString().split("T")[0],
+        });
+      }
+
+      await writeCustomArticles(custom);
+      return { success: true };
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Gagal menyimpan artikel.";
+      return { success: false, error: message };
+    }
+  });
 }
 
 /**
@@ -167,44 +173,46 @@ export async function saveArticle(
 export async function toggleArticleStatus(
   slug: string
 ): Promise<{ success: boolean; newStatus?: "aktif" | "tidak_aktif"; error?: string }> {
-  try {
-    const custom = await readCustomArticles();
-    const existingIndex = custom.findIndex((a) => a.slug === slug);
+  return withFileLock(DATA_FILE_PATH, async () => {
+    try {
+      const custom = await readCustomArticles();
+      const existingIndex = custom.findIndex((a) => a.slug === slug);
 
-    let targetArticle: KnowledgeArticle | undefined;
+      let targetArticle: KnowledgeArticle | undefined;
 
-    if (existingIndex >= 0) {
-      targetArticle = custom[existingIndex];
-      const newStatus = targetArticle.status === "tidak_aktif" ? "aktif" : "tidak_aktif";
-      custom[existingIndex] = {
-        ...targetArticle,
-        status: newStatus,
-        updatedAt: new Date().toISOString().split("T")[0],
-      };
-      await writeCustomArticles(custom);
-      return { success: true, newStatus };
+      if (existingIndex >= 0) {
+        targetArticle = custom[existingIndex];
+        const newStatus = targetArticle.status === "tidak_aktif" ? "aktif" : "tidak_aktif";
+        custom[existingIndex] = {
+          ...targetArticle,
+          status: newStatus,
+          updatedAt: new Date().toISOString().split("T")[0],
+        };
+        await writeCustomArticles(custom);
+        return { success: true, newStatus };
+      }
+
+      // If it's a baseline article, copy to custom with toggled status
+      const baseline = baselineArticles.find((a) => a.slug === slug);
+      if (baseline) {
+        const currentStatus = baseline.status || "aktif";
+        const newStatus = currentStatus === "tidak_aktif" ? "aktif" : "tidak_aktif";
+        const newCustomArticle: KnowledgeArticle = {
+          ...baseline,
+          status: newStatus,
+          updatedAt: new Date().toISOString().split("T")[0],
+        };
+        custom.push(newCustomArticle);
+        await writeCustomArticles(custom);
+        return { success: true, newStatus };
+      }
+
+      return { success: false, error: "Artikel tidak ditemukan." };
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Gagal mengubah status artikel.";
+      return { success: false, error: message };
     }
-
-    // If it's a baseline article, copy to custom with toggled status
-    const baseline = baselineArticles.find((a) => a.slug === slug);
-    if (baseline) {
-      const currentStatus = baseline.status || "aktif";
-      const newStatus = currentStatus === "tidak_aktif" ? "aktif" : "tidak_aktif";
-      const newCustomArticle: KnowledgeArticle = {
-        ...baseline,
-        status: newStatus,
-        updatedAt: new Date().toISOString().split("T")[0],
-      };
-      custom.push(newCustomArticle);
-      await writeCustomArticles(custom);
-      return { success: true, newStatus };
-    }
-
-    return { success: false, error: "Artikel tidak ditemukan." };
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Gagal mengubah status artikel.";
-    return { success: false, error: message };
-  }
+  });
 }
 
 /**
@@ -213,22 +221,24 @@ export async function toggleArticleStatus(
 export async function deleteArticle(
   slug: string
 ): Promise<{ success: boolean; error?: string }> {
-  try {
-    const custom = await readCustomArticles();
-    const isCustom = custom.some((a) => a.slug === slug);
+  return withFileLock(DATA_FILE_PATH, async () => {
+    try {
+      const custom = await readCustomArticles();
+      const isCustom = custom.some((a) => a.slug === slug);
 
-    if (!isCustom) {
-      return {
-        success: false,
-        error: "Artikel bawaan sistem (baseline) tidak dapat dihapus permanen. Anda dapat mengubah statusnya menjadi 'Tidak Aktif' agar tidak muncul di publik.",
-      };
+      if (!isCustom) {
+        return {
+          success: false,
+          error: "Artikel bawaan sistem (baseline) tidak dapat dihapus permanen. Anda dapat mengubah statusnya menjadi 'Tidak Aktif' agar tidak muncul di publik.",
+        };
+      }
+
+      const filtered = custom.filter((a) => a.slug !== slug);
+      await writeCustomArticles(filtered);
+      return { success: true };
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Gagal menghapus artikel.";
+      return { success: false, error: message };
     }
-
-    const filtered = custom.filter((a) => a.slug !== slug);
-    await writeCustomArticles(filtered);
-    return { success: true };
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Gagal menghapus artikel.";
-    return { success: false, error: message };
-  }
+  });
 }

@@ -1,6 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
 
+import { withFileLock } from "@/lib/file-lock";
+
 export type PublicReview = {
   id: string;
   author: string;
@@ -76,30 +78,35 @@ export async function savePublicReview(input: {
   rating: number;
   description: string;
 }): Promise<{ success: boolean; error?: string; review?: PublicReview }> {
-  try {
-    const existing = await getAllReviewsRaw();
+  // Serialized per file: two reviews submitted close together must not both
+  // read the same "existing" array and each write a version that drops the
+  // other's entry. See file-lock.ts.
+  return withFileLock(REVIEWS_FILE_PATH, async () => {
+    try {
+      const existing = await getAllReviewsRaw();
 
-    const newReview: PublicReview = {
-      id: `rev-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
-      author: input.author.trim(),
-      address: input.address.trim(),
-      email: input.email ? input.email.trim() : undefined,
-      rating: Math.max(1, Math.min(5, Math.round(input.rating))),
-      description: input.description.trim(),
-      createdAt: new Date().toISOString(),
-      isPublic: true,
-    };
+      const newReview: PublicReview = {
+        id: `rev-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        author: input.author.trim(),
+        address: input.address.trim(),
+        email: input.email ? input.email.trim() : undefined,
+        rating: Math.max(1, Math.min(5, Math.round(input.rating))),
+        description: input.description.trim(),
+        createdAt: new Date().toISOString(),
+        isPublic: true,
+      };
 
-    // Prepend so newest reviews appear first
-    const updated = [newReview, ...existing];
-    await writeReviews(updated);
+      // Prepend so newest reviews appear first
+      const updated = [newReview, ...existing];
+      await writeReviews(updated);
 
-    return { success: true, review: newReview };
-  } catch (error) {
-    console.error("[reviews] Failed to save review:", error);
-    return {
-      success: false,
-      error: "Gagal menyimpan ulasan ke server. Silakan coba lagi.",
-    };
-  }
+      return { success: true, review: newReview };
+    } catch (error) {
+      console.error("[reviews] Failed to save review:", error);
+      return {
+        success: false,
+        error: "Gagal menyimpan ulasan ke server. Silakan coba lagi.",
+      };
+    }
+  });
 }
