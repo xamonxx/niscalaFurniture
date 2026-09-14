@@ -60,7 +60,16 @@ export function StickyMobileCta() {
   useEffect(() => {
     if (onAdmin) return;
 
+    // `getBoundingClientRect` forces a layout, so it cannot run on every raw
+    // scroll event - a fling fires far more of those than there are frames to
+    // answer them in, and answering each one anyway is what "stuck" scrolling
+    // actually is. `schedule` collapses any number of events between two
+    // frames into the one `update` that frame gets, same as `before-after.tsx`
+    // and `process-storytelling.tsx`.
+    let frame: number | null = null;
+
     const update = () => {
+      frame = null;
       const pastHero = window.scrollY > window.innerHeight * 0.6;
 
       const form = document.getElementById(SURVEY_ANCHOR_ID);
@@ -76,12 +85,18 @@ export function StickyMobileCta() {
       setShown(pastHero && !overlapsForm);
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    const schedule = () => {
+      if (frame !== null) return;
+      frame = requestAnimationFrame(update);
+    };
+
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
     return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      if (frame !== null) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, [onAdmin]);
 
