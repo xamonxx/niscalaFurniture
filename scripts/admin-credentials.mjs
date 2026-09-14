@@ -50,29 +50,36 @@ function hashPassword(password) {
   ].join("$");
 }
 
-/** Reads a line without echoing it, so the password stays out of the scrollback. */
+/**
+ * Reads a line without echoing it, so the password stays out of the scrollback.
+ *
+ * Mutes readline's own output instead of racing it with a second stdin
+ * listener - the previous version listened for raw "data" chunks in parallel
+ * with `rl.question`, which only hides input when the terminal delivers
+ * stdin byte-by-byte (raw mode). Windows consoles deliver a whole cooked
+ * line at once, so that listener never saw individual keystrokes and
+ * `answer` came back empty, which is why a real password was rejected as
+ * "too short".
+ */
 function askHidden(question) {
   return new Promise((resolve) => {
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    const onData = (char) => {
-      if (["\n", "\r", "\u0004"].includes(String(char))) {
-        process.stdin.removeListener("data", onData);
-        return;
-      }
-      // Redraw the prompt with nothing after it.
-      readline.clearLine(process.stdout, 0);
-      readline.cursorTo(process.stdout, 0);
-      process.stdout.write(question);
-    };
+    const writeToOutput = rl._writeToOutput?.bind(rl);
+    let muted = false;
 
-    process.stdout.write(question);
-    process.stdin.on("data", onData);
+    if (writeToOutput) {
+      rl._writeToOutput = (chunk) => {
+        writeToOutput(muted ? "" : chunk);
+      };
+    }
 
-    rl.question("", (answer) => {
+    rl.question(question, (answer) => {
       rl.close();
       process.stdout.write("\n");
       resolve(answer);
     });
+
+    muted = true;
   });
 }
 
