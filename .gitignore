@@ -62,3 +62,7 @@ __pycache__/
 
 # Responsive image variants, rebuilt by `npm run prepare:variants`.
 public/v/
+
+# Persisted login rate-limiter counters (src/lib/rate-limiter.ts). Runtime
+# security bookkeeping, not committed content like public-reviews.json.
+src/data/.rate-limit-state.json

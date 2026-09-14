@@ -15,11 +15,74 @@
  * claimed, is what actually bounds total guesses.
  */
 
+import fs from "node:fs";
+import path from "node:path";
+
 type AttemptRecord = {
   failures: number;
   lockedUntil: number | null;
   lastAttempt: number;
 };
+
+/**
+ * Where attempt counts survive a restart.
+ *
+ * The lockout exists to stop exactly this: an attacker who can force or wait
+ * out a restart (a redeploy, a crash, a host reboot) got a fresh 3 attempts
+ * every time counters lived only in the in-memory Map. This app runs as a
+ * single Node process on Hostinger with no horizontal scaling (see
+ * AGENTS.md), so a plain JSON file is enough here - it does not need to
+ * survive concurrent writers the way public-reviews.json does, since a
+ * failed login is rare enough that a 50ms debounce never overlaps two writes.
+ *
+ * Not committed: this is runtime security bookkeeping, not content. See
+ * .gitignore.
+ */
+const STATE_FILE = path.join(process.cwd(), "src", "data", ".rate-limit-state.json");
+
+type PersistedState = {
+  ip?: Record<string, AttemptRecord>;
+  username?: Record<string, AttemptRecord>;
+};
+
+function readPersistedState(): Required<PersistedState> {
+  try {
+    const raw = fs.readFileSync(STATE_FILE, "utf-8");
+    const parsed = JSON.parse(raw) as PersistedState;
+    return {
+      ip: parsed.ip && typeof parsed.ip === "object" ? parsed.ip : {},
+      username: parsed.username && typeof parsed.username === "object" ? parsed.username : {},
+    };
+  } catch {
+    // Missing on first run, or corrupt - either way, start clean rather than
+    // let a bad file take the login form down.
+    return { ip: {}, username: {} };
+  }
+}
+
+let writeTimer: ReturnType<typeof setTimeout> | null = null;
+
+/**
+ * Debounced so one failed login - which updates both the IP and the
+ * username limiter - costs a single write, and a burst of attempts never
+ * queues up disk I/O behind the response the visitor is waiting on.
+ */
+function schedulePersist() {
+  if (writeTimer) return;
+  writeTimer = setTimeout(() => {
+    writeTimer = null;
+    try {
+      fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
+      const snapshot: PersistedState = {
+        ip: Object.fromEntries(ipLimiter.store),
+        username: Object.fromEntries(usernameLimiter.store),
+      };
+      fs.writeFileSync(STATE_FILE, JSON.stringify(snapshot), "utf-8");
+    } catch (error) {
+      console.error("[rate-limiter] Failed to persist attempt state:", error);
+    }
+  }, 50);
+}
 
 type RateLimitStatus = {
   isBlocked: boolean;
@@ -39,8 +102,8 @@ const LOCKOUT_DURATION_MS = 10 * 60 * 1000; // 10 minutes
 const RECORD_TTL_MS = 60 * 60 * 1000; // 1 hour memory cleanup
 
 /** One independent (key -> attempt record) counter, so the IP and username limiters never share state. */
-function createLimiter() {
-  const store = new Map<string, AttemptRecord>();
+function createLimiter(initial: Record<string, AttemptRecord>) {
+  const store = new Map<string, AttemptRecord>(Object.entries(initial));
 
   function cleanupStaleRecords() {
     const now = Date.now();
@@ -113,6 +176,7 @@ function createLimiter() {
     if (record.failures >= MAX_FAILED_ATTEMPTS) {
       record.lockedUntil = now + LOCKOUT_DURATION_MS;
       store.set(key, record);
+      schedulePersist();
       return {
         isBlocked: true,
         remainingAttempts: 0,
@@ -121,6 +185,7 @@ function createLimiter() {
     }
 
     store.set(key, record);
+    schedulePersist();
 
     // Trigger occasional cleanup
     if (store.size > 200) {
@@ -135,14 +200,17 @@ function createLimiter() {
   }
 
   function reset(key: string): void {
+    if (!store.has(key)) return;
     store.delete(key);
+    schedulePersist();
   }
 
-  return { getStatus, recordFailedAttempt, reset };
+  return { getStatus, recordFailedAttempt, reset, store };
 }
 
-const ipLimiter = createLimiter();
-const usernameLimiter = createLimiter();
+const persisted = readPersistedState();
+const ipLimiter = createLimiter(persisted.ip);
+const usernameLimiter = createLimiter(persisted.username);
 
 /** Case-insensitive so varying "admin" / "Admin" / "ADMIN" can't each buy a fresh set of attempts. */
 function normalizeUsername(username: string): string {
