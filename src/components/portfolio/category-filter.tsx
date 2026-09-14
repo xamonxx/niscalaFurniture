@@ -25,16 +25,28 @@ export function CategoryFilter({ activeSlug }: { activeSlug?: string }) {
 
   return (
     <nav aria-label="Kategori portfolio">
-      <ul className="flex flex-wrap gap-space-2xs pointer-coarse:gap-space-xs">
+      {/*
+        A single scrolling row instead of a wrap: at eleven pills of uneven
+        length, wrapping wound up as a staircase of mismatched row widths
+        rather than a tidy block. A row a visitor can drag past reads as one
+        control; `[scrollbar-width:none]` (and the Webkit equivalent) hides
+        the bar itself, since the pills are the scroll affordance.
+      */}
+      <ul
+        className={cn(
+          "flex gap-space-2xs overflow-x-auto pb-space-2xs pointer-coarse:gap-space-xs",
+          "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        )}
+      >
         {pills.map((pill) => {
           const active = pill.slug === activeSlug;
           return (
-            <li key={pill.href}>
+            <li key={pill.href} className="shrink-0">
               <Link
                 href={pill.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex items-center gap-space-2xs rounded-lg px-space-md py-space-2xs text-label-md transition-colors pointer-coarse:min-h-11",
+                  "inline-flex items-center gap-space-2xs whitespace-nowrap rounded-lg px-space-md py-space-2xs text-label-md transition-colors pointer-coarse:min-h-11",
                   active
                     ? "bg-deep-black text-pure-white"
                     : "bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface"
