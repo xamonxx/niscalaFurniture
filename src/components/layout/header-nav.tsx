@@ -1,18 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/cn";
-import { duration, easeOutEditorial } from "@/components/motion/tokens";
 import { navLinks } from "@/components/layout/nav-links";
 import { isActivePath } from "@/components/layout/is-active";
-
-/** One bar, shared by every link, so it travels between them. */
-const ACTIVE_MARKER = "header-nav-active";
 
 type HeaderNavProps = {
   /** Set while the bar floats over the hero photograph, on a dark ground. */
@@ -22,7 +17,6 @@ type HeaderNavProps = {
 /** Desktop navigation. Client-side only because it highlights the active route. */
 export function HeaderNav({ inverse = false }: HeaderNavProps) {
   const pathname = usePathname();
-  const prefersReduced = useReducedMotion();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
@@ -31,6 +25,69 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
   }
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const dropdownRef = useRef<HTMLLIElement | null>(null);
+
+  const listRef = useRef<HTMLUListElement | null>(null);
+  const itemRefs = useRef<Map<string, HTMLElement>>(new Map());
+  const [marker, setMarker] = useState<{ left: number; width: number } | null>(null);
+
+  const activeHref = navLinks.find((link) => isActivePath(pathname, link.href))?.href;
+
+  /*
+   * The active-page underline is measured, not shared-layout-animated.
+   *
+   * It used to be one `motion.span` carried between buttons with a Framer
+   * Motion `layoutId`, which hands the transition to Motion's layout
+   * projection system - a system that also tries to compensate for the page
+   * scrolling underneath it while it runs. This header is `position: fixed`
+   * and never actually moves with the page, but Lenis (`smooth-scroll.tsx`)
+   * smooth-scrolls the window back to the top over about a second on every
+   * route change, and Motion's scroll compensation cannot tell a fixed
+   * ancestor is exempt from that - it folded the whole scroll distance into
+   * the FLIP, which is what read as the bar getting yanked up from the bottom
+   * of the page on navigation.
+   *
+   * Measuring the target link's own position with `getBoundingClientRect` and
+   * driving a plain CSS transition from the result has no scroll term to get
+   * wrong: it only ever reads two rects and writes two numbers.
+   */
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    const active = activeHref ? itemRefs.current.get(activeHref) : undefined;
+    if (!list || !active) {
+      setMarker(null);
+      return;
+    }
+
+    const measure = () => {
+      const listRect = list.getBoundingClientRect();
+      const itemRect = active.getBoundingClientRect();
+      const style = getComputedStyle(active);
+      const padLeft = parseFloat(style.paddingLeft) || 0;
+      const padRight = parseFloat(style.paddingRight) || 0;
+
+      const left = itemRect.left - listRect.left + padLeft;
+      const width = itemRect.width - padLeft - padRight;
+
+      // The very first measurement on a route change can land a frame before
+      // the browser has finished laying out the newly-active link (observed
+      // producing a `NaN` width that only corrected itself on the next resize
+      // event) - never commit a value that would render as invalid CSS and
+      // leave the bar sized `0` indefinitely.
+      if (!Number.isFinite(left) || !Number.isFinite(width)) return;
+      setMarker({ left, width });
+    };
+
+    measure();
+    // A second pass one frame later catches exactly that race without
+    // guessing at its cause - by the next paint the layout has always
+    // settled.
+    const raf = requestAnimationFrame(measure);
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", measure);
+    };
+  }, [activeHref]);
 
   // Handle clicking outside or pressing Escape
   useEffect(() => {
@@ -68,7 +125,16 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
 
   return (
     <nav aria-label="Navigasi utama" className="hidden lg:block">
-      <ul className="flex items-center gap-space-sm">
+      <ul ref={listRef} className="relative flex items-center gap-space-sm">
+        {/* The one active-page marker, floated over whichever link is current. */}
+        {marker ? (
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-1 h-0.5 rounded-full bg-primary-container transition-[transform,width] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+            style={{ transform: `translateX(${marker.left}px)`, width: `${marker.width}px` }}
+          />
+        ) : null}
+
         {navLinks.map((link) => {
           const hasChildren = Boolean(link.children && link.children.length > 0);
           const active = isActivePath(pathname, link.href);
@@ -84,6 +150,10 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
+                  ref={(el) => {
+                    if (el) itemRefs.current.set(link.href, el);
+                    else itemRefs.current.delete(link.href);
+                  }}
                   type="button"
                   onClick={() => setOpenDropdown(isOpen ? null : link.label)}
                   aria-expanded={isOpen}
@@ -99,24 +169,7 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
                         : "text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface"
                   )}
                 >
-                  {active ? (
-                    prefersReduced ? (
-                      <span
-                        aria-hidden
-                        className="absolute inset-x-space-sm bottom-1 h-0.5 rounded-full bg-primary-container"
-                      />
-                    ) : (
-                      <motion.span
-                        aria-hidden
-                        layoutId={ACTIVE_MARKER}
-                        className="absolute inset-x-space-sm bottom-1 h-0.5 rounded-full bg-primary-container"
-                        transition={{
-                          duration: duration.standard,
-                          ease: easeOutEditorial,
-                        }}
-                      />
-                    )
-                  ) : (
+                  {!active ? (
                     <span
                       aria-hidden
                       className={cn(
@@ -126,7 +179,7 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
                           : "group-hover:bg-border-hairline-strong"
                       )}
                     />
-                  )}
+                  ) : null}
                   <span>{link.label}</span>
                   <ChevronDown
                     aria-hidden
@@ -214,6 +267,10 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
           return (
             <li key={link.href}>
               <Link
+                ref={(el) => {
+                  if (el) itemRefs.current.set(link.href, el);
+                  else itemRefs.current.delete(link.href);
+                }}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
@@ -227,24 +284,7 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
                       : "text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface"
                 )}
               >
-                {active ? (
-                  prefersReduced ? (
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-space-sm bottom-1 h-0.5 rounded-full bg-primary-container"
-                    />
-                  ) : (
-                    <motion.span
-                      aria-hidden
-                      layoutId={ACTIVE_MARKER}
-                      className="absolute inset-x-space-sm bottom-1 h-0.5 rounded-full bg-primary-container"
-                      transition={{
-                        duration: duration.standard,
-                        ease: easeOutEditorial,
-                      }}
-                    />
-                  )
-                ) : (
+                {!active ? (
                   <span
                     aria-hidden
                     className={cn(
@@ -254,7 +294,7 @@ export function HeaderNav({ inverse = false }: HeaderNavProps) {
                         : "group-hover:bg-border-hairline-strong"
                     )}
                   />
-                )}
+                ) : null}
                 <span>{link.label}</span>
               </Link>
             </li>
