@@ -37,7 +37,7 @@ export const customFurnitureCategories: CustomFurnitureCategory[] = [
     short: "Kitchen Set",
     headline: "Kitchen Set Custom Presisi: Ergonomis, Higienis & Tahan Lembab",
     lead: "Inspirasi dan referensi desain kitchen set custom minimalis modern, semi klasik americana, island pantry multifungsi, hingga dapur apartemen dengan material HMR hijau anti lembab dan edging mesin ABS rapat.",
-    seoTitle: "Kitchen Set Custom Minimalis & Modern - Niscala Furniture",
+    seoTitle: "Kitchen Set Custom Minimalis & Modern",
     seoDescription: "Koleksi referensi desain kitchen set custom minimalis modern & semi klasik. Material HMR tahan lembab, tabletop solid surface, dan hardware slow-motion.",
     highlights: [
       {
@@ -290,7 +290,7 @@ export const customFurnitureCategories: CustomFurnitureCategory[] = [
     short: "Lemari Custom",
     headline: "Lemari Pakaian & Wardrobe Custom: Maksimalkan Kapasitas & Estetika",
     lead: "Koleksi referensi walk-in closet mewah, lemari sliding anti-makan ruang, lemari full-plafon tinggi, dan pembagian kompartemen terukur untuk baju lipat, kemeja gantung, dress panjang, hingga laci perhiasan.",
-    seoTitle: "Lemari Custom & Walk-in Closet Minimalis - Niscala Furniture",
+    seoTitle: "Lemari Custom & Walk-in Closet Minimalis",
     seoDescription: "Koleksi referensi lemari pakaian custom built-in, walk-in closet, dan lemari sliding full plafon. Pembagian kompartemen pas, bahan plywood kuat.",
     highlights: [
       {
@@ -573,7 +573,7 @@ export const customFurnitureCategories: CustomFurnitureCategory[] = [
     short: "Lemari Bawah Tangga",
     headline: "Lemari Bawah Tangga Custom: Ubah Ruang Mati Jadi Storage Multifungsi",
     lead: "Solusi cerdas memanfaatkan void segitiga di bawah tangga menjadi lemari sepatu tarik, rak buku berlampu LED, gudang perkakas rapi, atau mini bar estetis yang mengikuti kemiringan anak tangga secara presisi.",
-    seoTitle: "Lemari Bawah Tangga Custom Minimalis - Niscala Furniture",
+    seoTitle: "Lemari Bawah Tangga Custom Minimalis",
     seoDescription: "Koleksi referensi lemari bawah tangga custom. Pemanfaatan ruang mati di bawah tangga untuk rak sepatu tarik, gudang tertutup, dan rak display.",
     highlights: [
       {
@@ -856,7 +856,7 @@ export const customFurnitureCategories: CustomFurnitureCategory[] = [
     short: "Backdrop TV",
     headline: "Backdrop TV & Wall Paneling Custom: Focal Point Mewah Tanpa Kabel Menjuntai",
     lead: "Inspirasi backdrop TV modern dengan kisi-kisi fluted wood, aksen lempengan marmer bertekstur, floating credenza laci dorong senyap, dan sistem jalur kabel (wire conduit) tersembunyi rapi di balik dinding panel.",
-    seoTitle: "Backdrop TV Custom Minimalis & Modern - Niscala Furniture",
+    seoTitle: "Backdrop TV Custom Minimalis & Modern",
     seoDescription: "Koleksi referensi backdrop TV custom minimalis modern, panel kisi-kisi fluted wood, aksen marmer, dan floating credenza kabel tersembunyi.",
     highlights: [
       {
@@ -1109,7 +1109,7 @@ export const customFurnitureCategories: CustomFurnitureCategory[] = [
     short: "Furniture Kamar",
     headline: "Furniture Kamar Tidur Custom: Ranjang Platform, Headboard & Meja Rias",
     lead: "Inspirasi penataan kamar tidur utama, kamar anak, dan kamar apartemen dengan ranjang platform berlaci simpan bawah kasur, headboard empuk berlampu LED, meja kerja sudut ergonomis, dan meja rias terintegrasi.",
-    seoTitle: "Furniture Kamar Tidur Custom Minimalis - Niscala Furniture",
+    seoTitle: "Furniture Kamar Tidur Custom Minimalis",
     seoDescription: "Koleksi referensi furniture kamar tidur custom. Ranjang platform dipan laci, headboard empuk berlampu, meja kerja sudut, dan meja rias built-in.",
     highlights: [
       {

@@ -27,7 +27,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Furniture Custom Bandung & Jabodetabek - Workshop Presisi Niscala Furniture",
+  title: "Furniture Custom Bandung & Jabodetabek - Workshop Presisi",
   description:
     "Solusi pembuatan kitchen set custom, lemari pakaian custom, lemari bawah tangga, backdrop TV, dan furniture kamar tidur. Bahan Plywood tebal & HMR anti lembab, finishing HPL rapi dengan mesin edging.",
   path: "/furniture-custom",
