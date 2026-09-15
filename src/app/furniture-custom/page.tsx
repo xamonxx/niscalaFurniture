@@ -29,7 +29,7 @@ import {
 export const metadata = buildMetadata({
   title: "Furniture Custom Bandung & Jabodetabek - Workshop Presisi",
   description:
-    "Solusi pembuatan kitchen set custom, lemari pakaian custom, lemari bawah tangga, backdrop TV, dan furniture kamar tidur. Bahan Plywood tebal & HMR anti lembab, finishing HPL rapi dengan mesin edging.",
+    "Kitchen set, lemari custom, lemari bawah tangga, backdrop TV & furniture kamar tidur. Material Plywood & HMR anti lembab, finishing HPL rapi, edging presisi.",
   path: "/furniture-custom",
 });
 

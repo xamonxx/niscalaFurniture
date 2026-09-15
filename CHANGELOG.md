@@ -9,6 +9,11 @@ break by not knowing.
 
 ## Unreleased
 
+### Shorten the `/furniture-custom` meta description below Google's truncation limit
+- **What** `src/app/furniture-custom/page.tsx`'s meta description was 203 characters; Google truncates SERP snippets around 155-160. Rewrote it to 157 characters, keeping all 5 category names and the material/finishing signal, dropping only redundant wording ("Solusi pembuatan... dan..." framing, "dengan mesin").
+- **Why** Found during the same SEO audit that caught the duplicated `<title>` on this page (previous entry) - the description had the same "written before the layout template/character budget was considered" issue.
+- **Watch** Any `buildMetadata()` description should stay under ~160 characters. This one wasn't caught earlier because nothing enforces the limit at build time - it only shows up as truncation in a live SERP snippet.
+
 ### Fix duplicated brand name in `<title>` on the 6 furniture-custom pages
 - **What** `src/app/furniture-custom/page.tsx` and all 5 category entries in `src/data/custom-furniture.ts` (`seoTitle`) hardcoded "Niscala Furniture" at the end of their title string, on top of the `%s — Niscala Furniture` template every page already gets from the root layout (`src/app/layout.tsx`). Rendered SERP titles read e.g. "Kitchen Set Custom Minimalis & Modern - Niscala Furniture — Niscala Furniture" (63-95 characters, most of it wasted on a repeated brand name that then gets truncated by Google). Removed the redundant suffix from all 6; the layout template now supplies the brand exactly once.
 - **Why** Found during an SEO audit ahead of the Hostinger deploy that first ships these pages (they don't exist on the currently-live site at all - see `sitemap.ts`, priority 0.9-0.95, the highest in the site). Caught via `curl | grep -o '<title>...'` against a real `next build && next start`, not the Browser pane (see `browser-pane-ghost-dom-nodes` note if that file exists - the pane's own DOM briefly disagreed with the real server HTML during this same audit for an unrelated reason).
